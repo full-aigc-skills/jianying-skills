@@ -1,25 +1,30 @@
 # Third-Party Notices
 
-## Runtime dependency
+## Engines referenced by these skills
 
-- [pyJianYingDraft](https://github.com/GuvaI/pyJianYingDraft) 0.3.0 (Apache-2.0)
-  — the draft-generation library these skills target. Not bundled; installed
-  separately by the user.
+- [pyJianYingDraft](https://github.com/GuanYixuan/pyJianYingDraft)
+  (Apache-2.0) — the primary draft-generation library the skills drive.
+  Not bundled here: the consuming plugin (partme-jianying-plugin) vendors it
+  verbatim with a per-file SHA-256 pin.
+- [renezander030/capcut-cli](https://github.com/renezander030/capcut-cli) (MIT)
+  — write/registration discipline referenced by the built-in Rust `jycut`
+  fast-path CLI (facts only; no code copied).
+- [partme-ai/jianying-headless](https://github.com/partme-ai/jianying-headless)
+  — optional pro-tier engine (native export, existing-draft editing, ASR
+  ledger). A fork of mcncarl/jianying-headless under a **Personal Learning and
+  Non-Commercial License**: the checkout is driven as-is, never modified,
+  re-vendored, or redistributed; only contract facts were referenced.
 
 ## Methodology references (no code or text copied)
 
 - [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills)
-  (yichen-jianying-edit) and
-  [mcncarl/jianying-headless](https://github.com/mcncarl/jianying-headless)
-  (private preview, Personal Learning and Non-Commercial License) — the
-  edit-plan → native-draft workflow design was informed by their published
-  capability descriptions. These skills are fresh Apache-2.0 implementations
-  written against the jy-headless engine; no source code or text from the
-  upstream projects is reproduced.
+  (yichen-jianying-edit, Personal Learning and Non-Commercial License) —
+  design reference only.
 
 ## Interoperability references
 
 JianYing, 剪映, CapCut, and com.lemon.lvpro identify interoperability targets
 and remain trademarks of their respective owners. These skills generate drafts
 for the locally installed app and never distribute the app, its resources, or
-account data.
+account data. Membership-gated effects are treated as an authorization
+boundary.
