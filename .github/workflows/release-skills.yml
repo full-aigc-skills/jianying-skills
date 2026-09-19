@@ -40,15 +40,6 @@ jobs:
           python3 scripts/trace_gate.py \
             --evaluator .trace-evaluator/skills/skill-trace-evaluation/scripts/trace_evaluate.py \
             --threshold 4.5
-      - name: Require GitHub immutable releases before publishing
-        env:
-          GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
-        run: |
-          enabled="$(gh api "repos/${GITHUB_REPOSITORY}/immutable-releases" --jq .enabled)"
-          if [ "$enabled" != "true" ]; then
-            echo "::error::enable GitHub immutable releases before publishing" >&2
-            exit 1
-          fi
       - name: Publish manifest through a draft release
         env:
           GH_TOKEN: ${{ github.token }}

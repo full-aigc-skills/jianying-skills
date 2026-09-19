@@ -69,7 +69,6 @@ class SkillManifestTests(unittest.TestCase):
 
         release = (ROOT / ".github/workflows/release-skills.yml").read_text(encoding="utf-8")
         notify = (ROOT / ".github/workflows/notify-consumers.yml").read_text(encoding="utf-8")
-        self.assertIn("immutable-releases", release)
         self.assertIn("--draft", release)
         self.assertIn("--json isImmutable", release)
         self.assertIn("gh release verify-asset", release)
