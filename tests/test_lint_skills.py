@@ -12,6 +12,12 @@ SPEC.loader.exec_module(LINT)
 
 
 class ContractMatrixTests(unittest.TestCase):
+    def test_package_exposes_only_the_thirteen_product_skills(self) -> None:
+        published = sorted(path.parent.name for path in (ROOT / "skills").glob("*/SKILL.md"))
+        auxiliary = sorted((ROOT / ".agents" / "skills").glob("*/SKILL.md"))
+        self.assertEqual(len(published), 13)
+        self.assertEqual(auxiliary, [], "development integrations must not leak into npx skills add")
+
     def test_current_matrix_is_complete_but_not_ready(self) -> None:
         matrix = LINT.load_contract_matrix(ROOT / "docs/RUST_CLI_SKILL_MATRIX.json")
         skills = sorted(path.name for path in (ROOT / "skills").iterdir() if path.is_dir())

@@ -17,7 +17,7 @@ class SkillManifestTests(unittest.TestCase):
         manifest = MANIFEST.render_manifest()
         self.assertEqual(manifest["schema"], "jianying-skills-manifest/v1")
         self.assertEqual(manifest["repository"], MANIFEST.CANONICAL_REPOSITORY)
-        self.assertEqual(manifest["version"], "2.0.0")
+        self.assertEqual(manifest["version"], "2.0.1")
         self.assertEqual(len(manifest["skills"]), 13)
         self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 13)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
@@ -37,24 +37,24 @@ class SkillManifestTests(unittest.TestCase):
                 return ""
             if arguments == ("rev-parse", "HEAD"):
                 return commit
-            if arguments == ("rev-parse", "v2.0.0^{commit}"):
+            if arguments == ("rev-parse", "v2.0.1^{commit}"):
                 return commit
             raise AssertionError(arguments)
 
         with mock.patch.object(MANIFEST, "git", side_effect=fake_git), \
                 mock.patch.object(MANIFEST, "resolve_tag", return_value=commit):
-            released = MANIFEST.render_release_manifest("v2.0.0", "origin")
+            released = MANIFEST.render_release_manifest("v2.0.1", "origin")
         self.assertEqual(released["content_state"], "released")
-        self.assertEqual(released["release_ref"], "v2.0.0")
+        self.assertEqual(released["release_ref"], "v2.0.1")
         self.assertEqual(released["source_commit"], commit)
 
     def test_release_manifest_rejects_dirty_or_wrong_ref(self) -> None:
         with mock.patch.object(MANIFEST, "git", return_value=" M skills/example/SKILL.md"):
             with self.assertRaisesRegex(RuntimeError, "clean working tree"):
-                MANIFEST.render_release_manifest("v2.0.0", "origin")
+                MANIFEST.render_release_manifest("v2.0.1", "origin")
 
         with mock.patch.object(MANIFEST, "git", return_value=""):
-            with self.assertRaisesRegex(RuntimeError, "release ref must be v2.0.0"):
+            with self.assertRaisesRegex(RuntimeError, "release ref must be v2.0.1"):
                 MANIFEST.render_release_manifest("v1.9.9", "origin")
 
     def test_workflow_uses_immutable_actions_and_never_clobbers_manifest(self) -> None:

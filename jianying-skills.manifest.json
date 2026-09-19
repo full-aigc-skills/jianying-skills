@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,

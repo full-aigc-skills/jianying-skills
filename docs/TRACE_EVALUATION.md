@@ -3,7 +3,7 @@
 评估器：`skill-trace-evaluation/scripts/trace_evaluate.py`，确定性离线评分。
 
 - 迁移前基线：`99fb872c00ff14dbaf5b854327fc873877dfe309`。
-- 迁移后对象：`v2.0.0` 发布候选工作树；对应 canonical manifest 状态为 `release_candidate`。
+- 迁移后对象：`v2.0.1` 发布候选工作树；对应 canonical manifest 状态为 `release_candidate`。
 - 评估日期：2026-09-20。
 
 ## 汇总
