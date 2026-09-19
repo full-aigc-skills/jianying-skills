@@ -35,7 +35,12 @@ def git(*arguments: str) -> str:
     ).stdout.strip()
 
 
-def render_manifest(*, content_state: str | None = None, release_ref: str | None = None) -> dict:
+def render_manifest(
+    *,
+    content_state: str = "release_candidate",
+    release_ref: str | None = None,
+    source_commit: str | None = None,
+) -> dict:
     """从当前技能树和契约矩阵构造正典清单。"""
     plugin = json.loads((ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
     matrix = json.loads((ROOT / "docs/RUST_CLI_SKILL_MATRIX.json").read_text(encoding="utf-8"))
@@ -57,14 +62,12 @@ def render_manifest(*, content_state: str | None = None, release_ref: str | None
         aggregate.update(b"\0")
         aggregate.update(digest.encode("ascii"))
         aggregate.update(b"\n")
-    dirty = bool(git("status", "--porcelain"))
-    effective_state = content_state or ("working_tree_unreleased" if dirty else "committed")
     return {
         "schema": "jianying-skills-manifest/v1",
         "package": "jianying-skills",
         "version": plugin["version"],
-        "source_commit": git("rev-parse", "HEAD"),
-        "content_state": effective_state,
+        "source_commit": source_commit,
+        "content_state": content_state,
         "release_ref": release_ref,
         "minimum_cli_capabilities": sorted(
             {capability for row in rows.values() for capability in row["required_capabilities"]}
@@ -110,7 +113,7 @@ def render_release_manifest(release_ref: str, remote: str) -> dict:
     remote_commit = resolve_tag(remote, release_ref)
     if remote_commit != head:
         raise RuntimeError(f"remote tag {release_ref} does not point to HEAD")
-    return render_manifest(content_state="released", release_ref=release_ref)
+    return render_manifest(content_state="released", release_ref=release_ref, source_commit=head)
 
 
 def main() -> int:

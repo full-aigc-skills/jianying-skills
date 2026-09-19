@@ -20,6 +20,8 @@ class SkillManifestTests(unittest.TestCase):
         self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 13)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
         self.assertRegex(manifest["content_sha256"], r"^[0-9a-f]{64}$")
+        self.assertEqual(manifest["content_state"], "release_candidate")
+        self.assertIsNone(manifest["source_commit"])
 
     def test_recorded_manifest_matches_current_tree(self) -> None:
         recorded = json.loads((ROOT / "jianying-skills.manifest.json").read_text(encoding="utf-8"))

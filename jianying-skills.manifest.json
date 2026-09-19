@@ -2,8 +2,8 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "version": "2.0.0",
-  "source_commit": "a32bf0f39a76672b2de8198500b95cb4e3157a92",
-  "content_state": "working_tree_unreleased",
+  "source_commit": null,
+  "content_state": "release_candidate",
   "release_ref": null,
   "minimum_cli_capabilities": [
     "approvals",
