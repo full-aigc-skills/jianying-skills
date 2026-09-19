@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       release_ref:
-        description: Existing immutable v<version> tag to publish/notify
+        description: Existing immutable v<version> tag to verify and notify
         required: true
         type: string
 
@@ -14,7 +14,7 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Resolve immutable release ref
         id: release
@@ -29,25 +29,40 @@ jobs:
             exit 1
           fi
           echo "release_ref=$release_ref" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ steps.release.outputs.release_ref }}
           fetch-depth: 0
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
-      - name: Generate immutable release manifest
-        run: |
-          python3 scripts/skill_manifest.py release \
-            --ref "${{ steps.release.outputs.release_ref }}" \
-            --remote origin \
-            --output "$RUNNER_TEMP/jianying-skills.manifest.json"
-      - name: Upload manifest as a release asset
+      - name: Require a published immutable stable release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload "${{ steps.release.outputs.release_ref }}" \
-            "$RUNNER_TEMP/jianying-skills.manifest.json"
+          release_ref="${{ steps.release.outputs.release_ref }}"
+          release="$(gh release view "$release_ref" \
+            --json tagName,isDraft,isPrerelease,isImmutable)"
+          test "$(jq -r .tagName <<<"$release")" = "$release_ref"
+          test "$(jq -r .isDraft <<<"$release")" = "false"
+          test "$(jq -r .isPrerelease <<<"$release")" = "false"
+          test "$(jq -r .isImmutable <<<"$release")" = "true"
+      - name: Reproduce and verify the published release manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "${{ steps.release.outputs.release_ref }}" \
+            --pattern jianying-skills.manifest.json \
+            --dir "$RUNNER_TEMP/published"
+          gh release verify-asset "${{ steps.release.outputs.release_ref }}" \
+            "$RUNNER_TEMP/published/jianying-skills.manifest.json"
+          python3 scripts/skill_manifest.py release \
+            --ref "${{ steps.release.outputs.release_ref }}" \
+            --remote origin \
+            --output "$RUNNER_TEMP/reproduced.manifest.json"
+          cmp \
+            "$RUNNER_TEMP/published/jianying-skills.manifest.json" \
+            "$RUNNER_TEMP/reproduced.manifest.json"
       - name: Notify consumer repositories
         env:
           GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}

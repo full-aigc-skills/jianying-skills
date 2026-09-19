@@ -60,11 +60,23 @@ class SkillManifestTests(unittest.TestCase):
     def test_workflow_uses_immutable_actions_and_never_clobbers_manifest(self) -> None:
         action_reference = re.compile(r"^\s*-\s+uses:\s+([^\s#]+)", re.MULTILINE)
         immutable_action = re.compile(r"^[^/\s]+/[^@\s]+@[0-9a-f]{40}$")
-        workflow = ROOT / ".github" / "workflows" / "notify-consumers.yml"
-        text = workflow.read_text(encoding="utf-8")
-        for reference in action_reference.findall(text):
-            self.assertRegex(reference, immutable_action)
-        self.assertNotIn("--clobber", text)
+        workflows = sorted((ROOT / ".github" / "workflows").glob("*.yml"))
+        for workflow in workflows:
+            text = workflow.read_text(encoding="utf-8")
+            for reference in action_reference.findall(text):
+                self.assertRegex(reference, immutable_action)
+            self.assertNotIn("--clobber", text)
+
+        release = (ROOT / ".github/workflows/release-skills.yml").read_text(encoding="utf-8")
+        notify = (ROOT / ".github/workflows/notify-consumers.yml").read_text(encoding="utf-8")
+        self.assertIn("immutable-releases", release)
+        self.assertIn("--draft", release)
+        self.assertIn("--json isImmutable", release)
+        self.assertIn("gh release verify-asset", release)
+        self.assertNotIn("gh release upload", notify)
+        self.assertIn("isImmutable", notify)
+        self.assertIn("gh release verify-asset", notify)
+        self.assertIn("cmp \\", notify)
 
 
 if __name__ == "__main__":
