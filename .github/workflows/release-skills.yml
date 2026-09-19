@@ -42,7 +42,7 @@ jobs:
             --threshold 4.5
       - name: Require GitHub immutable releases before publishing
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
         run: |
           enabled="$(gh api "repos/${GITHUB_REPOSITORY}/immutable-releases" --jq .enabled)"
           if [ "$enabled" != "true" ]; then
