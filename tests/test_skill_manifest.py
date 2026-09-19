@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import re
 import unittest
 from unittest import mock
 from pathlib import Path
@@ -15,6 +16,7 @@ class SkillManifestTests(unittest.TestCase):
     def test_rendered_manifest_covers_all_skills_and_capabilities(self) -> None:
         manifest = MANIFEST.render_manifest()
         self.assertEqual(manifest["schema"], "jianying-skills-manifest/v1")
+        self.assertEqual(manifest["repository"], MANIFEST.CANONICAL_REPOSITORY)
         self.assertEqual(manifest["version"], "2.0.0")
         self.assertEqual(len(manifest["skills"]), 13)
         self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 13)
@@ -54,6 +56,15 @@ class SkillManifestTests(unittest.TestCase):
         with mock.patch.object(MANIFEST, "git", return_value=""):
             with self.assertRaisesRegex(RuntimeError, "release ref must be v2.0.0"):
                 MANIFEST.render_release_manifest("v1.9.9", "origin")
+
+    def test_workflow_uses_immutable_actions_and_never_clobbers_manifest(self) -> None:
+        action_reference = re.compile(r"^\s*-\s+uses:\s+([^\s#]+)", re.MULTILINE)
+        immutable_action = re.compile(r"^[^/\s]+/[^@\s]+@[0-9a-f]{40}$")
+        workflow = ROOT / ".github" / "workflows" / "notify-consumers.yml"
+        text = workflow.read_text(encoding="utf-8")
+        for reference in action_reference.findall(text):
+            self.assertRegex(reference, immutable_action)
+        self.assertNotIn("--clobber", text)
 
 
 if __name__ == "__main__":

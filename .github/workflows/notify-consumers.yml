@@ -47,8 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload "${{ steps.release.outputs.release_ref }}" \
-            "$RUNNER_TEMP/jianying-skills.manifest.json" \
-            --clobber
+            "$RUNNER_TEMP/jianying-skills.manifest.json"
       - name: Notify consumer repositories
         env:
           GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}

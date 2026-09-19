@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "jianying-skills.manifest.json"
+CANONICAL_REPOSITORY = "https://github.com/full-aigc-skills/jianying-skills.git"
 
 
 def hash_skill_dir(skill_dir: Path) -> str:
@@ -65,6 +66,7 @@ def render_manifest(
     return {
         "schema": "jianying-skills-manifest/v1",
         "package": "jianying-skills",
+        "repository": CANONICAL_REPOSITORY,
         "version": plugin["version"],
         "source_commit": source_commit,
         "content_state": content_state,
