@@ -1,14 +1,54 @@
-name: notify-consumers
+name: publish-skill-manifest-and-notify-consumers
 
 on:
-  push:
-    branches: [main]
+  release:
+    types: [published]
   workflow_dispatch:
+    inputs:
+      release_ref:
+        description: Existing immutable v<version> tag to publish/notify
+        required: true
+        type: string
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
+      - name: Resolve immutable release ref
+        id: release
+        env:
+          EVENT_REF: ${{ github.event.release.tag_name }}
+          INPUT_REF: ${{ inputs.release_ref }}
+        run: |
+          set -euo pipefail
+          release_ref="${EVENT_REF:-${INPUT_REF:-}}"
+          if [[ ! "$release_ref" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::release_ref must be an immutable v<semver> tag"
+            exit 1
+          fi
+          echo "release_ref=$release_ref" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ steps.release.outputs.release_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Generate immutable release manifest
+        run: |
+          python3 scripts/skill_manifest.py release \
+            --ref "${{ steps.release.outputs.release_ref }}" \
+            --remote origin \
+            --output "$RUNNER_TEMP/jianying-skills.manifest.json"
+      - name: Upload manifest as a release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ steps.release.outputs.release_ref }}" \
+            "$RUNNER_TEMP/jianying-skills.manifest.json" \
+            --clobber
       - name: Notify consumer repositories
         env:
           GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
@@ -18,12 +58,14 @@ jobs:
             echo "SKILLS_SYNC_TOKEN not configured; skipping consumer dispatch"
             exit 0
           fi
-          sha="${GITHUB_SHA}"
+          release_ref="${{ steps.release.outputs.release_ref }}"
+          sha="$(git rev-parse HEAD)"
           for repo in \
-            partme-ai/partme-jianying-plugin ; do
+            full-aigc-plugins/jianying-edit-plugin ; do
             gh api "repos/${repo}/dispatches" \
               -f event_type=skills-updated \
               -F "client_payload[package]=jianying-skills" \
+              -F "client_payload[release_ref]=${release_ref}" \
               -F "client_payload[sha]=${sha}"
-            echo "dispatched to ${repo} at ${sha}"
+            echo "dispatched ${release_ref} to ${repo} at ${sha}"
           done

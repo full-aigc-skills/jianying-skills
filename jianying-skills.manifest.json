@@ -1,0 +1,177 @@
+{
+  "schema": "jianying-skills-manifest/v1",
+  "package": "jianying-skills",
+  "version": "2.0.0",
+  "source_commit": "a32bf0f39a76672b2de8198500b95cb4e3157a92",
+  "content_state": "working_tree_unreleased",
+  "release_ref": null,
+  "minimum_cli_capabilities": [
+    "approvals",
+    "capabilities",
+    "captions.import",
+    "captions.style",
+    "captions.verify",
+    "config",
+    "doctor",
+    "job.audit",
+    "job.lifecycle",
+    "job.retry",
+    "job.run",
+    "job.show",
+    "mcp.serve",
+    "media.asr_ledger",
+    "media.audio",
+    "media.catalogue",
+    "media.probe",
+    "project.create",
+    "project.edit_isolated",
+    "project.inspect",
+    "project.verify",
+    "render.native",
+    "render.proxy",
+    "runtime.profile",
+    "runtime.status",
+    "schema.job_v2",
+    "schema.plan_v1_compat",
+    "store.restore",
+    "timeline.animation",
+    "timeline.audio_fade",
+    "timeline.edit",
+    "timeline.keyframe",
+    "timeline.quantization_report",
+    "timeline.transition",
+    "timeline.volume"
+  ],
+  "skills": [
+    {
+      "name": "jianying-use",
+      "sha256": "756bb81a0cb28502a22e6dfa447ac82ff6826185fbc26c062122315d81f57f44",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "doctor",
+        "capabilities"
+      ]
+    },
+    {
+      "name": "jianying-edit",
+      "sha256": "a726745736697c69e10717ddda252fdbc980dc378cc57c82945baea9f087d17a",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "job.run",
+        "project.create",
+        "project.edit_isolated",
+        "project.verify"
+      ]
+    },
+    {
+      "name": "jianying-draft",
+      "sha256": "c64ecee1d4cfb6db7a7dbeedd5a35975b5c9ab090149642680523da7814810f9",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "schema.job_v2",
+        "schema.plan_v1_compat"
+      ]
+    },
+    {
+      "name": "jianying-setup",
+      "sha256": "80f9f57fcde2c3b9633ee558fdb0a166f7ffdff795890f0e9d7dc25c0f687328",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "doctor",
+        "runtime.status"
+      ]
+    },
+    {
+      "name": "jianying-narration",
+      "sha256": "ab5320689f95ac7065a6ad2623a6c440dade38762b52c03fbc17ee204a6284be",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "media.probe",
+        "media.asr_ledger",
+        "timeline.edit"
+      ]
+    },
+    {
+      "name": "jianying-subtitles",
+      "sha256": "94d4104121bbd1d0535cb29025fd54b47e57b592a8a07e7b6272154698d286b6",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "captions.import",
+        "captions.style",
+        "captions.verify"
+      ]
+    },
+    {
+      "name": "jianying-audio",
+      "sha256": "b16bff7cf09d52de7ae88ca9d530356da373f2b66678e993d228c40651120e24",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "media.audio",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ]
+    },
+    {
+      "name": "jianying-motion",
+      "sha256": "76a8f6ee33baf5dec5c6bd74977177f587eeee0180039cd7598dc3f14ec8b932",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "timeline.keyframe",
+        "timeline.animation",
+        "timeline.quantization_report"
+      ]
+    },
+    {
+      "name": "jianying-transitions",
+      "sha256": "27092596dc64ee3d70a204870d2eb68073bfa9774a766c0842678f5e9504cc07",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "timeline.transition",
+        "media.catalogue"
+      ]
+    },
+    {
+      "name": "jianying-inspect",
+      "sha256": "e4f4e476e3cbef05cbabd4949c6a696b73b4803eef7dc3eb39e5f2ae7966359e",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "media.probe",
+        "project.inspect",
+        "project.verify"
+      ]
+    },
+    {
+      "name": "jianying-export-prep",
+      "sha256": "c5c570c32a2e6ef0344d63dbfd9165e7ce250caf523eec568e7d2012e26f369f",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "render.proxy",
+        "render.native",
+        "runtime.profile"
+      ]
+    },
+    {
+      "name": "jianying-recover",
+      "sha256": "d56b0a04635435ef27fad1ba73f4b6ba8c6c0da44f09002d1ec725dbcd836c64",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "job.show",
+        "job.retry",
+        "job.audit",
+        "store.restore"
+      ]
+    },
+    {
+      "name": "jianying-harness",
+      "sha256": "4cc64058030fffc77cdf5ce50def93f93beee38d2e5fc19231a0f5f6e20d88e0",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "job.lifecycle",
+        "approvals",
+        "config",
+        "mcp.serve"
+      ]
+    }
+  ],
+  "content_sha256": "d59e926ddefae73d04f4cbae209ab4267413969dd12b559d25110beaf4f04fa5"
+}

@@ -1,65 +1,79 @@
 # jianying-skills
 
-**剪映（JianYing Pro）自动化剪辑技能集 — pyJianYingDraft 直驱草稿生成、口播精剪、字幕/音频/动效/转场设计、可选 fork 专业档**
+Agent Skills for creating, editing, inspecting, recovering, and exporting JianYing/CapCut drafts through one Rust runtime: `jianying-cli`.
 
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Compatible-purple.svg)](https://agentskills.io)
+[简体中文](README.zh-CN.md) | English
 
-English | [简体中文](./README.zh-CN.md)
+## Architecture
 
-## 📖 Introduction
+The skills never implement a second editing engine. They compile user intent into
+`jianying-job/v2` or structured CLI commands, then call either `jianying-cli` directly or the
+hosting plugin's Rust Runtime Adapter.
 
-**jianying-skills** 是 [Full AIGC Skills](https://github.com/full-aigc-skills)
-生态的剪映技能包：**13 个技能**覆盖从需求到剪映专业版原生草稿的完整链路。
-本仓是技能的**唯一正典（source of truth）**——下游插件只通过 vendoring 消费
-（见 Consumers），不自行维护副本。
+```mermaid
+flowchart LR
+    U[User goal] --> S[One of 13 skills]
+    S --> G[Version, schema, capability gate]
+    G --> J[jianying-job/v2 or structured command]
+    J --> R[jianying-cli Rust runtime]
+    R --> D[Editable draft / proxy / native task]
+    D --> E[Evidence: structural to native export]
+```
 
-引擎分层：
+No skill generates temporary draft scripts, loads a legacy embedded engine, or routes execution
+through an external headless checkout. Capabilities marked `partial`, `external_dependency`, or
+missing stop the affected workflow.
 
-| 层 | 引擎 | 许可 |
-|---|---|---|
-| 主力 | [pyJianYingDraft](https://github.com/GuanYixuan/pyJianYingDraft)（由承载插件 vendor，逐文件 SHA-256 钉扎） | Apache-2.0 |
-| 快路径 | 内置 Rust CLI `jycut`（由承载插件携带） | Apache-2.0 |
-| 专业档（可选） | 用户自己的 [partme-ai/jianying-headless](https://github.com/partme-ai/jianying-headless) fork 检出 | 上游为个人学习与非商业许可，零改动驱动 |
+## Install
 
-## 📦 Install
+Install the package:
 
 ```bash
 npx skills add full-aigc-skills/jianying-skills
 ```
 
-或安装单个技能：`npx skills add full-aigc-skills/jianying-skills --skill jianying-edit`
+Install one self-contained skill:
 
-## 🎯 Skills (13)
+```bash
+npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
+```
 
-| Skill | 职责 |
+Every skill contains its own workflow reference and minimal Job example; granular installation
+does not rely on sibling skill directories.
+
+## Skills
+
+| Skill | Responsibility |
 |---|---|
-| `jianying-use` | 路由 + Step 0 环境预检（三层引擎分流） |
-| `jianying-edit` | 核心工作流：需求 → pyJianYingDraft 脚本 → 原生草稿 |
-| `jianying-draft` | pyJianYingDraft API 手册（核实签名/坑清单） |
-| `jianying-setup` | 环境诊断（MediaInfo/ffprobe/草稿根/fork 专业档） |
-| `jianying-narration` | 口播精剪（keep/drop → 截取段） |
-| `jianying-subtitles` | 字幕/标题/描边/背景 + SRT 导入 |
-| `jianying-audio` | 解说/BGM/原声分层与音量纪律 |
-| `jianying-motion` | 关键帧与入场出场动画（alpha 帧陷阱） |
-| `jianying-transitions` | 453 转场目录纪律（VIP 边界） |
-| `jianying-inspect` | 素材/草稿探测（实测时长铁律） |
-| `jianying-export-prep` | 导出前检查清单 + 导出边界 |
-| `jianying-recover` | 同名冲突/恢复（allow_replace 门禁） |
-| `jianying-harness` | （可选专业档）fork CLI 全参考 |
+| `jianying-use` | Entry routing, minimal questions, and capability diagnosis |
+| `jianying-setup` | CLI, media tools, draft roots, configuration, and runtime readiness |
+| `jianying-draft` | `jianying-job/v2`, domain concepts, and v1 compatibility |
+| `jianying-harness` | Persistent jobs, approvals, configuration, MCP, and host contracts |
+| `jianying-edit` | New drafts and isolated editing of existing drafts |
+| `jianying-narration` | Governed ASR reuse and narration condensing |
+| `jianying-subtitles` | Caption import, editing, styling, translation, and export |
+| `jianying-audio` | Audio layers, volume, fades, effects, relinking, and TTS gates |
+| `jianying-motion` | Transform, keyframe, animation, speed, and quantization planning |
+| `jianying-transitions` | Catalogue-backed transitions and boundary checks |
+| `jianying-inspect` | Read-only media and draft facts with evidence levels |
+| `jianying-export-prep` | Proxy/native export readiness and artifact validation |
+| `jianying-recover` | Task audit, explicit retry, snapshots, and ambiguous operations |
 
-## 🤝 Consumers
+## Compatibility and evidence
 
-- **Packaged by [`partme-ai/partme-jianying-plugin`](https://github.com/partme-ai/partme-jianying-plugin)** —
-  剪映编辑插件（Codex/ZCode/Kimi 三平台）。技能体由插件经
-  `scripts/vendor/skill_vendor.py` 从本仓 vendor（`skills.lock.json` 锁定
-  ref+sha+逐技能摘要）；上游 push 时经 `notify-consumers` workflow 触发
-  下游同步 PR。
+The target contract requires `jianying-cli >= 1.6.0`, but capability state remains authoritative.
+Each skill declares its required IDs, risk level, confirmation points, and maximum completion
+evidence. A structural pass is not a cold reopen, playback check, or native export.
 
-承载插件需提供的运行时配套（技能内以 `${CLAUDE_PLUGIN_ROOT}` 引用）：
-`scripts/jydraft_run.py`（vendor 引擎引导运行器）、`scripts/jydraft_check.py`
-（环境自检）、`cli/`（jycut，快路径可选）。
+The complete capcut-cli command parity evidence is maintained by
+[`jianying-cli`](https://github.com/full-aigc-plugins/jianying-cli/blob/main/docs/capcut-command-evidence.md),
+not duplicated across the skills.
 
-## 📄 License
+## Distribution
 
-Apache-2.0。第三方边界见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+This repository is the only source of truth for skill bodies. Consumer plugins must import an
+immutable release ref and commit, verify every skill digest, and never patch vendored bodies.
+
+## License
+
+Apache-2.0. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for provenance and excluded-source boundaries.

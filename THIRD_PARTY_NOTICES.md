@@ -1,30 +1,34 @@
 # Third-Party Notices
 
-## Engines referenced by these skills
+This skill package is Apache-2.0. It contains instructions, examples, and validation tooling; it
+does not bundle third-party editing engines, application binaries, model weights, or proprietary
+JianYing resources.
 
-- [pyJianYingDraft](https://github.com/GuanYixuan/pyJianYingDraft)
-  (Apache-2.0) — the primary draft-generation library the skills drive.
-  Not bundled here: the consuming plugin (partme-jianying-plugin) vendors it
-  verbatim with a per-file SHA-256 pin.
-- [renezander030/capcut-cli](https://github.com/renezander030/capcut-cli) (MIT)
-  — write/registration discipline referenced by the built-in Rust `jycut`
-  fast-path CLI (facts only; no code copied).
-- [partme-ai/jianying-headless](https://github.com/partme-ai/jianying-headless)
-  — optional pro-tier engine (native export, existing-draft editing, ASR
-  ledger). A fork of mcncarl/jianying-headless under a **Personal Learning and
-  Non-Commercial License**: the checkout is driven as-is, never modified,
-  re-vendored, or redistributed; only contract facts were referenced.
+## Permitted interoperability sources
 
-## Methodology references (no code or text copied)
+- [GuanYixuan/pyJianYingDraft](https://github.com/GuanYixuan/pyJianYingDraft), Apache-2.0.
+  Its public draft behavior is a differential-parity reference for the independently implemented
+  Rust runtime. Apache attribution and notice obligations remain applicable; rewriting in Rust
+  does not erase them.
+- [renezander030/capcut-cli](https://github.com/renezander030/capcut-cli), MIT.
+  Its public command behavior and documentation are parity references. Required copyright and
+  license notices must remain with any copied MIT material.
 
-- [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills)
-  (yichen-jianying-edit, Personal Learning and Non-Commercial License) —
-  design reference only.
+The current skills call only `jianying-cli` or a plugin Runtime Adapter. Neither upstream is a
+runtime dependency of an installed skill.
 
-## Interoperability references
+## Excluded non-commercial source
 
-JianYing, 剪映, CapCut, and com.lemon.lvpro identify interoperability targets
-and remain trademarks of their respective owners. These skills generate drafts
-for the locally installed app and never distribute the app, its resources, or
-account data. Membership-gated effects are treated as an authorization
-boundary.
+- `mcncarl/jianying-headless`, related forks, tests, fixtures, blueprints, resources, implementation
+  constants, and other non-commercially licensed implementation material are not migration inputs
+  and are not runtime dependencies.
+- The Rust project may independently implement comparable observable capabilities from clean
+  requirements and locally generated test material. A language rewrite does not remove upstream
+  license obligations, so provenance gates must remain active.
+
+## Interoperability and trademarks
+
+JianYing, 剪映, CapCut, and related bundle identifiers are names of interoperability targets and
+remain trademarks of their respective owners. Local application installation, account access,
+membership resources, cloud speech usage, and model checkpoints retain their own authorization
+and license conditions.

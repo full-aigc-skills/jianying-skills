@@ -1,0 +1,32 @@
+{
+  "schema": "jianying-skill-contract-matrix/v1",
+  "captured_from_commit": "99fb872c00ff14dbaf5b854327fc873877dfe309",
+  "cli_contract": {
+    "repository": "https://github.com/full-aigc-plugins/jianying-cli",
+    "minimum_target_version": "1.6.0",
+    "job_schema": "jianying-job/v2",
+    "capability_manifest_path": "provenance/CAPABILITIES.json",
+    "verification_environment": "JIANYING_CLI_CAPABILITY_MANIFEST",
+    "current_state": "target_contract_not_yet_published"
+  },
+  "skills": [
+    {"name":"jianying-use","responsibility":"统一入口、最小询问和 capability 路由","minimum_cli_version":"1.6.0","required_capabilities":["doctor","capabilities"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-edit","responsibility":"创建与已有草稿隔离编辑工作流","minimum_cli_version":"1.6.0","required_capabilities":["job.run","project.create","project.edit_isolated","project.verify"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-draft","responsibility":"Job/Plan Schema 与统一领域概念","minimum_cli_version":"1.6.0","required_capabilities":["schema.job_v2","schema.plan_v1_compat"],"risk_level":"read_only","success_evidence":"plan","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-setup","responsibility":"CLI、媒体工具、草稿根和运行时诊断","minimum_cli_version":"1.6.0","required_capabilities":["doctor","runtime.status"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-narration","responsibility":"口播探测、ASR 账本、保留区间和精剪","minimum_cli_version":"1.6.0","required_capabilities":["media.probe","media.asr_ledger","timeline.edit"],"risk_level":"external_native_execution","success_evidence":"playback","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-subtitles","responsibility":"字幕导入、生成、样式和校验","minimum_cli_version":"1.6.0","required_capabilities":["captions.import","captions.style","captions.verify"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-audio","responsibility":"音频分层、音量、淡入淡出和音效","minimum_cli_version":"1.6.0","required_capabilities":["media.audio","timeline.volume","timeline.audio_fade"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-motion","responsibility":"关键帧、动画和帧量化","minimum_cli_version":"1.6.0","required_capabilities":["timeline.keyframe","timeline.animation","timeline.quantization_report"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-transitions","responsibility":"转场选择、边界和资源授权","minimum_cli_version":"1.6.0","required_capabilities":["timeline.transition","media.catalogue"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-inspect","responsibility":"素材事实、草稿结构和证据分级检查","minimum_cli_version":"1.6.0","required_capabilities":["media.probe","project.inspect","project.verify"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-export-prep","responsibility":"代理预览、原生导出门禁和输出验证","minimum_cli_version":"1.6.0","required_capabilities":["render.proxy","render.native","runtime.profile"],"risk_level":"external_native_execution","success_evidence":"native_export","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-recover","responsibility":"任务重试、审计、快照与不明状态恢复","minimum_cli_version":"1.6.0","required_capabilities":["job.show","job.retry","job.audit","store.restore"],"risk_level":"high_risk_write","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-harness","responsibility":"任务、审批、配置、MCP 和宿主契约","minimum_cli_version":"1.6.0","required_capabilities":["job.lifecycle","approvals","config","mcp.serve"],"risk_level":"high_risk_write","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"}
+  ],
+  "future_merge_evaluation": {
+    "change_scope": "outside this migration",
+    "metrics": ["trigger precision", "trigger overlap", "granular install frequency", "handoff failure rate"],
+    "rule": "No existing skill name is removed without a separately specified major-version migration alias."
+  }
+}

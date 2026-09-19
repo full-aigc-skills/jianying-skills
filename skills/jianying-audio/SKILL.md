@@ -1,44 +1,99 @@
 ---
 name: jianying-audio
-description: "Audio track design with pyJianYingDraft: AudioSegment (pure-audio materials only), narration/BGM/原声 layering with volume baselines, volume keyframes, scene-audio effects, measured-duration placement."
+description: "Design and edit JianYing audio layers through Rust CLI media and timeline capabilities, including probing, volume, fades, sound effects, relinking, and playback checks."
 license: Apache-2.0
 ---
 
-# JianYing Audio（音频轨设计）
+# JianYing Audio
 
-音频轨 = `TrackSpec(TrackType.audio)` + `AudioSegment`。多轨并存：解说轨 +
-BGM 轨 + 原声（video 段自带）。
+处理对白、解说、原声、BGM 和音效的分层与同步。数值基于素材和试听事实，不使用固定万能音量。
 
-**注意**：`AudioSegment` 的素材必须是纯音频文件（含视频轨会 ValueError）——
-需要视频里的声音时直接调 video 段的 volume，不要另铺一层。
+## 什么时候使用
 
-## 分层与音量基线
+- 用户明确要求本技能标题所对应的剪映能力，并接受通过统一 Rust `jianying` CLI 处理。
+- 用户需要可审计的计划、执行或验证证据，而不是仅要一个概念性回答。
+- 需求尚不明确时先交给 **`jianying-use`** 路由；不该用本技能处理其他剪辑器、普通视频知识问答或缺少必要素材的猜测性执行。
 
-| 轨 | 音量基线 | 说明 |
-|---|---|---|
-| 解说/口播 | 1.0 | 主导轨，任何时刻不允许被 BGM 盖过 |
-| BGM | 0.15-0.25 | 循环铺底；句间起伏用音量关键帧 |
-| 原声（video 段） | 跟随段 volume | 采访/同期声段 1.0，其余 0.3 左右 |
+## 能力边界
 
-BGM 时长不足：多段拼接同轨递增放置；变速用 `speed` 但会变调，微调 ≤1.05。
+- ✅ **能做：** 基于真实路径和探测结果生成确定性计划；在 capability 为 `supported` 时执行本领域操作；输出实际达到的证据等级。
+- ⚠️ **需要条件：** 写入必须使用隔离副本；费用、外部服务和原生应用动作必须有精确批准；播放或导出结论必须有对应运行证据。
+- ❌ **超出范围：** 不自动安装或升级 CLI，不生成 Python 草稿脚本，不调用外部 headless checkout，不覆盖源草稿，不伪造资源 ID、媒体事实或成功状态。
 
-## 放置规则
+## Step 1 — 建立事实基线
 
-1. **解说对齐语义**：每段解说起于它描述的画面起点前 0.2-0.4s；同轨段递增
-   不重叠（引擎不混音，重叠=两段人声叠加）。
-2. **BGM 从 0 铺到片尾**，独立轨；淡入淡出用 ffmpeg 预处理（afade）后作
-   素材进来，或铺 `AudioSegment.add_keyframe(time_offset, volume)` 音量
-   关键帧。
-3. **实测对齐**：放置前 ffprobe 每段素材真实时长；`target_timerange` 用实测值。
-4. 场景音/音色：`aud.add_effect(AudioSceneEffectType.<名>)`（85 个目录成员）。
+记录用户目标、绝对路径、宿主平台、目标交付物和允许的副作用；信息不足时先给只读诊断方案，并逐项列出缺少的事实。
 
-## 与口播精剪联动
+## Step 2 — 握手能力
 
-`jianying-narration` 的 keep 段自带原声（video 段 volume 承载）——音频轨只
-放解说与 BGM，不要重复铺原声。
+执行 version、doctor 与 capabilities 检查。版本满足不代表 capability 可用；`partial`、`external_dependency` 或缺失状态必须进入降级路径。
 
-## Never do
+## Step 3 — 校验输入
 
-- Never 让解说段互相重叠（引擎不混音）。
-- Never 在解说期间把 BGM 提到 0.4 以上。
-- Never 拿含视频轨的文件构造 AudioSegment。
+探测媒体、草稿、配置或任务状态；拒绝不存在的路径、越界时间、未知 schema、失配哈希和无法绑定目标的批准。
+
+## Step 4 — 形成确定性计划
+
+把操作、参数、输出路径、风险等级、确认点和期望证据写入计划。多任务按“只读事实 → 可逆写入 → 外部/原生动作”排序。
+
+## Step 5 — 执行或停在门禁前
+
+只执行已支持且已获授权的步骤。输出 ambiguous、超时或部分成功时保留 task ID、审计日志和制品，不自动重试。
+
+## Step 6 — 验证并交付
+
+运行结构校验，再按目标追加冷重开、播放或原生导出证据；报告实际等级、失败字段、可恢复动作和未验证项。
+
+## Rules
+
+- 计划中的素材时长、尺寸、流、哈希和草稿版本必须来自工具输出。
+- 批准必须绑定命令、参数、目标、有效期和预算；任一字段改变即重新确认。
+- 用户数据仅在本地目标路径和声明的外部 Provider 边界内处理；不得收集、上传或记录无关凭据。
+- 当前证据不足时使用 `UNVERIFIED`、`BLOCKED` 或 `AMBIGUOUS`，禁止用推断补齐结果。
+
+## Gotchas
+
+1. **把版本当能力：** 始终检查具体 capability，不能因为 CLI 版本够新就直接执行。
+2. **把结构验证当成片验收：** `project verify` 只证明结构层，播放和原生导出需要独立证据。
+3. **直接修改源草稿：** 先创建隔离副本并记录输入哈希，任何原地覆盖请求都要停止并改为新输出。
+4. **对 ambiguous 自动重试：** 先查询 task、审计与外部制品，只有确认未发生副作用后才能由用户批准重试。
+5. **凭记忆填写资源或时间：** 资源 ID 来自目录，时间来自 probe/ASR/项目数据；无法取得时明确阻塞。
+6. **笼统索要更多信息：** 先给可执行的只读方案，再明确列出路径、交付等级或授权等缺口。
+
+## 验证清单
+
+- [ ] CLI identity、版本和 capability 已记录。
+- [ ] 所有输入路径、媒体事实与哈希可复核。
+- [ ] 写入目标与源草稿隔离，确认点精确绑定。
+- [ ] 失败和 ambiguous 路径保留 task ID、日志和恢复建议。
+- [ ] 最终措辞与实际 evidence level 一致。
+
+## 运行契约
+
+- 触发条件：用户需要新增/替换/重链音频、调节音量、淡入淡出、音效或混音。
+- 所需 capability：`media.audio`、`timeline.volume`、`timeline.audio_fade`。
+- 最低 CLI 版本：`1.6.0`；缺失或 partial capability 只能执行已支持子集。
+- 默认风险：`reversible_write`。
+- 输入事实：音频流/时长/采样事实、目标草稿副本、轨道角色、对白区间、响度目标和授权边界。
+- 确认点：写入已有草稿、调用联网/付费 TTS、覆盖音频制品或原生播放前确认。
+- 成功证据：`playback`；波形、文件存在和结构验证不足以证明混音结果。
+- 禁止行为：不得生成 Python 草稿脚本，不得调用外部 headless checkout，不得让 BGM 掩盖语音、重复铺原声或把未试听结果标记完成。
+
+## 工作流
+
+1. `media probe` 确认素材包含预期音频流和真实时长。
+2. `media add-audio/replace/relink` 处理素材；声音来自视频时优先调整视频段音量。
+3. `timeline volume` 设置片段基础音量；淡入淡出 capability 未 supported 时停止该步骤并明确缺口。
+4. 使用 `media sfx` 时先从目录按 slug 选择，并检查资源授权。
+5. 本地 TTS 只调用用户明确提供的 Provider；云端提交须经过费用账本与精确批准。
+6. `project verify` 后试听对白清晰度、峰值、转场和同步。
+
+分层、TTS 和恢复见 [references/workflow.md](references/workflow.md)。
+隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
+
+## 渐进式资料
+
+- 首次执行先加载 [正常路径](examples/happy-path.md) 取得端到端顺序。
+- 遇到失败或状态未知时加载 [失败恢复](examples/failure-recovery.md) 与 [错误恢复表](references/error-recovery.md)。
+- 用户要求越权、覆盖或自动重试时加载 [边界拒绝](examples/boundary-refusal.md)。
+- 交付前逐项完成 [验证清单](references/validation-checklist.md)，不得只凭计划或文件存在宣称完成。

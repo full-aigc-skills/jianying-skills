@@ -1,0 +1,26 @@
+{
+  "name": "jianying-skills",
+  "version": "2.0.0",
+  "description": "JianYing and CapCut editing skills backed exclusively by the Rust jianying-cli runtime contract.",
+  "author": {
+    "name": "AIGC Skills Community"
+  },
+  "homepage": "https://github.com/full-aigc-skills/jianying-skills",
+  "repository": "https://github.com/full-aigc-skills/jianying-skills",
+  "source": "./",
+  "skills": [
+    "./skills/jianying-use",
+    "./skills/jianying-edit",
+    "./skills/jianying-draft",
+    "./skills/jianying-setup",
+    "./skills/jianying-narration",
+    "./skills/jianying-subtitles",
+    "./skills/jianying-audio",
+    "./skills/jianying-motion",
+    "./skills/jianying-transitions",
+    "./skills/jianying-inspect",
+    "./skills/jianying-export-prep",
+    "./skills/jianying-recover",
+    "./skills/jianying-harness"
+  ]
+}
