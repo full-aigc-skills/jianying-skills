@@ -1,69 +1,99 @@
-# 计划格式 `jy14-headless-plan/v1`（字段手册）
+# 作业格式 `jianying-job/v2`（字段手册）
 
-引擎 `jianying-headless` 的输入契约。本文为按引擎校验器（`validate_plan`）
-归纳的速查；权威原文在 fork 检出内 `references/plan-format.md`（个人学习许可，
-勿复制进本插件）。时间一律**微秒整数**；坐标为归一化值。
+这是 Rust `jianying` CLI、插件 Runtime Adapter 与 Codex/ZCode/Kimi 共用的稳定作业信封。
+权威结构来自当前 CLI 的 `schema.job_v2` capability 与 JSON Schema；运行前必须读取实际安装
+制品的 capability manifest。旧版外部 headless plan、fork schema 和私有草稿 wire
+字段都不是本技能的执行契约。
 
-## 顶层
+## 顶层信封
 
-| 字段 | 类型 | 必填 | 说明 |
+| 字段 | 类型 | 何时需要 | 约束 |
 |---|---|---|---|
-| schema | string | ✅ | 恒为 `jy14-headless-plan/v1` |
-| name | string | ✅ | 草稿名：可见单层目录名（禁 `/ \ .` 前缀等，<200 字节），草稿根内唯一 |
-| canvas | object | ✅ | `width`/`height`（16..8192）、`fps` ∈ {24,25,30,50,60} |
-| tracks | array | ✅ | 轨道数组；**主视频轨必须是第一轨** |
+| `schema` | string | 始终 | 精确为 `jianying-job/v2`；未知主版本 fail closed |
+| `operation` | string | 始终 | `create/edit/inspect/verify/publish/export/batch` |
+| `project` | object | 除 `batch` 外 | `new` 或 `existing`，形状见下文 |
+| `compatibility` | object | 仅 v1 转换结果 | 保存 `jianying-cli-plan/v1` 与完整规范化 payload；不得手工伪造 |
+| `export` | object | `operation=export` | 声明导出种类、绝对输出路径和覆盖策略 |
+| `jobs` | array | `operation=batch` | 非空；子 Job 不得再次为 batch |
 
-## 轨道
+Schema 只证明输入可解析。执行前还要逐项检查对应 capability 为 `supported`；`partial`、
+`external_dependency`、缺失或版本不兼容都必须停止，不得切回 Python 或外部 headless。
 
-`{type, name, segments[]}`；type ∈ `video | audio | text | filter | effect`；
-每轨至少一段；filter 与 effect 各最多一轨。主视频轨首段 `start_us=0` 且段间
-连续（相邻差 ≤1µs）——黑场/间隙放画中画 video 轨。
+## 项目目标
 
-## 段字段
-
-公共：`start_us`（时间轴起点，同轨递增不重叠）、`duration_us`、`source`（本地
-素材路径）、`source_start_us`（源内入点）、`source_duration_us`（可选）、
-`speed`（0.1-8）、`volume`（0-4）、`keyframes`。
-
-- **video** 额外：`scale`、`x`、`y`、`rotation`、`opacity`(0-1)、`mask`、
-  `transition_out`
-- **text**：`text`、`size`、`x`、`y`（底部字幕默认 -0.78）、`color`(#RRGGBB)、
-  `border_color`、`border_width`、`opacity`、`keyframes`、`text_effect`
-- **filter**：`name`（已采集目录内）、`strength`（默认 1）
-- **effect**：`name`（已采集目录内）、`params`（按目录声明的参数键）
-- 可用资源名读 fork 内 `engine/native-resource-catalog.json`（哈希钉扎，
-  未采集名字直接报错，不要猜名字）
-
-## keyframes（按通道字典）
+新项目：
 
 ```json
-{"keyframes": {"scale": [{"at_us": 0, "value": 1.0},
-                          {"at_us": 4000000, "value": 1.12}]}}
+{
+  "type": "new",
+  "project": {
+    "name": "demo",
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": {"numerator": 30, "denominator": 1},
+    "timeline": {"tracks": []},
+    "materials": []
+  }
+}
 ```
 
-- 通道：video=`scale/x/y/rotation/opacity`；text=`x/y/scale/rotation`；
-  audio=`volume`。值域：x/y ±5、scale 0.01-10、rotation ±360、opacity 0-1、
-  volume 0-4。
-- 线性插值；每通道 ≥2 点、`at_us` 严格递增、**首点必须 at_us=0**；
-  同段若有同名字段，其值须等于首点值。
-- 带关键帧的段 **`speed` 必须 1 且 `source_start_us` 必须 0**（裁剪/变速源的
-  时间映射需另行验证，引擎直接拒绝）。
+已有项目：
 
-## mask（video 段）
+```json
+{
+  "type": "existing",
+  "source": "/absolute/path/to/source-draft",
+  "output": "/absolute/path/to/isolated-copy"
+}
+```
 
-`{shape, width, height, x, y, rotation, feather, invert, round_corner}`；
-shape ∈ `circle | rectangle | line | mirror | star | heart`（line 是半平面
-掩码，width/height 无效）。width 默认 0.28、height 默认 0.5（范围 0.001-5）；
-feather/round_corner 0-1；round_corner 仅 rectangle 有效；invert 布尔。
+- `create` 使用 `type=new`。
+- `edit` 必须使用 `type=existing`，并且 `source` 与 `output` 不同；禁止原地覆盖。
+- `inspect`、`verify`、`publish` 使用 `type=existing`，通常只需 `source`。
+- 所有素材和草稿路径来自 inventory/probe；不得用相对路径、猜测路径或未验证 URL。
 
-## transition_out（仅主视频轨）
+## 领域项目
 
-`{name: "dissolve", duration_us, edge_policy}`。当前只支持叠化；必须落在
-**有后继段**的段上（末段不能加）；`edge_policy` ∈ `require-handles`（要求素材
-有转场手柄）/ `repeat-edge`（重复边缘帧）；居中转场要求时间轴帧数为偶数。
+- 画布宽高为 `16..8192` 的整数。
+- 帧率使用 `{numerator, denominator}`，两项均为正整数；执行器可能对尚未支持的有理帧率
+  返回结构化 capability 错误。
+- 时间统一使用整数微秒：`{"start_us": 0, "duration_us": 1000000}`，持续时间必须大于零。
+- 轨道 `kind`：`video/audio/text/sticker/filter/effect/composite`。
+- 片段必须有稳定 `id`、时间范围及与轨道兼容的类型；同轨重叠、缺失素材引用和类型不匹配
+  由领域校验拒绝。
+- 视频/音频片段引用 `material_id` 与 `source_range`，`speed` 为 `0.1..8`，`volume` 为
+  `0..4`。文字片段包含非空 `text`；贴纸、滤镜和特效使用经过目录验证的 `resource_id`。
+- 素材类型为 `video/audio/image/font` 时使用绝对 `path`；编辑器资源使用经过目录验证的
+  `resource_id`。禁止猜测资源 ID。
 
-## 约束速记
+## 导出与批处理
 
-- 同轨段递增不重叠；主轨无缝。
-- 转场、黑场、画中画：先想清楚"哪一轨承担"，主轨永远连续。
-- 计划值是设计意图，**放置前一律用 ffprobe 实测时长回填** `duration_us`。
+导出对象：
+
+```json
+{
+  "kind": "proxy",
+  "output": "/absolute/path/to/preview.mp4",
+  "overwrite": false
+}
+```
+
+- `kind` 为 `proxy/native/draft_archive`。
+- `native` 是外部原生应用动作，必须先有支持该产品版本的 Runtime Profile 与精确批准。
+- `proxy` 结果不能描述成剪映原生最终 MP4。
+- `overwrite=true` 是目标级高风险写入，必须重新确认。
+- batch 子任务按只读事实、可逆写入、外部动作排序；任一子任务失败时按任务审计判断是否有
+  已发生副作用，不能假定整批未执行。
+
+## 执行与恢复
+
+```bash
+jianying job run /absolute/path/job.json --out /absolute/path/output --json
+```
+
+- JSON 模式 stdout 只能有一个结构化信封，诊断写 stderr；非零退出码不得忽略。
+- 保存返回的 `task_id`、输入摘要、素材哈希、CLI identity、批准绑定和输出路径。
+- 通过 `job show`、`job audit`、`job cancel`、`job retry` 管理任务；`ambiguous` 外部操作不得
+  自动重提。
+- `incompatible_capability` 是停止信号，不是自动换引擎或静默降级条件。
+- 完成状态只证明对应 handler 成功；最终仍按目标补充结构、冷重开、播放或原生导出证据。

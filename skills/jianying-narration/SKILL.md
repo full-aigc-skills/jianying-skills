@@ -71,8 +71,8 @@ license: Apache-2.0
 ## 运行契约
 
 - 触发条件：用户要求口播精剪、删停顿/重拍、生成逐句字幕或复用转写。
-- 所需 capability：`media.probe`、`media.asr_ledger`、`timeline.edit`。
-- 最低 CLI 版本：`1.6.0`；ASR provider 还需单独声明可用状态。
+- 所需 capability：`media.probe`、`media.asr_whisper_cpp`、`media.asr_ledger`、`timeline.edit`。
+- 最低 CLI 版本：`1.6.0`；使用本地转写前还要固定已审查的 whisper.cpp executable/model。
 - 默认风险：`external_native_execution`；纯本地分析可降为 read_only。
 - 输入事实：源媒体哈希/时长/音频流、已有转写、ASR provider identity、预算、保护词和目标节奏。
 - 确认点：付费 ASR/TTS、已有草稿写入、播放或原生执行分别精确确认。
@@ -82,8 +82,10 @@ license: Apache-2.0
 ## 工作流
 
 1. 探测素材并固定内容 SHA-256。
-2. 优先复用同 provider、executor identity、内容哈希和规范化请求的已验证转写制品。
-3. 没有可用 ASR capability 时停止；不得把普通文本生成模型当转写器。
+2. 本地转写先用 `media transcribe ... --plan` 固定 executable/model 哈希、内容哈希和请求；
+   去掉 `--plan` 后执行，成功记录由账本复用。
+3. `media.asr_whisper_cpp` 不为 supported、模型许可证/哈希未审查或只有通用
+   `media.asr_provider=partial` 时停止；不得把普通文本生成模型当转写器。
 4. 结合静音、重复片段和语义生成 keep/protect 列表；切点落在词间隙。
 5. 在隔离副本中执行 timeline trim/move/remove，保持主轨连续。
 6. 导入字幕、结构验证、冷重开，并试听切口、齿音、语义与同步。

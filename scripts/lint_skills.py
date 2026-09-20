@@ -21,6 +21,7 @@ FORBIDDEN_RUNTIME_PATTERNS = {
     "JIANYING_HEADLESS_ROOT": "external headless checkout",
     "from pyJianYingDraft": "pyJianYingDraft API",
     "import pyJianYingDraft": "pyJianYingDraft API",
+    "jy14-headless-plan/v1": "retired external headless plan schema",
 }
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
@@ -164,8 +165,9 @@ def validate_package_manifest(path: Path, skill_names: list[str]) -> list[str]:
         return [f"package manifest cannot be loaded: {error}"]
     if manifest.get("name") != "jianying-skills":
         errors.append("package manifest name must be jianying-skills")
-    if manifest.get("version") != "2.0.2":
-        errors.append("package manifest version must be 2.0.2")
+    version = manifest.get("version")
+    if not isinstance(version, str) or not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version):
+        errors.append("package manifest version must be semantic x.y.z")
     declared = []
     for value in manifest.get("skills", []):
         prefix = "./skills/"

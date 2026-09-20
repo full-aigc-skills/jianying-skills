@@ -1,14 +1,19 @@
 name: release-skills
 
 on:
+  workflow_dispatch:
   push:
     tags: ["v*"]
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  publish:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -17,17 +22,60 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
+      - name: Capture remote immutable release prerequisites
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_RULESET_READ_TOKEN || github.token }}
+        run: |
+          set +e
+          python3 scripts/release_preflight.py \
+            --output "$RUNNER_TEMP/release-preflight.json"
+          preflight_status=$?
+          set -e
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            exit "$preflight_status"
+          fi
+      - name: Preserve remote preflight evidence even when blocked
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jianying-skills-remote-preflight
+          path: ${{ runner.temp }}/release-preflight.json
+          if-no-files-found: error
+      - name: Validate release tag and immutable repository setting
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          package_version="$(python3 -c 'import json; print(json.load(open(".claude-plugin/plugin.json"))["version"])')"
+          if [ "$GITHUB_REF_NAME" != "v${package_version}" ]; then
+            echo "::error::tag ${GITHUB_REF_NAME} does not match package version v${package_version}" >&2
+            exit 1
+          fi
+          enabled="$(gh api "repos/${GITHUB_REPOSITORY}/immutable-releases" --jq .enabled)"
+          if [ "$enabled" != "true" ]; then
+            echo "::error::enable GitHub immutable releases before running release checks" >&2
+            exit 1
+          fi
       - name: Validate package, tests and canonical release candidate manifest
         run: |
           python3 scripts/lint_skills.py
           python3 -m unittest discover -s tests -v
           python3 scripts/skill_manifest.py check
       - name: Generate the immutable release manifest before publication
+        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           python3 scripts/skill_manifest.py release \
             --ref "$GITHUB_REF_NAME" \
             --remote origin \
             --output "$RUNNER_TEMP/jianying-skills.manifest.json"
+      - name: Preserve the generated release manifest for the publish job
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: jianying-skills-release-manifest
+          path: ${{ runner.temp }}/jianying-skills.manifest.json
+          if-no-files-found: error
       - name: Checkout pinned TRACE evaluator
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -40,33 +88,115 @@ jobs:
           python3 scripts/trace_gate.py \
             --evaluator .trace-evaluator/skills/skill-trace-evaluation/scripts/trace_evaluate.py \
             --threshold 4.5
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: jianying-skills-release-manifest
+          path: ${{ runner.temp }}
       - name: Publish manifest through a draft release
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            echo "release already exists; refusing to replace immutable assets" >&2
-            exit 1
+          expected_assets="$RUNNER_TEMP/expected-assets.list"
+          release_plan="$RUNNER_TEMP/release-publication-plan.json"
+          missing_assets="$RUNNER_TEMP/missing-assets.list"
+          printf '%s\0' "$RUNNER_TEMP/jianying-skills.manifest.json" > "$expected_assets"
+          python3 scripts/release_publication_plan.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --expected-paths0 "$expected_assets" \
+            --release-ref "$GITHUB_REF_NAME" \
+            --remote origin \
+            --expected-commit "$(git rev-parse HEAD)" \
+            --output "$release_plan" \
+            --missing-paths0 "$missing_assets"
+          publication_action="$(jq -r .action "$release_plan")"
+          case "$publication_action" in
+            create_draft)
+              gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes --draft
+              ;;
+            resume_draft)
+              echo "resuming a byte-identical partial draft release"
+              ;;
+            publish_draft)
+              echo "draft release already contains the byte-identical manifest"
+              ;;
+            verify_existing)
+              echo "existing immutable release matches this manifest; verifying attestation"
+              ;;
+            *)
+              echo "::error::unsupported publication action: $publication_action" >&2
+              exit 1
+              ;;
+          esac
+          if [ "$publication_action" = "create_draft" ] \
+            || [ "$publication_action" = "resume_draft" ]; then
+            xargs -0 gh release upload "$GITHUB_REF_NAME" < "$missing_assets"
           fi
-          gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes --draft
-          gh release upload "$GITHUB_REF_NAME" \
-            "$RUNNER_TEMP/jianying-skills.manifest.json"
-          gh release edit "$GITHUB_REF_NAME" --draft=false
-          immutable="$(gh release view "$GITHUB_REF_NAME" --json isImmutable --jq .isImmutable)"
-          test "$immutable" = "true"
+          if [ "$publication_action" != "verify_existing" ]; then
+            python3 scripts/release_publication_plan.py \
+              --repository "$GITHUB_REPOSITORY" \
+              --expected-paths0 "$expected_assets" \
+              --release-ref "$GITHUB_REF_NAME" \
+              --remote origin \
+              --expected-commit "$(git rev-parse HEAD)" \
+              --output "$release_plan" \
+              --missing-paths0 "$missing_assets"
+            publication_action="$(jq -r .action "$release_plan")"
+            test "$publication_action" = "publish_draft"
+            gh release edit "$GITHUB_REF_NAME" --draft=false
+          fi
+          python3 scripts/release_publication_plan.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --expected-paths0 "$expected_assets" \
+            --release-ref "$GITHUB_REF_NAME" \
+            --remote origin \
+            --expected-commit "$(git rev-parse HEAD)" \
+            --output "$release_plan" \
+            --missing-paths0 "$missing_assets"
+          test "$(jq -r .action "$release_plan")" = "verify_existing"
+          rm -rf "$RUNNER_TEMP/published-release"
+          mkdir -p "$RUNNER_TEMP/published-release"
+          gh release download "$GITHUB_REF_NAME" \
+            --pattern jianying-skills.manifest.json \
+            --dir "$RUNNER_TEMP/published-release"
+          cmp "$RUNNER_TEMP/jianying-skills.manifest.json" \
+            "$RUNNER_TEMP/published-release/jianying-skills.manifest.json"
           verified=false
-          for attempt in 1 2 3 4 5 6; do
-            if gh release verify-asset "$GITHUB_REF_NAME" \
-              "$RUNNER_TEMP/jianying-skills.manifest.json"; then
+          release_attestation="$RUNNER_TEMP/release-attestation.json"
+          expected_tag_object="$(git ls-remote --tags origin \
+            "refs/tags/${GITHUB_REF_NAME}" | cut -f1)"
+          for attempt in $(seq 1 30); do
+            if gh release verify "$GITHUB_REF_NAME" --format json \
+              > "$release_attestation" \
+              && python3 scripts/verify_release_attestation.py \
+                --input "$release_attestation" \
+                --repository "$GITHUB_REPOSITORY" \
+                --release-ref "$GITHUB_REF_NAME" \
+                --expected-tag-object "$expected_tag_object" \
+                --expected-paths0 "$expected_assets" \
+              && gh release verify-asset "$GITHUB_REF_NAME" \
+                "$RUNNER_TEMP/jianying-skills.manifest.json"; then
               verified=true
               break
             fi
-            echo "asset attestation not visible yet (attempt ${attempt}/6)"
-            sleep 5
+            echo "asset attestation not visible yet (attempt ${attempt}/30)"
+            sleep 10
           done
           test "$verified" = "true"
       - name: Notify consumer repositories
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
         run: |
@@ -76,8 +206,10 @@ jobs:
             exit 0
           fi
           sha="$(git rev-parse HEAD)"
+          manifest_sha256="$(sha256sum "$RUNNER_TEMP/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
           gh api repos/full-aigc-plugins/jianying-edit-plugin/dispatches \
             -f event_type=skills-updated \
             -F "client_payload[package]=jianying-skills" \
             -F "client_payload[release_ref]=${GITHUB_REF_NAME}" \
-            -F "client_payload[sha]=${sha}"
+            -F "client_payload[sha]=${sha}" \
+            -F "client_payload[manifest_sha256]=${manifest_sha256}"

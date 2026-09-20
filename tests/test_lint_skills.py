@@ -73,6 +73,17 @@ class ContractMatrixTests(unittest.TestCase):
                 )
                 shutil.rmtree(installed)
 
+    def test_retired_headless_plan_schema_is_rejected_in_supporting_files(self) -> None:
+        matrix = LINT.load_contract_matrix(ROOT / "docs/RUST_CLI_SKILL_MATRIX.json")
+        row = next(item for item in matrix["skills"] if item["name"] == "jianying-harness")
+        with tempfile.TemporaryDirectory() as directory:
+            installed = Path(directory) / "jianying-harness"
+            shutil.copytree(ROOT / "skills" / "jianying-harness", installed)
+            stale = installed / "references" / "stale-plan.md"
+            stale.write_text("schema: jy14-headless-plan/v1\n", encoding="utf-8")
+            errors = LINT.validate_skill_contract(installed, row)
+        self.assertTrue(any("retired external headless plan schema" in error for error in errors))
+
     def test_package_manifest_discovers_all_skills_in_order(self) -> None:
         names = [path.name for path in sorted((ROOT / "skills").iterdir()) if path.is_dir()]
         self.assertEqual(

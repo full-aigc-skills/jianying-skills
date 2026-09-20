@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,
@@ -19,8 +19,10 @@
     "job.retry",
     "job.run",
     "job.show",
+    "mcp.job_lifecycle",
     "mcp.serve",
     "media.asr_ledger",
+    "media.asr_whisper_cpp",
     "media.audio",
     "media.catalogue",
     "media.probe",
@@ -30,6 +32,7 @@
     "project.verify",
     "render.native",
     "render.proxy",
+    "runtime.discovery",
     "runtime.profile",
     "runtime.status",
     "schema.job_v2",
@@ -75,26 +78,28 @@
     },
     {
       "name": "jianying-setup",
-      "sha256": "80f9f57fcde2c3b9633ee558fdb0a166f7ffdff795890f0e9d7dc25c0f687328",
+      "sha256": "7472821ef303db76a61f25565c2245285a534cd1947ca7cc7608d0a308fa6fa5",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
+        "runtime.discovery",
         "runtime.status"
       ]
     },
     {
       "name": "jianying-narration",
-      "sha256": "ab5320689f95ac7065a6ad2623a6c440dade38762b52c03fbc17ee204a6284be",
+      "sha256": "bd78e96d75157fae4a2291b629c625768dc96da8ac21665a2514fd5673a14133",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
+        "media.asr_whisper_cpp",
         "media.asr_ledger",
         "timeline.edit"
       ]
     },
     {
       "name": "jianying-subtitles",
-      "sha256": "94d4104121bbd1d0535cb29025fd54b47e57b592a8a07e7b6272154698d286b6",
+      "sha256": "f44c25f5e066b73f77e10f97a46a7111566b15731c682560790902dbd5460221",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "captions.import",
@@ -104,7 +109,7 @@
     },
     {
       "name": "jianying-audio",
-      "sha256": "b16bff7cf09d52de7ae88ca9d530356da373f2b66678e993d228c40651120e24",
+      "sha256": "2f1a2a39218b4f972bf47704589e54ca34a955ee891e83be38eeab49137e6af7",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.audio",
@@ -164,15 +169,16 @@
     },
     {
       "name": "jianying-harness",
-      "sha256": "4cc64058030fffc77cdf5ce50def93f93beee38d2e5fc19231a0f5f6e20d88e0",
+      "sha256": "8433dfd784ce4b735773f158bbf45bb60dbba5155f302a0214d226dafbd47b70",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.lifecycle",
         "approvals",
         "config",
-        "mcp.serve"
+        "mcp.serve",
+        "mcp.job_lifecycle"
       ]
     }
   ],
-  "content_sha256": "d59e926ddefae73d04f4cbae209ab4267413969dd12b559d25110beaf4f04fa5"
+  "content_sha256": "dd187390657434b024f920f68c8194b2dedcdd23a4a8e74f0d8904e7a98e2f57"
 }

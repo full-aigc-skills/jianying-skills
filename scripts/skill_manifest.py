@@ -12,12 +12,28 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "jianying-skills.manifest.json"
 CANONICAL_REPOSITORY = "https://github.com/full-aigc-skills/jianying-skills.git"
+CANONICAL_REMOTE_URLS = {
+    CANONICAL_REPOSITORY,
+    CANONICAL_REPOSITORY.removesuffix(".git"),
+    "git@github.com:full-aigc-skills/jianying-skills.git",
+    "git@github.com:full-aigc-skills/jianying-skills",
+    "ssh://git@github.com/full-aigc-skills/jianying-skills.git",
+    "ssh://git@github.com/full-aigc-skills/jianying-skills",
+}
 
 
 def hash_skill_dir(skill_dir: Path) -> str:
     """按相对路径与逐文件哈希计算稳定目录摘要。"""
+    if skill_dir.is_symlink() or not skill_dir.is_dir():
+        raise ValueError(f"skill directory is invalid or symbolic: {skill_dir}")
     digest = hashlib.sha256()
-    for path in sorted(candidate for candidate in skill_dir.rglob("*") if candidate.is_file()):
+    for path in sorted(skill_dir.rglob("*")):
+        if path.is_symlink():
+            raise ValueError(f"symbolic links are forbidden in skill content: {path}")
+        if path.is_dir():
+            continue
+        if not path.is_file():
+            raise ValueError(f"special files are forbidden in skill content: {path}")
         relative = path.relative_to(skill_dir).as_posix()
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
@@ -108,6 +124,11 @@ def render_release_manifest(release_ref: str, remote: str) -> dict:
     expected_ref = f"v{plugin['version']}"
     if release_ref != expected_ref:
         raise RuntimeError(f"release ref must be {expected_ref}")
+    remote_url = git("remote", "get-url", remote).rstrip("/")
+    if remote_url not in CANONICAL_REMOTE_URLS:
+        raise RuntimeError(
+            f"release remote must be the canonical GitHub repository: {CANONICAL_REPOSITORY}"
+        )
     head = git("rev-parse", "HEAD")
     local = git("rev-parse", f"{release_ref}^{{commit}}")
     if local != head:

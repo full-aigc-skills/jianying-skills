@@ -74,12 +74,14 @@ jobs:
           fi
           release_ref="${{ steps.release.outputs.release_ref }}"
           sha="$(git rev-parse HEAD)"
+          manifest_sha256="$(sha256sum "$RUNNER_TEMP/published/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
           for repo in \
             full-aigc-plugins/jianying-edit-plugin ; do
             gh api "repos/${repo}/dispatches" \
               -f event_type=skills-updated \
               -F "client_payload[package]=jianying-skills" \
               -F "client_payload[release_ref]=${release_ref}" \
-              -F "client_payload[sha]=${sha}"
+              -F "client_payload[sha]=${sha}" \
+              -F "client_payload[manifest_sha256]=${manifest_sha256}"
             echo "dispatched ${release_ref} to ${repo} at ${sha}"
           done

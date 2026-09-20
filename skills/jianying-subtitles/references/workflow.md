@@ -11,6 +11,11 @@ jianying captions export-srt|export-ass
 
 具体参数从 `jianying captions <command> --help` 获取。
 
+字幕源尚不存在且允许使用本地 whisper.cpp 时，先交给 **`jianying-narration`** skill 运行
+`media transcribe` 并取得经账本验证的 SRT/VTT/JSON 制品，再回到本技能导入。Install:
+`npx skills add full-aigc-skills/jianying-skills --skill jianying-narration`。不得把 ASR segment
+时间戳直接当作剪映播放验收，也不得在 `media.asr_whisper_cpp` 未 supported 时自动选用它。
+
 ## 样式规则
 
 - 同一字幕轨保持字体、描边和基准位置一致。

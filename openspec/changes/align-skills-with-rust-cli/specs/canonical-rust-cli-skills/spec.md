@@ -11,6 +11,18 @@
 - **WHEN** `jianying-subtitles` 被触发
 - **THEN** 技能生成 Rust Job/Plan 或对应 CLI 调用，不引用 pyJianYingDraft API
 
+#### Scenario: Supporting reference 保留退休活动契约
+- **WHEN** 任一技能正文、reference 或 example 把外部 headless plan、Python API 或 fork 私有字段描述为当前输入契约
+- **THEN** 技能 lint 和发布门禁失败，并要求改用 `jianying-job/v2` 与实际 capability manifest
+
+#### Scenario: 用户请求本地 Whisper 转写
+- **WHEN** CLI capability manifest 报告 `media.asr_whisper_cpp=supported`，且用户提供已审查的绝对 executable、model 和源媒体
+- **THEN** narration 技能先执行 `media transcribe --plan` 固定身份和幂等键，再执行同一请求；失败仅在显式 `--retry` 下重试，不下载或捆绑运行时/模型
+
+#### Scenario: 用户排查本机剪映安装
+- **WHEN** setup 技能执行 `runtime discover` 后只发现草稿根或发现未验证应用
+- **THEN** 技能分别报告 `drafts_without_editor` 或 unverified 安装，并保持 `automatic_routing=false`，不得把路径发现升级为 Runtime Profile 或真实宿主证据
+
 ### Requirement: Capability 与版本声明
 每个技能 SHALL 声明所需 CLI capability、最低兼容版本、输入事实和输出证据等级。
 

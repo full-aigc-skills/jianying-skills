@@ -1,6 +1,6 @@
 ---
 name: jianying-audio
-description: "Design and edit JianYing audio layers through Rust CLI media and timeline capabilities, including probing, volume, fades, sound effects, relinking, and playback checks."
+description: "Design JianYing audio layers and route local, system, open-source, or cloud TTS safely through the Rust CLI, including probing, volume, fades, sound effects, relinking, approval planning, and playback checks."
 license: Apache-2.0
 ---
 
@@ -71,7 +71,8 @@ license: Apache-2.0
 ## 运行契约
 
 - 触发条件：用户需要新增/替换/重链音频、调节音量、淡入淡出、音效或混音。
-- 所需 capability：`media.audio`、`timeline.volume`、`timeline.audio_fade`。
+- 所需 capability：`media.audio`、`timeline.volume`、`timeline.audio_fade`；TTS 另检查
+  `media.tts_local` 或 `media.tts_provider`，不得以其中一个替代另一个。
 - 最低 CLI 版本：`1.6.0`；缺失或 partial capability 只能执行已支持子集。
 - 默认风险：`reversible_write`。
 - 输入事实：音频流/时长/采样事实、目标草稿副本、轨道角色、对白区间、响度目标和授权边界。
@@ -85,8 +86,14 @@ license: Apache-2.0
 2. `media add-audio/replace/relink` 处理素材；声音来自视频时优先调整视频段音量。
 3. `timeline volume` 设置片段基础音量；淡入淡出 capability 未 supported 时停止该步骤并明确缺口。
 4. 使用 `media sfx` 时先从目录按 slug 选择，并检查资源授权。
-5. 本地 TTS 只调用用户明确提供的 Provider；云端提交须经过费用账本与精确批准。
-6. `project verify` 后试听对白清晰度、峰值、转场和同步。
+5. TTS 先按系统、本地进程/HTTP、联网客户端、云厂商四类确认边界；不得把 EdgeTTS 当离线模型，
+   也不得把通用 `local-process`/`local-http` 当成具名开源模型已经通过许可证和握手的证据。
+6. 云厂商先执行 `media tts ... --provider <cloud> --plan`；计划只绑定凭据环境变量名、内容/请求
+   哈希、目标、任务和最大预算。只有用户明确要求该厂商、精确审批已落盘且当前 CLI 的该执行子路径
+   已通过握手时，才可去掉 `--plan` 并携带 `--approval-id` 提交；不得自行拼 HTTP 请求。
+   `media.tts_provider=partial` 仍禁止自动选用云厂商或宣称全厂商 supported，但不应把已获精确审批的
+   具名执行路径误报为不存在。plan、queued、ambiguous 都不能说成已合成。
+7. `project verify` 后试听对白清晰度、峰值、转场和同步。
 
 分层、TTS 和恢复见 [references/workflow.md](references/workflow.md)。
 隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。

@@ -71,7 +71,7 @@ license: Apache-2.0
 ## 运行契约
 
 - 触发条件：用户需要安装前检查、环境诊断、版本/capability 握手或 Runtime Profile 排障。
-- 所需 capability：`doctor`、`runtime.status`。
+- 所需 capability：`doctor`、`runtime.discovery`、`runtime.status`。
 - 最低 CLI 版本：`1.6.0`；版本满足仍需逐项检查 capability。
 - 默认风险：`read_only`。
 - 输入事实：CLI 绝对路径与哈希、宿主平台、ffmpeg/ffprobe、草稿根、配置 profile、剪映进程和 Runtime Profile。
@@ -85,12 +85,14 @@ license: Apache-2.0
 jianying --version
 jianying doctor --json
 jianying capabilities --json
+jianying runtime discover --json
 jianying runtime status --json
 jianying config validate --json
 ```
 
 1. 记录被实际调用的二进制路径、版本和 SHA-256。
-2. 将缺失工具、缺失草稿根、运行中的编辑器、未知 Runtime Profile 分开报告。
+2. 将缺失工具、缺失草稿根、`drafts_without_editor`、运行中的编辑器和未知 Runtime Profile
+   分开报告；发现安装仍保持 unverified，不能自动路由原生控制。
 3. capability 不是 `supported` 时输出所需最低能力和恢复建议，不自动选择替代引擎。
 4. 如果需要安装或修复，先引用当前平台的官方来源并说明将修改什么。
 

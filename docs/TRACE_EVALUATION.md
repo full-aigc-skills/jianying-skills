@@ -3,7 +3,7 @@
 评估器：`skill-trace-evaluation/scripts/trace_evaluate.py`，确定性离线评分。
 
 - 迁移前基线：`99fb872c00ff14dbaf5b854327fc873877dfe309`。
-- 迁移后对象：`v2.0.2` 发布候选工作树；对应 canonical manifest 状态为 `release_candidate`。
+- 迁移后对象：`v2.0.3` 发布候选工作树；对应 canonical manifest 状态为 `release_candidate`。
 - 评估日期：2026-09-20。
 
 ## 汇总
@@ -44,11 +44,12 @@
 13 个技能全部达到 4.5 门槛，最低 4.58、最高 4.61。CI 固定 TRACE 评估器 commit，任何技能正文变更都会重新评分。
 以下运行时证据仍未完成，不以离线评分代替：
 
-- Codex、ZCode、Kimi 的隔离单技能安装已完成，Codex/ZCode 已取得宿主发现证据，
-  Kimi 已取得安装与 skill feature 激活证据；需要模型参与的简单任务、恢复和原生导出授权
-  行为验收仍未执行。详见 `HOST_ACCEPTANCE_STATUS.md`。
+- Codex、ZCode、Kimi 已从不可变 `v2.0.2` 完成隔离单技能 fresh install，三个安装内容逐文件
+  一致；Codex/ZCode 已取得宿主发现证据，Kimi 已取得安装与 skill feature 激活证据。需要
+  模型参与的简单任务、恢复和原生导出授权行为验收仍未执行；ZCode 还存在旧插件同名技能的
+  解析风险。详见 `HOST_ACCEPTANCE_STATUS.md`。
 - 原生剪映冷重开、播放、导出和 Windows Runtime Profile 仍受外部环境门禁限制。
 - `partial` capability 的领域技能只能提供停止/诊断路径，不能通过夸大支持状态换取更高评分。
-- 发布后的真实安装数据、触发准确率和恢复成功率尚未形成线上证据。
+- 发布后的 fresh-install 证据已取得，但真实触发准确率和恢复成功率尚未形成线上证据。
 
 因此本报告证明技能文档质量门禁已通过，但不把 TRACE 分数当作三宿主或剪映原生运行时完成证明。

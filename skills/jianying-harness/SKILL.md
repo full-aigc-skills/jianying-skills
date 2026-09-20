@@ -71,7 +71,7 @@ license: Apache-2.0
 ## 运行契约
 
 - 触发条件：用户需要持久任务、审批、配置、MCP、宿主集成、取消/重试或审计能力。
-- 所需 capability：`job.lifecycle`、`approvals`、`config`、`mcp.serve`。
+- 所需 capability：`job.lifecycle`、`approvals`、`config`、`mcp.serve`、`mcp.job_lifecycle`。
 - 最低 CLI 版本：`1.6.0`；运行前校验实际 manifest。
 - 默认风险：`high_risk_write`；只读 list/show/audit 可降为 read_only。
 - 输入事实：Job 文件、CLI/runtime identity、cwd/target、profile、task ID、所需 transport 和宿主限制。
@@ -86,9 +86,11 @@ license: Apache-2.0
 3. 对风险操作创建精确批准；只读命令不制造批准。
 4. 使用 `jianying job run --json`、`job batch` 或 `job serve`；记录 CLI task ID。
 5. 通过 `job show`、`job audit`、`job cancel`、`job retry` 管理生命周期。
-6. MCP 使用官方协议实现的 stdio、Streamable HTTP 或 SSE；远程监听必须验证 token、Host 和 Origin。
+6. MCP 使用官方协议实现的 stdio、Streamable HTTP 或 SSE；远程监听必须验证 token、Host 和 Origin，并通过 `jianying_job_list/show/cancel/retry/audit` 管理持久业务任务。
 
 生命周期、审批与 transport 门禁见 [references/workflow.md](references/workflow.md)。
+编写或审查 Job 时加载 [jianying-job/v2 字段手册](references/plan-format.md)，不要复用旧
+headless plan、私有 wire 字段或未经 capability 证明的操作。
 最小 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
 
 ## 渐进式资料
