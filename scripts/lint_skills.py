@@ -164,8 +164,8 @@ def validate_package_manifest(path: Path, skill_names: list[str]) -> list[str]:
         return [f"package manifest cannot be loaded: {error}"]
     if manifest.get("name") != "jianying-skills":
         errors.append("package manifest name must be jianying-skills")
-    if manifest.get("version") != "2.0.1":
-        errors.append("package manifest version must be 2.0.1")
+    if manifest.get("version") != "2.0.2":
+        errors.append("package manifest version must be 2.0.2")
     declared = []
     for value in manifest.get("skills", []):
         prefix = "./skills/"

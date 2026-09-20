@@ -14,7 +14,11 @@ SPEC.loader.exec_module(LINT)
 class ContractMatrixTests(unittest.TestCase):
     def test_package_exposes_only_the_thirteen_product_skills(self) -> None:
         published = sorted(path.parent.name for path in (ROOT / "skills").glob("*/SKILL.md"))
-        auxiliary = sorted((ROOT / ".agents" / "skills").glob("*/SKILL.md"))
+        auxiliary = sorted(
+            path
+            for root in (".agents", ".kimi-code", ".zcode")
+            for path in (ROOT / root / "skills").glob("*/SKILL.md")
+        )
         self.assertEqual(len(published), 13)
         self.assertEqual(auxiliary, [], "development integrations must not leak into npx skills add")
 
