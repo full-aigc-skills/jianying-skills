@@ -1,6 +1,6 @@
 {
   "name": "jianying-skills",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "JianYing and CapCut editing skills backed exclusively by the Rust jianying-cli runtime contract.",
   "author": {
     "name": "AIGC Skills Community"

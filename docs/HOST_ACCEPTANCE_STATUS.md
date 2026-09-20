@@ -2,8 +2,8 @@
 
 验收日期：2026-09-20。既有验收对象为不可变发布 `v2.0.2`；`2.0.0` 的远端安装发现了
 4 个由 `openspec init` 生成的开发辅助技能，因此不能作为“仅 13 个产品技能”的通过证据。
-源码现已进入 `v2.0.3` 发布候选：该候选修复了 `jianying-harness` supporting reference 中
-仍存的退休外部 headless plan 活动叙事，并新增发布 lint。`v2.0.3` 未发布前，以下
+源码现已进入 `v2.0.4` 发布候选：该候选修复了 `jianying-harness` supporting reference 中
+仍存的退休外部 headless plan 活动叙事，并新增发布 lint。`v2.0.4` 未发布前，以下
 `v2.0.2` 结果只作为历史安装证据，不能解除当前插件技能锁门禁。
 
 ## 已取得证据
@@ -52,19 +52,19 @@ OpenSpec 任务 `9.4` 继续保持未勾选。以下行为必须由三个真实�
 3. 原生导出前对 command、arguments、target、task 和 expiry 的目标级授权。
 
 不可变 `v2.0.2` 的 fresh install 和静态宿主发现已经完成；当前候选还需要先发布并重新执行
-`v2.0.3` fresh install。真实行为验收会调用宿主模型并
+`v2.0.4` fresh install。真实行为验收会调用宿主模型并
 消耗账号额度，因此在没有独立授权时不自动执行；ZCode 验收还必须记录同名旧技能的实际解析
 结果，不能只依赖列表顺序推断。
 
 `v2.0.2` 的 tag workflow 曾在 Release 已公开并变为 immutable 后，因为自动 attestation 尚未
-可见而失败。`v2.0.3` 候选已将该路径改为 fail-closed 恢复：最多轮询 5 分钟；重跑只接受同
+可见而失败。`v2.0.4` 候选已将该路径改为 fail-closed 恢复：最多轮询 5 分钟；重跑只接受同
 tag 的稳定 immutable Release，并要求下载的 manifest 与当前 tag 生成物逐字节一致，绝不覆盖
 既有资产。发布工作流还会在 lint、测试、TRACE 和 manifest 生成前校验 tag 与包版本完全一致，
 并确认仓库已启用 Immutable Releases；预检失败时不会创建或修改 Release。
 该前置检查现由 `scripts/release_preflight.py` 同时输出
 `jianying-skills-remote-release-preflight/v1`，并无论成功或失败都上传
 `jianying-skills-remote-preflight` artifact。`prerequisitesReady` 只要求仓库发布设置可用，
-`releaseComplete` 才要求 `v2.0.3` 稳定 immutable Release 已存在，因此不会让 tag workflow
+`releaseComplete` 才要求 `v2.0.4` 稳定 immutable Release 已存在，因此不会让 tag workflow
 在创建 Release 前循环依赖自身结果。
 若首次 tag workflow 在 Draft 创建后中断，`scripts/release_publication_plan.py` 会校验已有
 manifest 的名称、uploaded 状态、长度与 GitHub `sha256:` digest；空 Draft 只补传 manifest，
@@ -94,15 +94,15 @@ Release，也不会发送消费者同步事件。预检 JSON 写入 `$RUNNER_TEM
 隔离临时 Git 仓已按 validate job 顺序实际运行预检、lint、15 项测试和 manifest check；结束后
 `git status --porcelain` 为空，且预检 artifact 只存在于 checkout 外部。
 
-此前候选曾在隔离临时 Git 仓完成 `v2.0.3` tag、远端 ref 和 release manifest 演练；其候选内容
+此前候选曾在隔离临时 Git 仓完成 `v2.0.4` tag、远端 ref 和 release manifest 演练；其候选内容
 覆盖 13 个技能，聚合摘要为
 `6198259b50845b1b4f28ac0668c112a303a19199966a14efe58499de8af905d4`，并通过插件导入器的离线
 commit 注入路径完成原子消费和逐目录复核。现在 `skill_manifest.py release` 自身也只接受
 `full-aigc-skills/jianying-skills` 的 GitHub HTTPS/SSH 正典 remote，本地或镜像 remote 会在解析
 tag 前被拒绝，因此隔离演练只保留候选内容证据，不再能够生成新的正式 `released` 身份，亦不构成
-`v2.0.3` 已发布证据。
+`v2.0.4` 已发布证据。
 
 2026-09-21 的发布内容边界加固使 `skill_manifest.py` 在哈希前拒绝技能目录和内容中的
 symlink、FIFO、socket 或设备文件，避免跟随链接读取仓库外内容。插件侧不可变 manifest
 导入器执行同一规则并在原子替换前失败；当前 13 个技能不含此类成员，canonical manifest
-反向摘要校验继续通过。该门禁不替代 `v2.0.3` 正式 Release。
+反向摘要校验继续通过。该门禁不替代 `v2.0.4` 正式 Release。

@@ -44,7 +44,7 @@ jobs:
       - name: Validate release tag and immutable repository setting
         if: startsWith(github.ref, 'refs/tags/v')
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.RELEASE_RULESET_READ_TOKEN || github.token }}
         run: |
           set -euo pipefail
           package_version="$(python3 -c 'import json; print(json.load(open(".claude-plugin/plugin.json"))["version"])')"

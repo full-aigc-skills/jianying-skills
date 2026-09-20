@@ -28,16 +28,16 @@ class ReleasePublicationPlanTests(unittest.TestCase):
             asset.write_bytes(b"manifest")
             commit = "a" * 40
             evidence = {"verificationResult": {"statement": {
-                "predicate": {"repository": "full-aigc-skills/jianying-skills", "tag": "v2.0.3"},
+                "predicate": {"repository": "full-aigc-skills/jianying-skills", "tag": "v2.0.4"},
                 "subject": [
-                    {"uri": "pkg:github/full-aigc-skills/jianying-skills@v2.0.3", "digest": {"sha1": commit}},
+                    {"uri": "pkg:github/full-aigc-skills/jianying-skills@v2.0.4", "digest": {"sha1": commit}},
                     {"name": asset.name, "digest": {"sha256": hashlib.sha256(b"manifest").hexdigest()}},
                 ],
             }}}
-            ATTESTATION.verify(evidence, "full-aigc-skills/jianying-skills", "v2.0.3", commit, [asset])
+            ATTESTATION.verify(evidence, "full-aigc-skills/jianying-skills", "v2.0.4", commit, [asset])
             evidence["verificationResult"]["statement"]["predicate"]["tag"] = "v2.0.2"
             with self.assertRaisesRegex(ValueError, "repository or tag differs"):
-                ATTESTATION.verify(evidence, "full-aigc-skills/jianying-skills", "v2.0.3", commit, [asset])
+                ATTESTATION.verify(evidence, "full-aigc-skills/jianying-skills", "v2.0.4", commit, [asset])
 
     def test_release_query_treats_only_explicit_http_404_as_absent(self) -> None:
         def missing(*_args, **_kwargs):
@@ -47,7 +47,7 @@ class ReleasePublicationPlanTests(unittest.TestCase):
             )
 
         self.assertIsNone(PLAN.query_release_metadata(
-            "full-aigc-skills/jianying-skills", "v2.0.3", missing,
+            "full-aigc-skills/jianying-skills", "v2.0.4", missing,
         ))
 
         def server_error(*_args, **_kwargs):
@@ -58,11 +58,11 @@ class ReleasePublicationPlanTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "cannot query GitHub release"):
             PLAN.query_release_metadata(
-                "full-aigc-skills/jianying-skills", "v2.0.3", server_error,
+                "full-aigc-skills/jianying-skills", "v2.0.4", server_error,
             )
 
     def test_annotated_remote_tag_must_peel_to_expected_commit(self) -> None:
-        release_ref = "v2.0.3"
+        release_ref = "v2.0.4"
         commit = "a" * 40
         output = (
             f"{'b' * 40}\trefs/tags/{release_ref}\n"
@@ -80,18 +80,18 @@ class ReleasePublicationPlanTests(unittest.TestCase):
             manifest = root / "jianying-skills.manifest.json"
             manifest.write_bytes(b"manifest")
             empty = {
-                "tagName": "v2.0.3",
+                "tagName": "v2.0.4",
                 "isDraft": True,
                 "isPrerelease": False,
                 "isImmutable": False,
                 "assets": [],
             }
-            resumed = PLAN.plan_publication(empty, [manifest], "v2.0.3")
+            resumed = PLAN.plan_publication(empty, [manifest], "v2.0.4")
             self.assertEqual(resumed["action"], "resume_draft")
             self.assertEqual(resumed["missing"], [str(manifest)])
 
             empty["assets"] = [PLAN.describe_expected(manifest)]
-            complete = PLAN.plan_publication(empty, [manifest], "v2.0.3")
+            complete = PLAN.plan_publication(empty, [manifest], "v2.0.4")
             self.assertEqual(complete["action"], "publish_draft")
             self.assertEqual(complete["missing"], [])
 
@@ -104,14 +104,14 @@ class ReleasePublicationPlanTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "digest differs"):
                 PLAN.plan_publication(
                     {
-                        "tagName": "v2.0.3",
+                        "tagName": "v2.0.4",
                         "isDraft": True,
                         "isPrerelease": False,
                         "isImmutable": False,
                         "assets": [asset],
                     },
                     [manifest],
-                    "v2.0.3",
+                    "v2.0.4",
                 )
 
 
