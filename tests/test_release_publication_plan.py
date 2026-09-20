@@ -40,7 +40,9 @@ class ReleasePublicationPlanTests(unittest.TestCase):
                 ATTESTATION.verify(evidence, "full-aigc-skills/jianying-skills", "v2.0.4", commit, [asset])
 
     def test_release_query_treats_only_explicit_http_404_as_absent(self) -> None:
-        def missing(*_args, **_kwargs):
+        def missing(arguments, **_kwargs):
+            if "--slurp" in arguments:
+                return subprocess.CompletedProcess([], 0, "[]\n", "")
             return subprocess.CompletedProcess(
                 [], 1, '{"message":"Not Found","status":"404"}\n',
                 "gh: Not Found (HTTP 404)\n",
@@ -60,6 +62,23 @@ class ReleasePublicationPlanTests(unittest.TestCase):
             PLAN.query_release_metadata(
                 "full-aigc-skills/jianying-skills", "v2.0.4", server_error,
             )
+
+    def test_release_query_recovers_tagged_draft_from_release_list(self) -> None:
+        def draft(arguments, **_kwargs):
+            if "--slurp" in arguments:
+                return subprocess.CompletedProcess([], 0, '''[[{
+                  "tag_name":"v2.0.4","draft":true,"prerelease":false,
+                  "immutable":false,"assets":[]
+                }]]''', "")
+            return subprocess.CompletedProcess(
+                [], 1, '{"message":"Not Found","status":"404"}\n', "",
+            )
+
+        metadata = PLAN.query_release_metadata(
+            "full-aigc-skills/jianying-skills", "v2.0.4", draft,
+        )
+        self.assertTrue(metadata["isDraft"])
+        self.assertEqual(metadata["assets"], [])
 
     def test_annotated_remote_tag_must_peel_to_expected_commit(self) -> None:
         release_ref = "v2.0.4"
