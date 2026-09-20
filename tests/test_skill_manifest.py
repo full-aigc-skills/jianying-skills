@@ -72,6 +72,8 @@ class SkillManifestTests(unittest.TestCase):
         self.assertIn("--draft", release)
         self.assertIn("--json isImmutable", release)
         self.assertIn("gh release verify-asset", release)
+        self.assertIn("asset attestation not visible yet", release)
+        self.assertIn("jianying-edit-plugin/dispatches", release)
         self.assertNotIn("gh release upload", notify)
         self.assertIn("isImmutable", notify)
         self.assertIn("gh release verify-asset", notify)
