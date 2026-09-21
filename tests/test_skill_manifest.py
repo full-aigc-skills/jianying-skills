@@ -8,6 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PACKAGE_VERSION = json.loads((ROOT / '.claude-plugin/plugin.json').read_text())['version']
+PACKAGE_REF = f'v{PACKAGE_VERSION}'
 SPEC = importlib.util.spec_from_file_location("skill_manifest", ROOT / "scripts/skill_manifest.py")
 MANIFEST = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MANIFEST)
@@ -35,7 +37,7 @@ class SkillManifestTests(unittest.TestCase):
         manifest = MANIFEST.render_manifest()
         self.assertEqual(manifest["schema"], "jianying-skills-manifest/v1")
         self.assertEqual(manifest["repository"], MANIFEST.CANONICAL_REPOSITORY)
-        self.assertEqual(manifest["version"], "2.1.0")
+        self.assertEqual(manifest["version"], PACKAGE_VERSION)
         self.assertEqual(len(manifest["skills"]), 14)
         self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 14)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
@@ -57,24 +59,24 @@ class SkillManifestTests(unittest.TestCase):
                 return MANIFEST.CANONICAL_REPOSITORY
             if arguments == ("rev-parse", "HEAD"):
                 return commit
-            if arguments == ("rev-parse", "v2.1.0^{commit}"):
+            if arguments == ("rev-parse", PACKAGE_REF + "^{commit}"):
                 return commit
             raise AssertionError(arguments)
 
         with mock.patch.object(MANIFEST, "git", side_effect=fake_git), \
                 mock.patch.object(MANIFEST, "resolve_tag", return_value=commit):
-            released = MANIFEST.render_release_manifest("v2.1.0", "origin")
+            released = MANIFEST.render_release_manifest(PACKAGE_REF, "origin")
         self.assertEqual(released["content_state"], "released")
-        self.assertEqual(released["release_ref"], "v2.1.0")
+        self.assertEqual(released["release_ref"], PACKAGE_REF)
         self.assertEqual(released["source_commit"], commit)
 
     def test_release_manifest_rejects_dirty_or_wrong_ref(self) -> None:
         with mock.patch.object(MANIFEST, "git", return_value=" M skills/example/SKILL.md"):
             with self.assertRaisesRegex(RuntimeError, "clean working tree"):
-                MANIFEST.render_release_manifest("v2.1.0", "origin")
+                MANIFEST.render_release_manifest(PACKAGE_REF, "origin")
 
         with mock.patch.object(MANIFEST, "git", return_value=""):
-            with self.assertRaisesRegex(RuntimeError, "release ref must be v2.1.0"):
+            with self.assertRaisesRegex(RuntimeError, re.escape("release ref must be " + PACKAGE_REF)):
                 MANIFEST.render_release_manifest("v1.9.9", "origin")
 
     def test_release_manifest_rejects_noncanonical_remote_before_tag_resolution(self) -> None:
@@ -88,7 +90,7 @@ class SkillManifestTests(unittest.TestCase):
         with mock.patch.object(MANIFEST, "git", side_effect=fake_git), \
                 mock.patch.object(MANIFEST, "resolve_tag") as resolve_tag:
             with self.assertRaisesRegex(RuntimeError, "canonical GitHub repository"):
-                MANIFEST.render_release_manifest("v2.1.0", "origin")
+                MANIFEST.render_release_manifest(PACKAGE_REF, "origin")
         resolve_tag.assert_not_called()
 
     def test_workflow_uses_immutable_actions_and_never_clobbers_manifest(self) -> None:

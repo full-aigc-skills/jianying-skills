@@ -3,6 +3,7 @@
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import subprocess
 import sys
@@ -59,6 +60,17 @@ def render_manifest(
     source_commit: str | None = None,
 ) -> dict:
     """从当前技能树和契约矩阵构造正典清单。"""
+    # 内容错误不能靠重算摘要变成可发布目录；使用本仓校验器，不依赖调用方路径。
+    spec = importlib.util.spec_from_file_location(
+        "open_catalog_release", Path(__file__).with_name("validate_open_catalog.py")
+    )
+    checker = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(checker)
+    planning = ROOT / "skills/jianying-video-planning"
+    catalog = checker.safe_file(planning, "references/planning-catalog-v2.json", 16 * 1024 * 1024)
+    errors = checker.validate(planning, checker.parse_json(catalog.read_text(encoding="utf-8")))
+    if errors:
+        raise ValueError(f"open catalog validation failed: {errors}")
     plugin = json.loads((ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
     matrix = json.loads((ROOT / "docs/RUST_CLI_SKILL_MATRIX.json").read_text(encoding="utf-8"))
     rows = {row["name"]: row for row in matrix["skills"]}

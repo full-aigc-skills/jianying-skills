@@ -29,20 +29,36 @@ license: Apache-2.0
 能提供有来源的剪辑方法、场景选择和能力缺口。需要真实素材才能完成镜头判断；
 不能从文件名推断画面内容，不能把关键字匹配当成视觉分析或自动成片。
 
+## 开放目录兼容
+
+旧 `plan-video` 继续使用冻结 v1 目录。支持 `workflow-plan` 的插件显式读取
+[v2 目录](references/planning-catalog-v2.json) 和 [合同](references/planning-catalog-v2.schema.json)。
+v2 当前仍是 108 个种子，不再把 108、家族数或 Recipe 数作为扩容上限。
+12 维词表不表示每个场景已完整标注；当前仅迁移领域映射，其余未知条件须澄清。
+[三条代表工作流知识向量](references/representative-workflows-v1.json)分别冻结 Vlog、课程多版本和婚礼多交付的
+素材缺口、用途、Recipe、输出与验收边界；它们是正式知识，不是运行成功记录。
+案例没有命中时允许提出新策略，但不能伪造场景 ID、执行权限或媒体时间码。
+旧插件缺少新入口时保持旧行为；不得自行复制开发目录覆盖其技能锁。
+
 ## Step 1–6 — 选型顺序
 
 1. 先识别渠道、用途和交付形式。渠道未知可先用 custom，但不虚构平台规格；导出前补齐尺寸、时长和实时平台限制。
-2. 打开 [场景索引](references/scene-index.md)。明确场景 ID 时直接选择；如“婚礼视频”覆盖快剪、全程、誓言等多个例子，给 2–3 个有差异候选并说明差别。
+2. 打开 [场景索引](references/scene-index.md)。明确场景 ID 时直接选择；
+   如“婚礼视频”覆盖快剪、全程、誓言等多个例子，给 2–3 个有差异候选并说明差别。
 3. 只读选定的 example；比较其最小素材、故事段落、关键剪法和独有验收点。缺素材列补拍或调整方案，不能直接捏造 Plan 时间码。
-4. 按 [Recipe](references/edit-recipes.json) 组织步骤。结构化 [目录](references/video-taxonomy.json) 是路由事实源；[渠道档案](references/channel-profiles.json) 是规划建议，不是平台官方硬上限。
+4. 按 [Recipe](references/edit-recipes.json) 组织步骤。
+   结构化 [目录](references/video-taxonomy.json) 是旧路由事实源；
+   [渠道档案](references/channel-profiles.json) 是规划建议，不是平台官方硬上限。
 5. 获取已安装二进制的 `jianying capabilities --json`，按所选交付和可选功能检查；不要求无配音计划具备 TTS。
 6. 输出已选场景、Recipe、素材缺口、人工步骤、所需技能/能力、确认点和交付证据边界。流程见 [workflow](references/workflow.md)。
 
 ## 能力交接
 
 规划归本技能，任务状态、审批与重试归插件 Harness，媒体原子操作归 Rust CLI。
-进入确定性任务时交给 **`jianying-draft`**；安装：`npx skills add full-aigc-skills/jianying-skills --skill jianying-draft`。
-执行交给 **`jianying-edit`**；安装：`npx skills add full-aigc-skills/jianying-skills --skill jianying-edit`。
+进入确定性任务时交给 **`jianying-draft`**；安装：
+`npx skills add full-aigc-skills/jianying-skills --skill jianying-draft`。
+执行交给 **`jianying-edit`**；安装：
+`npx skills add full-aigc-skills/jianying-skills --skill jianying-edit`。
 其他目标技能的安装命令分别写在每个 example；粒度安装不会自动包含它们。
 
 [最小 Job 结构](examples/minimal-job.json) 仅解释现有 v2 契约，不代表含素材的可执行剪辑成片。
@@ -53,6 +69,9 @@ license: Apache-2.0
 [来源索引](references/source-index.json) 给每个场景保留检索词、链接、查阅日期、阅读范围与热度边界。
 有播放量不代表场景必火；无数值标 popularity_unverified。视频简介与搜索摘录不能被描述成完整观看。
 步骤是独立写作的适配方案，不是从第三方复制媒体或声称已经完成的用户案例。
+
+内容统计必须分栏：正式目录当前含 108 个种子；`test_fixture` 只用于兼容与负例测试；
+三条代表工作流是知识合同；编译、播放、导出和宿主结果只能由运行证据统计，不能由这些文件推导。
 
 ## Gotchas — 失败与恢复
 

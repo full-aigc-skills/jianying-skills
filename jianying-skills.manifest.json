@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,
@@ -181,12 +181,12 @@
     },
     {
       "name": "jianying-video-planning",
-      "sha256": "3b3285b45604d29e76d19f6db8df0dc722404a5d272bb67229908a13f633a6af",
+      "sha256": "71d4473051992d45d42592eb423f682e6d571caf389482fb66b69fc05d322db8",
       "minimum_cli_version": "1.6.13",
       "required_capabilities": [
         "capabilities"
       ]
     }
   ],
-  "content_sha256": "34149aa1d7d1932c06d1753bd3714547364d7b383d48ae3f022cd70f38cf787b"
+  "content_sha256": "8ab36501a3c1298a3180269856772ce1caf4a4f203d93de15b1fd3941a5f8b15"
 }

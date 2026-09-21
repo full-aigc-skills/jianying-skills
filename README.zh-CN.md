@@ -3,6 +3,10 @@
 新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe。
 从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
 
+[开放场景覆盖计划](docs/video-scenarios/COVERAGE_PLAN.md)：108 项是种子库，不是类型全集或能力上限。
+[代表工作流知识向量](skills/jianying-video-planning/references/representative-workflows-v1.json)：冻结 Vlog、课程多版本、婚礼多交付的素材缺口和验收边界；不冒充执行证据。
+新增多维分类、覆盖审计与扩展路线规划；已发布运行时目录保持不变。
+
 通过统一 Rust 运行时 `jianying-cli` 创建、编辑、检查、恢复和导出剪映/CapCut 草稿的 Agent Skills。
 
 简体中文 | [English](README.md)
