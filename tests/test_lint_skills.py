@@ -12,21 +12,25 @@ SPEC.loader.exec_module(LINT)
 
 
 class ContractMatrixTests(unittest.TestCase):
-    def test_package_exposes_only_the_thirteen_product_skills(self) -> None:
+    def test_package_exposes_fourteen_product_skills(self) -> None:
         published = sorted(path.parent.name for path in (ROOT / "skills").glob("*/SKILL.md"))
         auxiliary = sorted(
             path
             for root in (".agents", ".kimi-code", ".zcode")
             for path in (ROOT / root / "skills").glob("*/SKILL.md")
         )
-        self.assertEqual(len(published), 13)
+        self.assertEqual(len(published), 14)
         self.assertEqual(auxiliary, [], "development integrations must not leak into npx skills add")
 
     def test_current_matrix_is_complete_but_not_ready(self) -> None:
         matrix = LINT.load_contract_matrix(ROOT / "docs/RUST_CLI_SKILL_MATRIX.json")
         skills = sorted(path.name for path in (ROOT / "skills").iterdir() if path.is_dir())
         self.assertEqual(LINT.validate_contract_matrix(matrix, skills, None), [])
-        self.assertTrue(all(row["migration_state"] == "blocked_on_cli_contract" for row in matrix["skills"]))
+        planning = next(row for row in matrix["skills"] if row["name"] == "jianying-video-planning")
+        self.assertEqual(planning["migration_state"], "candidate_validated")
+        self.assertEqual(planning["success_evidence"], "plan")
+        self.assertTrue(all(row["migration_state"] == "blocked_on_cli_contract"
+                            for row in matrix["skills"] if row["name"] != "jianying-video-planning"))
 
     def test_ready_skill_requires_supported_cli_capabilities(self) -> None:
         matrix = {

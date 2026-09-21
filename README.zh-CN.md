@@ -1,5 +1,8 @@
 # jianying-skills
 
+新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe。
+从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
+
 通过统一 Rust 运行时 `jianying-cli` 创建、编辑、检查、恢复和导出剪映/CapCut 草稿的 Agent Skills。
 
 简体中文 | [English](README.md)
@@ -11,7 +14,7 @@
 
 ```mermaid
 flowchart LR
-    U[用户目标] --> S[13 个场景技能]
+    U[用户目标] --> S[14 个技能]
     S --> G[版本 Schema capability 门禁]
     G --> J[jianying-job/v2 或结构化命令]
     J --> R[jianying-cli Rust Runtime]
@@ -38,7 +41,7 @@ npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
 
 每个技能都自带 workflow reference 和最小 Job 示例，不依赖兄弟技能目录。
 
-## 13 个技能
+## 14 个技能
 
 | 技能 | 职责 |
 |---|---|
@@ -67,7 +70,7 @@ capcut-cli 86 项命令的完整能力审计由
 
 ## 分发
 
-本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 13 个技能逐目录摘要，
+本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 14 个技能逐目录摘要，
 不得在 vendored 副本中独立修补正文。
 
 ## 许可

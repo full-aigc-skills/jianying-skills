@@ -35,9 +35,9 @@ class SkillManifestTests(unittest.TestCase):
         manifest = MANIFEST.render_manifest()
         self.assertEqual(manifest["schema"], "jianying-skills-manifest/v1")
         self.assertEqual(manifest["repository"], MANIFEST.CANONICAL_REPOSITORY)
-        self.assertEqual(manifest["version"], "2.0.4")
-        self.assertEqual(len(manifest["skills"]), 13)
-        self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 13)
+        self.assertEqual(manifest["version"], "2.1.0")
+        self.assertEqual(len(manifest["skills"]), 14)
+        self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 14)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
         self.assertRegex(manifest["content_sha256"], r"^[0-9a-f]{64}$")
         self.assertEqual(manifest["content_state"], "release_candidate")
@@ -57,24 +57,24 @@ class SkillManifestTests(unittest.TestCase):
                 return MANIFEST.CANONICAL_REPOSITORY
             if arguments == ("rev-parse", "HEAD"):
                 return commit
-            if arguments == ("rev-parse", "v2.0.4^{commit}"):
+            if arguments == ("rev-parse", "v2.1.0^{commit}"):
                 return commit
             raise AssertionError(arguments)
 
         with mock.patch.object(MANIFEST, "git", side_effect=fake_git), \
                 mock.patch.object(MANIFEST, "resolve_tag", return_value=commit):
-            released = MANIFEST.render_release_manifest("v2.0.4", "origin")
+            released = MANIFEST.render_release_manifest("v2.1.0", "origin")
         self.assertEqual(released["content_state"], "released")
-        self.assertEqual(released["release_ref"], "v2.0.4")
+        self.assertEqual(released["release_ref"], "v2.1.0")
         self.assertEqual(released["source_commit"], commit)
 
     def test_release_manifest_rejects_dirty_or_wrong_ref(self) -> None:
         with mock.patch.object(MANIFEST, "git", return_value=" M skills/example/SKILL.md"):
             with self.assertRaisesRegex(RuntimeError, "clean working tree"):
-                MANIFEST.render_release_manifest("v2.0.4", "origin")
+                MANIFEST.render_release_manifest("v2.1.0", "origin")
 
         with mock.patch.object(MANIFEST, "git", return_value=""):
-            with self.assertRaisesRegex(RuntimeError, "release ref must be v2.0.4"):
+            with self.assertRaisesRegex(RuntimeError, "release ref must be v2.1.0"):
                 MANIFEST.render_release_manifest("v1.9.9", "origin")
 
     def test_release_manifest_rejects_noncanonical_remote_before_tag_resolution(self) -> None:
@@ -88,7 +88,7 @@ class SkillManifestTests(unittest.TestCase):
         with mock.patch.object(MANIFEST, "git", side_effect=fake_git), \
                 mock.patch.object(MANIFEST, "resolve_tag") as resolve_tag:
             with self.assertRaisesRegex(RuntimeError, "canonical GitHub repository"):
-                MANIFEST.render_release_manifest("v2.0.4", "origin")
+                MANIFEST.render_release_manifest("v2.1.0", "origin")
         resolve_tag.assert_not_called()
 
     def test_workflow_uses_immutable_actions_and_never_clobbers_manifest(self) -> None:
@@ -176,7 +176,7 @@ class SkillManifestTests(unittest.TestCase):
             root = Path(temporary)
             (root / ".claude-plugin").mkdir()
             (root / ".claude-plugin/plugin.json").write_text(
-                json.dumps({"version": "2.0.4"}),
+                json.dumps({"version": "2.1.0"}),
                 encoding="utf-8",
             )
 
@@ -192,14 +192,14 @@ class SkillManifestTests(unittest.TestCase):
             self.assertFalse(report["releaseComplete"])
             self.assertEqual(report["blockedPrerequisites"], [])
             self.assertEqual(report["blocked"], ["release.expected"])
-            self.assertEqual(report["expected"]["ref"], "v2.0.4")
+            self.assertEqual(report["expected"]["ref"], "v2.1.0")
 
     def test_remote_preflight_blocks_disabled_immutable_releases(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             (root / ".claude-plugin").mkdir()
             (root / ".claude-plugin/plugin.json").write_text(
-                json.dumps({"version": "2.0.4"}),
+                json.dumps({"version": "2.1.0"}),
                 encoding="utf-8",
             )
 
@@ -209,7 +209,7 @@ class SkillManifestTests(unittest.TestCase):
                 if arguments[0] == "api" and "rulesets" in arguments[1]:
                     return PREFLIGHT.release_tag_ruleset_fixture()
                 return {
-                    "tagName": "v2.0.4",
+                    "tagName": "v2.1.0",
                     "isDraft": False,
                     "isPrerelease": False,
                     "isImmutable": True,
@@ -229,7 +229,7 @@ class SkillManifestTests(unittest.TestCase):
             root = Path(temporary)
             (root / ".claude-plugin").mkdir()
             (root / ".claude-plugin/plugin.json").write_text(
-                json.dumps({"version": "2.0.4"}),
+                json.dumps({"version": "2.1.0"}),
                 encoding="utf-8",
             )
 

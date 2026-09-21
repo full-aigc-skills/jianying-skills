@@ -10,6 +10,7 @@
     "current_state": "target_contract_not_yet_published"
   },
   "skills": [
+    {"name":"jianying-video-planning","responsibility":"18类108场景、渠道策略、Recipe和分交付能力预检","minimum_cli_version":"1.6.13","required_capabilities":["capabilities"],"risk_level":"read_only","success_evidence":"plan","migration_state":"candidate_validated","trigger_compatibility":"additive"},
     {"name":"jianying-use","responsibility":"统一入口、最小询问和 capability 路由","minimum_cli_version":"1.6.0","required_capabilities":["doctor","capabilities"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
     {"name":"jianying-edit","responsibility":"创建与已有草稿隔离编辑工作流","minimum_cli_version":"1.6.0","required_capabilities":["job.run","project.create","project.edit_isolated","project.verify"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
     {"name":"jianying-draft","responsibility":"Job/Plan Schema 与统一领域概念","minimum_cli_version":"1.6.0","required_capabilities":["schema.job_v2","schema.plan_v1_compat"],"risk_level":"read_only","success_evidence":"plan","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},

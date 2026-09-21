@@ -1,5 +1,8 @@
 # jianying-skills
 
+新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe。
+从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
+
 Agent Skills for creating, editing, inspecting, recovering, and exporting JianYing/CapCut drafts through one Rust runtime: `jianying-cli`.
 
 [简体中文](README.zh-CN.md) | English
@@ -12,7 +15,7 @@ hosting plugin's Rust Runtime Adapter.
 
 ```mermaid
 flowchart LR
-    U[User goal] --> S[One of 13 skills]
+    U[User goal] --> S[One of 14 skills]
     S --> G[Version, schema, capability gate]
     G --> J[jianying-job/v2 or structured command]
     J --> R[jianying-cli Rust runtime]

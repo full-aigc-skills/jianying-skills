@@ -94,6 +94,10 @@ license: Apache-2.0
 
 ## 跨技能交接
 
+当用户不知道剪成哪一种视频，先交给 **`jianying-video-planning`**，按渠道、目的、素材从 108 个场景选择方案。
+安装：`npx skills add full-aigc-skills/jianying-skills --skill jianying-video-planning`。
+场景规划只返回 plan，不应提前要求 TTS 或原生导出；最终执行按所选步骤逐项预检。
+
 需要领域细节时按名称交接，并确保目标技能已安装。例如编辑工作交给
 **`jianying-edit`**。安装：
 `npx skills add full-aigc-skills/jianying-skills --skill jianying-edit`。
