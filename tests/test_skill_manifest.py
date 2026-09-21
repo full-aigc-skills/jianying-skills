@@ -41,6 +41,14 @@ class SkillManifestTests(unittest.TestCase):
         self.assertEqual(len(manifest["skills"]), 14)
         self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 14)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
+        self.assertEqual(
+            manifest["install_cli_capabilities"],
+            ["capabilities", "job.run", "schema.job_v2"],
+        )
+        self.assertTrue(
+            set(manifest["install_cli_capabilities"])
+            < set(manifest["minimum_cli_capabilities"])
+        )
         self.assertRegex(manifest["content_sha256"], r"^[0-9a-f]{64}$")
         self.assertEqual(manifest["content_state"], "release_candidate")
         self.assertIsNone(manifest["source_commit"])

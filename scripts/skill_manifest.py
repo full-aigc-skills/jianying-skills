@@ -99,6 +99,7 @@ def render_manifest(
         "source_commit": source_commit,
         "content_state": content_state,
         "release_ref": release_ref,
+        "install_cli_capabilities": sorted(matrix["install_capabilities"]),
         "minimum_cli_capabilities": sorted(
             {capability for row in rows.values() for capability in row["required_capabilities"]}
         ),
