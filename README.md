@@ -22,7 +22,7 @@ hosting plugin's Rust Runtime Adapter.
 
 ```mermaid
 flowchart LR
-    U[User goal] --> S[One of 14 skills]
+    U[User goal] --> S[One of 24 skills]
     S --> G[Version, schema, capability gate]
     G --> J[jianying-job/v2 or structured command]
     J --> R[jianying-cli Rust runtime]
@@ -56,6 +56,17 @@ does not rely on sibling skill directories.
 | Skill | Responsibility |
 |---|---|
 | `jianying-use` | Entry routing, minimal questions, and capability diagnosis |
+| `jianying-video-planning` | 108 scenario seeds, channel strategy, recipes, and delivery-level planning |
+| `jianying-media` | Local/official materials, subdraft import, replace, relink, and verification |
+| `jianying-text` | Text, styles, bubbles, animations, and text templates |
+| `jianying-stickers` | Sticker discovery, download, placement, transform, and recovery |
+| `jianying-effects` | Scene, character, and audio effects with bounded ranges |
+| `jianying-smart-package` | Smart package/B-Roll preview, approval, apply, and recovery |
+| `jianying-filters` | Filter discovery, range, intensity, apply, and remove |
+| `jianying-adjustments` | Version-bound exposure, color, detail, and reset controls |
+| `jianying-templates` | Template libraries, presets, replacement, and track import |
+| `jianying-digital-human` | Persona, voice, upload, cost, task, and artifact gates |
+| `jianying-editing-console` | Timeline, track, segment, keyframe, session, record, and zoom controls |
 | `jianying-setup` | CLI, media tools, draft roots, configuration, and runtime readiness |
 | `jianying-draft` | `jianying-job/v2`, domain concepts, and v1 compatibility |
 | `jianying-harness` | Persistent jobs, approvals, configuration, MCP, and host contracts |
@@ -81,7 +92,7 @@ not duplicated across the skills.
 
 ## Distribution
 
-This repository is the only source of truth for skill bodies. Consumer plugins must import an
+This repository is the only source of truth for all 24 skill bodies. Consumer plugins must import an
 immutable release ref and commit, verify every skill digest, and never patch vendored bodies.
 
 ## License

@@ -1,18 +1,28 @@
 {
   "schema": "jianying-skill-contract-matrix/v1",
-  "captured_from_commit": "99fb872c00ff14dbaf5b854327fc873877dfe309",
+  "captured_from_commit": "81684a952ccfad9d1cff98d4c470dd500e74e57b",
   "cli_contract": {
     "repository": "https://github.com/full-aigc-plugins/jianying-cli",
-    "minimum_target_version": "1.6.0",
+    "minimum_target_version": "1.6.19",
     "job_schema": "jianying-job/v2",
     "capability_manifest_path": "provenance/CAPABILITIES.json",
     "verification_environment": "JIANYING_CLI_CAPABILITY_MANIFEST",
-    "current_state": "target_contract_not_yet_published"
+    "current_state": "released_v1.6.19"
   },
   "install_capabilities": ["capabilities", "job.run", "schema.job_v2"],
   "skills": [
     {"name":"jianying-video-planning","responsibility":"18类108场景、渠道策略、Recipe和分交付能力预检","minimum_cli_version":"1.6.13","required_capabilities":["capabilities"],"risk_level":"read_only","success_evidence":"plan","migration_state":"candidate_validated","trigger_compatibility":"additive"},
     {"name":"jianying-use","responsibility":"统一入口、最小询问和 capability 路由","minimum_cli_version":"1.6.0","required_capabilities":["doctor","capabilities"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
+    {"name":"jianying-media","responsibility":"素材导入、子草稿、官方素材、替换、重链和素材验证","minimum_cli_version":"1.6.19","required_capabilities":["media.probe","media.add","project.edit_isolated","project.verify","template.import_track","media.replace","media.relink","media.official_resource","media.official_resource_apply"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-text","responsibility":"普通文本、文字样式、花字、气泡、动画和文字模板","minimum_cli_version":"1.6.19","required_capabilities":["captions.edit","captions.style","captions.style_ranges","captions.bubble","captions.animation","media.official_resource_apply"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-stickers","responsibility":"贴纸搜索、预览、下载、添加、变换、复制和删除","minimum_cli_version":"1.6.19","required_capabilities":["media.sticker","media.official_resource","media.official_resource_apply","timeline.edit","timeline.duplicate","timeline.remove"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-effects","responsibility":"画面、人物和音频特效目录、参数、范围、应用与恢复","minimum_cli_version":"1.6.19","required_capabilities":["media.catalogue","media.enums","timeline.effect","media.sfx","media.official_resource_apply","timeline.remove"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-smart-package","responsibility":"智能包装和智能 B-Roll 的预览、拆解、批准、应用和恢复","minimum_cli_version":"1.6.19","required_capabilities":["runtime.control_catalog","runtime.controls","media.official_resource","project.edit_isolated","render.proxy"],"risk_level":"external_native_execution","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-filters","responsibility":"滤镜搜索、预览、范围、强度、应用、替换和删除","minimum_cli_version":"1.6.19","required_capabilities":["media.catalogue","media.enums","timeline.filter","media.official_resource_apply","timeline.remove"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-adjustments","responsibility":"曝光、对比度、色彩和细节调节的版本绑定控制与前后证据","minimum_cli_version":"1.6.19","required_capabilities":["runtime.control_catalog","runtime.controls","runtime.profile","project.edit_isolated"],"risk_level":"external_native_execution","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-templates","responsibility":"模板库、草稿模板、内容替换、轨道导入和文字样式预设","minimum_cli_version":"1.6.19","required_capabilities":["template.library","template.preset","template.duplicate","template.import_track","media.official_resource_apply","project.verify"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
+    {"name":"jianying-digital-human","responsibility":"数字人形象、声音、授权、预览、费用、任务恢复和产物验收","minimum_cli_version":"1.6.19","required_capabilities":["runtime.entitlement_verify","runtime.control_catalog","runtime.controls","media.tts_provider","render.native_task"],"risk_level":"external_native_execution","success_evidence":"native_export","migration_state":"blocked_on_provider_and_gui","trigger_compatibility":"additive"},
+    {"name":"jianying-editing-console","responsibility":"时间线、轨道、片段、关键帧和会话级控制台动作","minimum_cli_version":"1.6.19","required_capabilities":["timeline.edit","timeline.show","timeline.duplicate","timeline.remove","timeline.keyframe","runtime.control_catalog","runtime.controls"],"risk_level":"reversible_write","success_evidence":"playback","migration_state":"blocked_on_gui_adapter","trigger_compatibility":"additive"},
     {"name":"jianying-edit","responsibility":"创建与已有草稿隔离编辑工作流","minimum_cli_version":"1.6.0","required_capabilities":["job.run","project.create","project.edit_isolated","project.verify"],"risk_level":"reversible_write","success_evidence":"cold_reopen","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
     {"name":"jianying-draft","responsibility":"Job/Plan Schema 与统一领域概念","minimum_cli_version":"1.6.0","required_capabilities":["schema.job_v2","schema.plan_v1_compat"],"risk_level":"read_only","success_evidence":"plan","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},
     {"name":"jianying-setup","responsibility":"CLI、媒体工具、应用发现、草稿根和运行时诊断","minimum_cli_version":"1.6.0","required_capabilities":["doctor","runtime.discovery","runtime.status"],"risk_level":"read_only","success_evidence":"structural","migration_state":"blocked_on_cli_contract","trigger_compatibility":"preserved"},

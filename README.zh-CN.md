@@ -18,7 +18,7 @@
 
 ```mermaid
 flowchart LR
-    U[用户目标] --> S[14 个技能]
+    U[用户目标] --> S[24 个技能]
     S --> G[版本 Schema capability 门禁]
     G --> J[jianying-job/v2 或结构化命令]
     J --> R[jianying-cli Rust Runtime]
@@ -45,11 +45,22 @@ npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
 
 每个技能都自带 workflow reference 和最小 Job 示例，不依赖兄弟技能目录。
 
-## 14 个技能
+## 24 个技能
 
 | 技能 | 职责 |
 |---|---|
 | `jianying-use` | 统一入口、最小询问和 capability 诊断 |
+| `jianying-video-planning` | 108 个场景种子、渠道策略、Recipe 和分级交付规划 |
+| `jianying-media` | 本地/官方素材、子草稿导入、替换、重链和验证 |
+| `jianying-text` | 普通文本、样式、气泡、动画和文字模板 |
+| `jianying-stickers` | 贴纸检索、下载、放置、变换和恢复 |
+| `jianying-effects` | 画面、人物和音频特效及显式作用范围 |
+| `jianying-smart-package` | 智能包装/B-Roll 预览、批准、应用和恢复 |
+| `jianying-filters` | 滤镜检索、范围、强度、应用和删除 |
+| `jianying-adjustments` | 版本绑定的曝光、色彩、细节和重置控制 |
+| `jianying-templates` | 模板库、预设、内容替换和轨道导入 |
+| `jianying-digital-human` | 形象、声音、上传、费用、任务和产物门禁 |
+| `jianying-editing-console` | 时间线、轨道、片段、关键帧和会话控制 |
 | `jianying-setup` | CLI、媒体工具、草稿根、配置和 Runtime Profile |
 | `jianying-draft` | `jianying-job/v2`、领域概念和 v1 兼容 |
 | `jianying-harness` | 持久任务、审批、配置、MCP 和宿主契约 |
@@ -74,7 +85,7 @@ capcut-cli 86 项命令的完整能力审计由
 
 ## 分发
 
-本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 14 个技能逐目录摘要，
+本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 24 个技能逐目录摘要，
 不得在 vendored 副本中独立修补正文。
 
 ## 许可

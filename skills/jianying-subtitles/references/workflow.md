@@ -1,5 +1,22 @@
 # 字幕工作流参考
 
+## 功能动线
+
+| 语义动作 | 剪映入口 | 前置事实 | 执行路由 | 验证 | 恢复 |
+|---|---|---|---|---|---|
+| `caption.timeline.inspect` | 字幕 → 我的/时间线 | 草稿路径 | `captions list/get` | 文本、ID、时间和样式 | 只读 |
+| `caption.timeline.add` | 字幕 → 新建字幕 | 文本、实测起点/时长、轨道 | `captions add` | cue 精确读回 | `timeline remove` |
+| `caption.file.import` | 字幕 → 导入本地字幕 | SRT/ASS 编码、时间基准、offset | `captions import-srt/import-ass` | cue 数、时间、round-trip 导出 | 快照恢复 |
+| `caption.content.edit` | 字幕段 → 编辑 | segment ID、文本 | `captions set` | 文案与 ID 不变 | 恢复原文案 |
+| `caption.style.apply` | 字幕 → 样式/气泡/动画 | 字体、样式、资源、授权 | `captions style/style-ranges/bubble/animation` | 样式材料、范围和冷重开 | 恢复原样式 |
+| `caption.translation.apply` | 字幕 → 翻译 | by_id/by_text 映射或获批 Provider | `captions translate` | ID/时间不变、缺失映射报告 | 恢复原语言文本 |
+| `caption.file.export` | 字幕 → 导出 | 输出路径不存在或覆盖已批准 | `captions export-srt/export-ass` | 解析、时间和 round-trip | 删除未接受输出 |
+| `caption.timeline.verify` | 字幕 → 检查 | 目标安全区、字体、语言和播放证据要求 | `project verify` + 冷重开/播放 | 换行、安全区、同步和可读性 | 返回局部修订 |
+
+## 执行路由
+
+字幕时间只来自 SRT/ASS、ASR 制品或真实媒体测量。官方字幕样式需要资源预览/下载时，先校验权益和收据，再调用样式命令或版本绑定 Adapter。
+
 ## 最小命令面
 
 ```text

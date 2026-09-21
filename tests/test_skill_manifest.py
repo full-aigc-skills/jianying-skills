@@ -38,8 +38,8 @@ class SkillManifestTests(unittest.TestCase):
         self.assertEqual(manifest["schema"], "jianying-skills-manifest/v1")
         self.assertEqual(manifest["repository"], MANIFEST.CANONICAL_REPOSITORY)
         self.assertEqual(manifest["version"], PACKAGE_VERSION)
-        self.assertEqual(len(manifest["skills"]), 14)
-        self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 14)
+        self.assertEqual(len(manifest["skills"]), 24)
+        self.assertEqual(len({entry["name"] for entry in manifest["skills"]}), 24)
         self.assertIn("schema.job_v2", manifest["minimum_cli_capabilities"])
         self.assertEqual(
             manifest["install_cli_capabilities"],

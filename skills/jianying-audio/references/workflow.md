@@ -1,5 +1,18 @@
 # 音频工作流参考
 
+## 功能动线
+
+| 语义动作 | 剪映入口 | 前置事实 | 执行路由 | 验证 | 恢复 |
+|---|---|---|---|---|---|
+| `audio.import.asset` | 音频 → 导入 | `media probe`、音频流、起点/时长 | `media add-audio` | 音频轨、材料、范围和试听 | `timeline remove` 或快照恢复 |
+| `audio.music.search` | 音频 → 音乐库/推荐音乐 | 情绪、节奏、用途、渠道和版型 | Harness 搜索/筛选 → 预览 → 下载收据 → 应用 | 资源 ID、授权、音频轨和试听 | 删除新增段；ambiguous 时查询 |
+| `audio.sfx.add` | 音频 → 音效库 | 固定 slug、起点和音量 | `media sfx` | sound_effect 材料、轨道和试听 | `timeline remove` |
+| `audio.segment.volume` | 时间线音频 → 音量 | segment ID、对白/BGM 角色 | `timeline volume` | 数值读回、响度和峰值 | 恢复原音量 |
+| `audio.segment.fade` | 时间线音频 → 淡入淡出 | segment ID、持续时间 | `timeline audio-fade` | fade 参数和播放 | 恢复原参数 |
+| `audio.asset.replace` | 音频片段 → 替换/重链 | 新素材探测、目标唯一 | `media replace` / `media relink` | 路径、类型、时长和引用 | 恢复原路径 |
+| `audio.tts.generate` | 音频 → 文本朗读/配音 | Provider 能力、文本摘要、音色、预算、批准 | 本地/系统 `media tts`；远程先 `--plan` 后精确批准 | 账本、SHA-256、时长和试听 | 复用成功制品；ambiguous 不重提 |
+| `audio.analysis.silence` | 音频 → 静音检测 | 真实音轨、阈值参数 | `media silence` / `media evidence` | 静音区间、峰值、响度证据 | 只读 |
+
 ## 分层
 
 - 对白/解说为语义主层。

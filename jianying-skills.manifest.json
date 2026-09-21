@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,
@@ -14,8 +14,12 @@
   "minimum_cli_capabilities": [
     "approvals",
     "capabilities",
+    "captions.animation",
+    "captions.bubble",
+    "captions.edit",
     "captions.import",
     "captions.style",
+    "captions.style_ranges",
     "captions.verify",
     "config",
     "doctor",
@@ -26,39 +30,219 @@
     "job.show",
     "mcp.job_lifecycle",
     "mcp.serve",
+    "media.add",
     "media.asr_ledger",
     "media.asr_whisper_cpp",
     "media.audio",
     "media.catalogue",
+    "media.enums",
+    "media.official_resource",
+    "media.official_resource_apply",
     "media.probe",
+    "media.relink",
+    "media.replace",
+    "media.sfx",
+    "media.sticker",
+    "media.tts_provider",
     "project.create",
     "project.edit_isolated",
     "project.inspect",
     "project.verify",
     "render.native",
+    "render.native_task",
     "render.proxy",
+    "runtime.control_catalog",
+    "runtime.controls",
     "runtime.discovery",
+    "runtime.entitlement_verify",
     "runtime.profile",
     "runtime.status",
     "schema.job_v2",
     "schema.plan_v1_compat",
     "store.restore",
+    "template.duplicate",
+    "template.import_track",
+    "template.library",
+    "template.preset",
     "timeline.animation",
     "timeline.audio_fade",
+    "timeline.duplicate",
     "timeline.edit",
+    "timeline.effect",
+    "timeline.filter",
     "timeline.keyframe",
     "timeline.quantization_report",
+    "timeline.remove",
+    "timeline.show",
     "timeline.transition",
     "timeline.volume"
   ],
   "skills": [
     {
       "name": "jianying-use",
-      "sha256": "76ed8c479b103c7b663b3ff1bcea01c9a8e6bd5cba01b0b5dc6ca6060f37de07",
+      "sha256": "d23fe0a56199a906187dd0ab3e1b0a9e8334020d6a57a69ee3858ce5866ad2ea",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
         "capabilities"
+      ]
+    },
+    {
+      "name": "jianying-media",
+      "sha256": "467967d116d56ad1dc1bdbcac5f62c78f9329b56ca2195e667e58cc180fe2628",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "media.probe",
+        "media.add",
+        "project.edit_isolated",
+        "project.verify",
+        "template.import_track",
+        "media.replace",
+        "media.relink",
+        "media.official_resource",
+        "media.official_resource_apply"
+      ]
+    },
+    {
+      "name": "jianying-audio",
+      "sha256": "b430d318b7a9f234ee4b70418296f0ea025516c32d41f6ecedb6482c60b83b34",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "media.audio",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ]
+    },
+    {
+      "name": "jianying-text",
+      "sha256": "3b5a0b148d8bd00e7a62b8f368cbd0d5ae80f0aee618d45bf9b4cc30788426fd",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "captions.edit",
+        "captions.style",
+        "captions.style_ranges",
+        "captions.bubble",
+        "captions.animation",
+        "media.official_resource_apply"
+      ]
+    },
+    {
+      "name": "jianying-stickers",
+      "sha256": "f28696e7f45c50a4dcb550ac3d99de2dffad04493af596913fb7239d0bccebf1",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "media.sticker",
+        "media.official_resource",
+        "media.official_resource_apply",
+        "timeline.edit",
+        "timeline.duplicate",
+        "timeline.remove"
+      ]
+    },
+    {
+      "name": "jianying-effects",
+      "sha256": "f709e5ce3c8bf831f0da2c0e96db9929c8ee8993611226ecbfe59cc9054ae679",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "media.catalogue",
+        "media.enums",
+        "timeline.effect",
+        "media.sfx",
+        "media.official_resource_apply",
+        "timeline.remove"
+      ]
+    },
+    {
+      "name": "jianying-transitions",
+      "sha256": "65b057ab2c290bdb45d64afcb628166472eb546ff99daf6eaa300309006178d6",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "timeline.transition",
+        "media.catalogue"
+      ]
+    },
+    {
+      "name": "jianying-subtitles",
+      "sha256": "b2e8623ee22bddf2c937df4db2e398b542a3b0f3cfd6eccfc93ac2aa3e327dfd",
+      "minimum_cli_version": "1.6.0",
+      "required_capabilities": [
+        "captions.import",
+        "captions.style",
+        "captions.verify"
+      ]
+    },
+    {
+      "name": "jianying-smart-package",
+      "sha256": "aa00723dda9ccb9d80eba241fe9725165771f5488835117ea2cd695fa5ec0850",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "runtime.control_catalog",
+        "runtime.controls",
+        "media.official_resource",
+        "project.edit_isolated",
+        "render.proxy"
+      ]
+    },
+    {
+      "name": "jianying-filters",
+      "sha256": "1d0ca1f539a784d537db3055a09206c8da90e27c3f3f9ac3c292977833a57ea5",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "media.catalogue",
+        "media.enums",
+        "timeline.filter",
+        "media.official_resource_apply",
+        "timeline.remove"
+      ]
+    },
+    {
+      "name": "jianying-adjustments",
+      "sha256": "c70f1b1b940c20554f7ea68d4a89b6723d5377b45a22462737ab6dee33aa2c34",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "runtime.control_catalog",
+        "runtime.controls",
+        "runtime.profile",
+        "project.edit_isolated"
+      ]
+    },
+    {
+      "name": "jianying-templates",
+      "sha256": "d3fbcbd17e8112a1bcd3bc1724b4881a5c143b793df8333c7c0b820f81d91c3c",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "template.library",
+        "template.preset",
+        "template.duplicate",
+        "template.import_track",
+        "media.official_resource_apply",
+        "project.verify"
+      ]
+    },
+    {
+      "name": "jianying-digital-human",
+      "sha256": "f5ffed52b530ab86ab913bdf36ef7405ca19a11b903579b760c726879bec13dd",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "runtime.entitlement_verify",
+        "runtime.control_catalog",
+        "runtime.controls",
+        "media.tts_provider",
+        "render.native_task"
+      ]
+    },
+    {
+      "name": "jianying-editing-console",
+      "sha256": "49385633acdc86287e6ed90d290a161d5ccd831d5dd1d35eb175bf22b426e9a3",
+      "minimum_cli_version": "1.6.19",
+      "required_capabilities": [
+        "timeline.edit",
+        "timeline.show",
+        "timeline.duplicate",
+        "timeline.remove",
+        "timeline.keyframe",
+        "runtime.control_catalog",
+        "runtime.controls"
       ]
     },
     {
@@ -103,26 +287,6 @@
       ]
     },
     {
-      "name": "jianying-subtitles",
-      "sha256": "f44c25f5e066b73f77e10f97a46a7111566b15731c682560790902dbd5460221",
-      "minimum_cli_version": "1.6.0",
-      "required_capabilities": [
-        "captions.import",
-        "captions.style",
-        "captions.verify"
-      ]
-    },
-    {
-      "name": "jianying-audio",
-      "sha256": "2f1a2a39218b4f972bf47704589e54ca34a955ee891e83be38eeab49137e6af7",
-      "minimum_cli_version": "1.6.0",
-      "required_capabilities": [
-        "media.audio",
-        "timeline.volume",
-        "timeline.audio_fade"
-      ]
-    },
-    {
       "name": "jianying-motion",
       "sha256": "76a8f6ee33baf5dec5c6bd74977177f587eeee0180039cd7598dc3f14ec8b932",
       "minimum_cli_version": "1.6.0",
@@ -130,15 +294,6 @@
         "timeline.keyframe",
         "timeline.animation",
         "timeline.quantization_report"
-      ]
-    },
-    {
-      "name": "jianying-transitions",
-      "sha256": "27092596dc64ee3d70a204870d2eb68073bfa9774a766c0842678f5e9504cc07",
-      "minimum_cli_version": "1.6.0",
-      "required_capabilities": [
-        "timeline.transition",
-        "media.catalogue"
       ]
     },
     {
@@ -193,5 +348,5 @@
       ]
     }
   ],
-  "content_sha256": "cf9111c511c9ce607da8e3b935b1c39be6f8cfe02b9fb54057aa6ed41553cda6"
+  "content_sha256": "a574399ba34fd8a94d35cadc082b41643973a3288ff5968fa1a75079e22ab92b"
 }

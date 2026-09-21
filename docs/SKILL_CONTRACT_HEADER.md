@@ -17,6 +17,6 @@
 
 ## 迁移期规则
 
-- 当前 13 个技能均为 `blocked_on_cli_contract`，在 CLI 发布目标 capability manifest 前不得改成 `ready`。
+- 当前 24 个技能均不得在缺少对应运行证据时改成 `ready`；面板技能分别保留 `blocked_on_gui_adapter` 或 `blocked_on_provider_and_gui`，既有技能继续保留其真实迁移状态。
 - `scripts/lint_skills.py` 会读取 `docs/RUST_CLI_SKILL_MATRIX.json`；若任何技能声明 `ready`，必须通过 `JIANYING_CLI_CAPABILITY_MANIFEST` 提供已验证清单。
 - 高级参数和恢复细节进入本技能自己的 `references/`，不得依赖粒度安装后不存在的兄弟目录。

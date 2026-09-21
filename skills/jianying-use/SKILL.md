@@ -102,6 +102,27 @@ license: Apache-2.0
 **`jianying-edit`**。安装：
 `npx skills add full-aigc-skills/jianying-skills --skill jianying-edit`。
 
+### 剪映面板分类路由
+
+| 用户入口 | 目标技能 | 典型语义动作 |
+|---|---|---|
+| 素材 | `jianying-media` | `media.import.asset`、`media.import.subdraft` |
+| 音频 | `jianying-audio` | `audio.import.asset`、`audio.music.search` |
+| 文本 | `jianying-text` | `text.create.default`、`text.create.template` |
+| 贴纸 | `jianying-stickers` | `sticker.resource.download`、`sticker.timeline.add` |
+| 特效 | `jianying-effects` | `effect.timeline.add_scene`、`effect.timeline.add_character` |
+| 转场 | `jianying-transitions` | `transition.timeline.apply` |
+| 字幕 | `jianying-subtitles` | `caption.file.import`、`caption.style.apply` |
+| 智能包装 | `jianying-smart-package` | `smart_package.preview.request`、`smart_package.apply.changes` |
+| 滤镜 | `jianying-filters` | `filter.timeline.apply` |
+| 调节 | `jianying-adjustments` | `adjustment.basic.set`、`adjustment.color.set` |
+| 模板 | `jianying-templates` | `template.library.apply`、`template.track.import` |
+| 数字人 | `jianying-digital-human` | `digital_human.task.submit`、`digital_human.task.resume` |
+| 剪辑控制台 | `jianying-editing-console` | `console.segment.split`、`console.session.snap` |
+
+每个目标技能均可粒度安装：`npx skills add full-aigc-skills/jianying-skills --skill <skill-name>`。
+只加载用户当前分类对应的技能；跨分类 WorkflowPlan 再组合多个技能，不一次性加载全部说明。
+
 ## 渐进式资料
 
 - 首次执行先加载 [正常路径](examples/happy-path.md) 取得端到端顺序。

@@ -67,8 +67,14 @@ def validate_contract_matrix(matrix: dict, skill_names: list[str], capability_ma
     if len(names) != len(set(names)):
         errors.append("contract matrix contains duplicate skill names")
 
+    declared_capabilities = set()
     supported = set()
     if capability_manifest is not None:
+        declared_capabilities = {
+            entry.get("id")
+            for entry in capability_manifest.get("capabilities", [])
+            if entry.get("id")
+        }
         supported = {
             entry.get("id")
             for entry in capability_manifest.get("capabilities", [])
@@ -94,6 +100,10 @@ def validate_contract_matrix(matrix: dict, skill_names: list[str], capability_ma
                 missing = sorted(set(required) - supported)
                 if missing:
                     errors.append(f"{name}: CLI capability manifest lacks supported capabilities {missing}")
+        if capability_manifest is not None:
+            unknown = sorted(set(required) - declared_capabilities)
+            if unknown:
+                errors.append(f"{name}: CLI capability manifest has unknown capability IDs {unknown}")
     return errors
 
 
@@ -157,7 +167,7 @@ def validate_skill_contract(skill_dir: Path, row: dict) -> list[str]:
 
 
 def validate_package_manifest(path: Path, skill_names: list[str]) -> list[str]:
-    """验证包版本和 13 个技能入口均可发现。"""
+    """验证包版本和全部技能入口均可发现。"""
     errors: list[str] = []
     try:
         manifest = json.loads(path.read_text(encoding="utf-8"))
