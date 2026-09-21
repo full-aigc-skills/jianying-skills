@@ -14,4 +14,4 @@
 
 - [x] 3.1 运行 profile、开放目录、技能 lint 和内容摘要回归。
 - [x] 3.2 发布不可变 Skills 版本并由插件 fresh install 锁定消费。
-- [ ] 3.3 分离包级安装基线与场景专属 capability 门禁，发布后以真实 CLI fresh install 验证。
+- [x] 3.3 分离包级安装基线与场景专属 capability 门禁，发布后以真实 CLI fresh install 验证。
