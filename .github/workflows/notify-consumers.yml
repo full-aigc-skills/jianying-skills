@@ -65,11 +65,11 @@ jobs:
             "$RUNNER_TEMP/reproduced.manifest.json"
       - name: Notify consumer repositories
         env:
-          GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
+          GH_TOKEN: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN || secrets.SKILLS_SYNC_TOKEN }}
         run: |
           set -euo pipefail
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "SKILLS_SYNC_TOKEN not configured; skipping consumer dispatch"
+            echo "FULL_AIGC_SKILLS_SYNC_TOKEN not configured; skipping consumer dispatch"
             exit 0
           fi
           release_ref="${{ steps.release.outputs.release_ref }}"
