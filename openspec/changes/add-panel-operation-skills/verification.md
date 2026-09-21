@@ -14,7 +14,7 @@
 ## 尚未完成
 
 - `v2.3.0` 已在 commit `23e6ce195f5e3ef3c003d58bf262620f8603735a` 发布为 GitHub Immutable Release；发布清单 SHA-256 为 `889504f710c5b31c8ecfcee0f06bf947fcb070556aaa8c2f2b3a9a851b1341ce`，`gh release verify-asset` 验证通过。
-- 插件已从上述 Release 原子导入 24 个技能，`skill_vendor.py check` 线上/离线摘要校验通过；插件候选版本为 `v0.25.0`。
+- 插件已从上述 Release 原子导入 24 个技能，`skill_vendor.py check` 线上/离线摘要校验通过；插件候选版本为 `v0.25.0`。其 tag 发布工作流因私有插件仓的 ruleset API 返回 GitHub 计划级 403 而停在前置门禁，三平台 fresh-install 未运行，因此任务 4.2 保持未勾选。
 - 技能发布工作流的构建、TRACE、Release 和 asset attestation 均成功；最后的 consumer dispatch 因同步 token 无法看到插件仓而返回 404，本轮使用同一不可变 manifest 手动导入，不影响已发布 Release 完整性。
 - Codex/ZCode/Kimi 正式 `v0.25.0` 安装包的 13 分类行为验收尚未完成。
 - 调节、智能包装、数字人和部分官方资源应用仍受发布 capability 中的 partial/external/GUI 门禁约束；技能明确停在对应门禁，不声称已底层执行。

@@ -20,5 +20,5 @@
 ## 4. 发布与插件消费
 
 - [x] 4.1 发布不可变技能版本并验证远端 manifest 与逐目录摘要
-- [x] 4.2 插件锁定导入新版本，验证未手改 vendored 副本和 fresh-install
+- [ ] 4.2 插件锁定导入新版本，验证未手改 vendored 副本和 fresh-install
 - [ ] 4.3 在 Codex、ZCode、Kimi 正式安装包验证 13 分类的发现、路由、停止、恢复和证据展示
