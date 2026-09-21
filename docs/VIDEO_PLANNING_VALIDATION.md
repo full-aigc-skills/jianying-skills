@@ -12,4 +12,14 @@
 - TRACE：新规划技能4.50，包平均4.579，现有4.5门槛未降低。
 - skill-creator quick_validate 因现有 Python 缺少 PyYAML 无法运行；未擅自安装。现有包 lint 已验证 frontmatter、名称、入口和本地资源链接。
 
-尚未证明：108场景各自的剪映冷重开、播放、原生导出及三宿主真实行为。正式技能发布与插件锁消费另行记录，不能由上述静态测试推导。
+尚未证明：108场景各自的剪映冷重开、播放、原生导出及三宿主真实行为，不能由上述静态测试推导。
+
+## 正式发布—消费证据
+
+- 不可变 Release：v2.1.0；源码 commit：686e5e0b68e7b8cc31b853bc43b759d2c6e29ddc。
+- GitHub skill-lint 35558232249 和 release-skills 35558282294 均成功。
+- Release manifest SHA-256：d1122fa4e829283cea17ed1130bf5c9da51526facb738775a30d4d7a7a5f4eea。
+- 内容聚合 SHA-256：34149aa1d7d1932c06d1753bd3714547364d7b383d48ae3f022cd70f38cf787b。
+- gh release verify-asset 通过；全新 GitHub tag 克隆重新生成 released manifest，与下载资产逐字节一致。
+- 全新克隆中108文件校验通过；插件通过正式导入器锁定此版本，默认规划入口返回 locked_release，不依赖源仓路径。
+- 插件本体0.18.0仍是发布候选，技能Release成功不等于插件市场发布或三宿主验收通过。
