@@ -95,6 +95,9 @@ license: Apache-2.0
    具名执行路径误报为不存在。plan、queued、ambiguous 都不能说成已合成。
 7. `project verify` 后试听对白清晰度、峰值、转场和同步。
 
+影视解说或 README 教程的旁白必须先生成并探测真实音频，再按实际时长安排字幕与 ducking；
+不得继承固定 BGM 音量。响度、峰值、对白优先级和人工听感决定最终混音。
+
 分层、TTS 和恢复见 [references/workflow.md](references/workflow.md)。
 隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
 

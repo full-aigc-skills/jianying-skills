@@ -13,6 +13,12 @@ JianYing resources.
 - [renezander030/capcut-cli](https://github.com/renezander030/capcut-cli), MIT.
   Its public command behavior and documentation are parity references. Required copyright and
   license notices must remain with any copied MIT material.
+- [luoluoluo22/jianying-editor-skill](https://github.com/luoluoluo22/jianying-editor-skill),
+  MIT, fixed at commit `32c56928ded4f9e2c2b80e099dc7abb793d2c30b` for assisted-production
+  workflow research. This package independently rewrites workflow knowledge only; it does not
+  bundle that project's Python runtime, vendored pyJianYingDraft, UI automation, cloud-download
+  scripts, databases, cached media, or effect assets. The detailed boundary is recorded in
+  [ASSISTED_PRODUCTION_PROVENANCE.md](docs/ASSISTED_PRODUCTION_PROVENANCE.md).
 
 The current skills call only `jianying-cli` or a plugin Runtime Adapter. Neither upstream is a
 runtime dependency of an installed skill.

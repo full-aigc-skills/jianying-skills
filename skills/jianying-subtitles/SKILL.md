@@ -88,6 +88,9 @@ license: Apache-2.0
 5. `captions export-srt/export-ass` 做 round-trip 检查，再执行 `project verify`。
 6. 要求真实验收时冷重开草稿检查字体、换行、安全区与同步。
 
+由 TTS 或解说生成字幕时，cue 以已探测的最终音频制品为时间事实；脚本文字长度、计划时长和
+研究样例参数都不能替代实际音频时间。局部返工保持 cue ID 与未修改区间稳定。
+
 命令选择、样式和恢复见 [references/workflow.md](references/workflow.md)。
 隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
 

@@ -1,6 +1,11 @@
+# 剪映面板操作技能设计
+
 ## Context
 
-`jianying-cli v1.6.19` 已提供机器可读命令目录、capability manifest、原生控件目录和部分 GUI Adapter 合同。`jianying-skills v2.2.2` 目前有 14 个按工程阶段划分的技能，其中音频、字幕和转场可直接承担面板分类职责，其余面板分类缺少独立入口。
+`jianying-cli v1.6.19` 已提供机器可读命令目录、capability manifest、原生控件
+目录和部分 GUI Adapter 合同。`jianying-skills v2.2.2` 目前有 14 个按工程阶段
+划分的技能，其中音频、字幕和转场可直接承担面板分类职责，其余面板分类缺少
+独立入口。
 
 ## Goals / Non-Goals
 
@@ -11,15 +16,23 @@
 
 ### 1. 保持 13 个用户分类，避免重复技能
 
-音频使用 `jianying-audio`，转场使用 `jianying-transitions`，字幕使用 `jianying-subtitles`；新增 `jianying-media`、`jianying-text`、`jianying-stickers`、`jianying-effects`、`jianying-smart-package`、`jianying-filters`、`jianying-adjustments`、`jianying-templates`、`jianying-digital-human`、`jianying-editing-console`。
+音频使用 `jianying-audio`，转场使用 `jianying-transitions`，字幕使用
+`jianying-subtitles`；新增 `jianying-media`、`jianying-text`、
+`jianying-stickers`、`jianying-effects`、`jianying-smart-package`、
+`jianying-filters`、`jianying-adjustments`、`jianying-templates`、
+`jianying-digital-human`、`jianying-editing-console`。
 
 ### 2. 操作动线使用稳定语义 ID
 
-每个动线采用 `<domain>.<group>.<action>`，例如 `media.import.asset`、`media.import.subdraft`。技能先说明用户界面路径，再给事实读取、结构化 argv 或 Harness 合同、验证和恢复。禁止把屏幕坐标作为动作身份。
+每个动线采用 `<domain>.<group>.<action>`，例如 `media.import.asset`、
+`media.import.subdraft`。技能先说明用户界面路径，再给事实读取、结构化 argv 或
+Harness 合同、验证和恢复。禁止把屏幕坐标作为动作身份。
 
 ### 3. 四级执行路由
 
-优先级为：Rust 草稿协议命令 → Rust Runtime 原生控制 → 版本绑定 Accessibility Adapter → 带 Canary 的视觉兜底。capability 为 partial、external_dependency 或缺失时，技能只能停在计划、预览或批准门禁，不得声称已执行。
+优先级为：Rust 草稿协议命令 → Rust Runtime 原生控制 → 版本绑定 Accessibility
+Adapter → 带 Canary 的视觉兜底。capability 为 partial、external_dependency 或缺失时，
+技能只能停在计划、预览或批准门禁，不得声称已执行。
 
 ### 4. 自包含但不复制整本手册
 

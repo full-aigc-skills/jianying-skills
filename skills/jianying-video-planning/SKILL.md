@@ -41,6 +41,9 @@ v2 当前仍是 108 个种子，不再把 108、家族数或 Recipe 数作为扩
 为这三条工作流提供分项阈值、硬门禁、证据类型、允许的返工动作类别和人工判断边界。
 只在工作流已选定且需要编制质量合同时读取对应档案；它不授予执行、批准、模型调用或导出权限，
 不能把档案阈值当作真实成片已通过的证据。
+[辅助制作目录](references/assisted-production-workflows-v1.json)提供软件教程录屏、README 安装教程、
+产品演示智能缩放、Web 数据可视化片头和影视解说五条 Recipe。目录中的 `provider_required`、
+`capability_gated` 和 `plan_only` 是停止条件，不是已安装 Provider 或已通过真实剪映的证据。
 案例没有命中时允许提出新策略，但不能伪造场景 ID、执行权限或媒体时间码。
 旧插件缺少新入口时保持旧行为；不得自行复制开发目录覆盖其技能锁。
 
@@ -53,6 +56,7 @@ v2 当前仍是 108 个种子，不再把 108、家族数或 Recipe 数作为扩
 4. 按 [Recipe](references/edit-recipes.json) 组织步骤。
    结构化 [目录](references/video-taxonomy.json) 是旧路由事实源；
    [渠道档案](references/channel-profiles.json) 是规划建议，不是平台官方硬上限。
+   命中录屏、智能缩放、Web VFX、README 教程或影视解说时，再读取辅助制作目录；不得把其中步骤改写为自由命令。
 5. 获取已安装二进制的 `jianying capabilities --json`，按所选交付和可选功能检查；不要求无配音计划具备 TTS。
 6. 输出已选场景、Recipe、素材缺口、人工步骤、所需技能/能力、确认点和交付证据边界。流程见 [workflow](references/workflow.md)。
 

@@ -88,6 +88,8 @@ license: Apache-2.0
 5. 通过隔离写入、结构验证、冷重开和播放逐级验收。
 
 配方、量化和失败恢复见 [references/workflow.md](references/workflow.md)。
+录屏点击事件驱动缩放时加载 [智能缩放合同](references/smart-zoom-workflow.md)；事件账本与计划只提供
+可审查输入，不授予关键帧写入权。按键捕获、坐标映射或录屏摘要任一不合格时停止。
 隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
 
 ## 渐进式资料

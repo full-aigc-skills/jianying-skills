@@ -23,6 +23,7 @@ license: Apache-2.0
 ## 快速开始
 
 可以直接说：“把室内片段色温调暖但保护肤色”“读取当前曝光参数”“重置这个镜头的锐化和暗角”。首次使用加载 [功能动线](references/workflow.md)。
+多镜头统一曝光或白平衡时加载 [曝光匹配流程](references/exposure-matching-workflow.md)，把分析建议、人工例外、绝对参数和 readback 分开保存。
 
 ## 运行契约
 
@@ -58,6 +59,7 @@ Adapter 执行后重新读回参数，比较前后代理/原生画面。
 - 版本、build、语义 ID 任一变化都重新 Canary。
 - 先保存原参数和画面基线，再写入。
 - 滤镜、调节和 LUT 不可互相冒充。
+- 分析 Provider 只能提出建议；没有绝对参数、版本绑定语义 ID 和 readback 时不得批量写入。
 
 ## Gotchas
 

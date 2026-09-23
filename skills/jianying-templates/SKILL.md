@@ -23,6 +23,7 @@ license: Apache-2.0
 ## 快速开始
 
 可以直接说：“把这个草稿保存为社媒模板”“从子草稿导入字幕轨”“应用模板后替换产品图和标题”。首次使用加载 [功能动线](references/workflow.md)。
+批量个性化输出时加载 [Clone-first 合同](references/clone-first-batch-workflow.md)；每个输出独立验证，母模板保持只读。
 
 ## 运行契约
 
@@ -58,6 +59,7 @@ license: Apache-2.0
 - 替换目标必须由名称或轨道/索引唯一定位。
 - 画幅、fps、字体和许可冲突先报告再转换。
 - 模板应用和草稿发布分开批准。
+- Compound Clip 在发布二进制 capability 未为 `supported` 前保持 `plan_only`，不得以直接改 JSON 或 GUI 宏替代。
 
 ## Gotchas
 

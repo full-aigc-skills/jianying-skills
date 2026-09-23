@@ -23,10 +23,13 @@ license: Apache-2.0
 ## 快速开始
 
 可以直接说：“把 `/素材/开场.mp4` 加到 0 秒”“把子草稿 B 接到主草稿末尾”“从官方素材找可商用的 9:16 科技园航拍”。首次使用先加载 [功能动线](references/workflow.md)，再选择唯一动作 ID。
+遇到 WebM、透明 Web VFX、异常尺寸/帧率或兼容性未知素材时，加载
+[媒体预检合同](references/media-preflight-workflow.md)，先形成可对账的派生媒体关系，再决定是否导入。
 
 ## 执行边界
 
 - 本地素材优先使用固定 Rust argv；官方素材必须经过候选筛选、权益校验、下载收据和应用后检查。
+- 标准化由受控 Provider 创建派生媒体；技能不静默转码，Provider 也不能直接修改草稿。
 - 整个子草稿用 `project concat`；仅导入一条轨道用 `template inspect` + `template import-track`。
 - 不把素材面板可见、下载图标消失或 GUI 提示当作加入草稿成功。
 

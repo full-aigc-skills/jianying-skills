@@ -89,7 +89,7 @@
     },
     {
       "name": "jianying-media",
-      "sha256": "467967d116d56ad1dc1bdbcac5f62c78f9329b56ca2195e667e58cc180fe2628",
+      "sha256": "269bde7d212ca3fbc55427ebc343c42c2a330a52a4463b7c67290c91d263aa62",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.probe",
@@ -105,7 +105,7 @@
     },
     {
       "name": "jianying-audio",
-      "sha256": "b430d318b7a9f234ee4b70418296f0ea025516c32d41f6ecedb6482c60b83b34",
+      "sha256": "3356432306e0b116dc2fc6e6cadd5801cccc22681b584d9033bbeb95f3a1b600",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.audio",
@@ -163,7 +163,7 @@
     },
     {
       "name": "jianying-subtitles",
-      "sha256": "b2e8623ee22bddf2c937df4db2e398b542a3b0f3cfd6eccfc93ac2aa3e327dfd",
+      "sha256": "663d4f9bf9bfb155a8b17a2f10450b12c7a53c8483826e91d01ea34e3fca27ad",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "captions.import",
@@ -197,7 +197,7 @@
     },
     {
       "name": "jianying-adjustments",
-      "sha256": "c70f1b1b940c20554f7ea68d4a89b6723d5377b45a22462737ab6dee33aa2c34",
+      "sha256": "5ce5e1f2c2289ffca2e1ae91fa859f3c7d23ce14535798503947d0f5198edb65",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.control_catalog",
@@ -208,7 +208,7 @@
     },
     {
       "name": "jianying-templates",
-      "sha256": "d3fbcbd17e8112a1bcd3bc1724b4881a5c143b793df8333c7c0b820f81d91c3c",
+      "sha256": "8d8b2fab3236c387bb0675b859371c984447ad7bfe706a9a9f7a75129790bca4",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "template.library",
@@ -277,7 +277,7 @@
     },
     {
       "name": "jianying-narration",
-      "sha256": "bd78e96d75157fae4a2291b629c625768dc96da8ac21665a2514fd5673a14133",
+      "sha256": "6e3a3e15bb4bd3c7e54e911709a41252f3d21aa1c877a798af64e747335eb4c8",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
@@ -288,7 +288,7 @@
     },
     {
       "name": "jianying-motion",
-      "sha256": "76a8f6ee33baf5dec5c6bd74977177f587eeee0180039cd7598dc3f14ec8b932",
+      "sha256": "a40c1fffad5a6443630ef6e0ef4250f410b4f39165abb71743ea9788047d2881",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "timeline.keyframe",
@@ -329,7 +329,7 @@
     },
     {
       "name": "jianying-harness",
-      "sha256": "8433dfd784ce4b735773f158bbf45bb60dbba5155f302a0214d226dafbd47b70",
+      "sha256": "678e9b1c4dad15f37abe564b3504b777133dead1283abc73a8af5e248993e1f0",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.lifecycle",
@@ -341,12 +341,12 @@
     },
     {
       "name": "jianying-video-planning",
-      "sha256": "c3a6b91880514e28f625ba6b6de224f3ddccd0acdb4d8efda227b13781139935",
+      "sha256": "9c0c5e2803423815f1f02e669abe1ee6a2c0242fdce257391927c067656418e6",
       "minimum_cli_version": "1.6.13",
       "required_capabilities": [
         "capabilities"
       ]
     }
   ],
-  "content_sha256": "a574399ba34fd8a94d35cadc082b41643973a3288ff5968fa1a75079e22ab92b"
+  "content_sha256": "2b16d2bdf52c3319792a29718dba6398bc68f57ac3e6ee4faafd1cd2fe573f94"
 }

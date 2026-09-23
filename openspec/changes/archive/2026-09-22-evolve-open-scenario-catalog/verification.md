@@ -1,7 +1,7 @@
 # 开放目录首批实现验证
 
-核对日期：2026-09-21。范围为本地工作树，不是发布、安装或真实成片证明。
-当前记账 19/20；只更新本变更，不改变历史迁移计数。
+核对日期：2026-09-22。范围为本地工作树和已发布不可变技能制品，
+不是插件三宿主或真实成片证明。当前记账 20/20；只更新本变更，不改变历史迁移计数。
 
 ## 环境与输入
 
@@ -42,9 +42,36 @@ Schema 路径相对于 `skills/jianying-video-planning`；其他路径相对于�
 | 3.2 | 插件 v1 冻结回归、v2 开放数量、旧包缺 v2、未知版本与篡改矩阵通过 |
 | 4.1 至 4.3 | `representative-workflows-v1.json` 三条知识向量及场景、Recipe、输出和等待条件断言通过 |
 | 4.4 | SKILL/中英文 README/覆盖计划已区分正式知识、fixture 与运行证据；全仓 Markdown 相对链接审计零断链 |
-| 5.2 | GitHub Immutable Release `v2.2.0`；commit `ed6275c08ab47a25552ccaaa4a70da640cdc948b`；manifest 资产 attestation 通过 |
+| 5.2 | GitHub Immutable Release `v2.2.0`；manifest attestation 通过 |
 | 5.3 | 插件由正式 Release 原子导入 14 技能并校验摘要；锁定 v2.2.0 后 v1 108 回归与 v2 开放矩阵 20/20 |
+| 5.4 | 真实 Release 回滚/重升级；v1、锁和 Release 身份均通过复核 |
 | 5.1 | 本节命令及下列检查通过；只证明当前本地增量，不代表余下任务通过 |
+
+## 真实 Release 回滚与重升级演练
+
+演练目录：`/tmp/jianying-catalog-rollback.fSb8FD`。该目录是隔离副本，未修改工作仓库、
+Git tag、GitHub Release 或远端设置。执行顺序和结果如下：
+
+1. 从 GitHub 下载 `v2.1.0`、`v2.2.0` 的正式 `jianying-skills.manifest.json`，
+   并从本地不可变 tag 建立 detached checkout。
+2. 先把临时插件锁定导入 `v2.2.0`，再回退到 `v2.1.0`，最后重新导入 `v2.2.0`。
+3. 每个阶段逐个核对 `tests/fixtures/legacy_planning_v1.json` 记录的 113 个文件；
+   v1 均保持 108 场景和原摘要。
+4. 回退后旧消费者正常读取 v1，v2 入口明确返回 `catalog_v2_unavailable`；
+   重新升级后 v1 仍为 108 场景，v2 由 `locked_release` provenance 正常读取。
+5. 初次导入与重新升级的 `skills.lock.json` SHA-256 均为
+   `48183f813eb66c6f29cda27d69df3f9019bf0bc8a02d01e25e0f785648c717d1`，
+   且无残留 `.skills-backup-*` 或 `jianying-skill-import-*` 目录。
+
+远端前后两次查询结果一致：
+
+- `v2.1.0`：immutable；manifest SHA-256
+  `d1122fa4e829283cea17ed1130bf5c9da51526facb738775a30d4d7a7a5f4eea`。
+- `v2.2.0`：immutable；manifest SHA-256
+  `883489de386fdbaf5088b43f39d560fa9038dbe3d7f0c9c52ebb9e5902b73dc3`。
+
+这证明回滚只切换插件的锁与 vendored 技能，不改写旧 Release；旧包不会读取 v2，
+兼容发布也不会把 v2 内容灌入冻结 v1。
 
 本轮重新执行以下检查：
 
@@ -54,20 +81,20 @@ python3 scripts/lint_skills.py
 python3 scripts/validate_video_catalog.py
 python3 scripts/validate_open_catalog.py
 python3 scripts/skill_manifest.py check
-markdownlint-cli2 'openspec/changes/evolve-open-scenario-catalog/**/*.md'
+npm exec --offline --yes markdownlint-cli2 -- \
+  'openspec/changes/evolve-open-scenario-catalog/**/*.md'
 openspec validate evolve-open-scenario-catalog --strict
 git diff --check
 ```
 
-单元测试 41/41；14 个技能 lint 通过；旧目录 108 场景、开放目录均零错误；
-14 个技能内容摘要验证通过。配套插件 Node 回归 192 项：188 通过、4 跳过、0 失败。
+单元测试 51/51；24 个技能 lint 通过；旧目录 108 场景、开放目录均零错误；
+24 个技能内容摘要验证通过。配套插件 Python 70/70；Node 回归 302 项：
+295 通过、7 个真实环境用例跳过、0 失败。
 负例断言的失败代码包括 `catalog_identity_conflict`、`catalog_reference_invalid`、
 `unsupported_catalog_schema`、`catalog_empty`、`catalog_path_invalid`、
 `catalog_resource_limit`、`catalog_duplicate_key`；测试拒绝本身是预期结果。
 
-## 未勾选项和下一步
+## 变更边界和后续
 
-- 5.4：旧兼容锁回滚、重新升级及规格同步/归档尚未验收。
-
-下一增量先补目录负例和 VLOG-01 知识向量，再由插件实现 WorkflowPlan 与编辑编译。
-不能为消除数字缩减原验收标准；不归档未完成变更。
+本变更的目录兼容、正式发布、锁定消费和回滚要求已经形成独立证据；严格校验通过后可同步并归档。
+插件 WorkflowPlan、三宿主和真实成片仍属于插件侧变更，不因本 Skills 变更归档而自动完成。

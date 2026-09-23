@@ -90,6 +90,9 @@ license: Apache-2.0
 5. 在隔离副本中执行 timeline trim/move/remove，保持主轨连续。
 6. 导入字幕、结构验证、冷重开，并试听切口、齿音、语义与同步。
 
+影视解说工作流先冻结经人工审校的 commentary storyboard，再把旁白制品、字幕 cue 和 B-roll
+语义槽位分别对账。故事板建议不能直接生成删除/替换命令，也不能绕过素材版权与剧透确认。
+
 账本和切点规则见 [references/workflow.md](references/workflow.md)。
 隔离编辑 Job 见 [examples/minimal-job.json](examples/minimal-job.json)。
 

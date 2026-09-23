@@ -88,6 +88,10 @@ license: Apache-2.0
 5. 通过 `job show`、`job audit`、`job cancel`、`job retry` 管理生命周期。
 6. MCP 使用官方协议实现的 stdio、Streamable HTTP 或 SSE；远程监听必须验证 token、Host 和 Origin，并通过 `jianying_job_list/show/cancel/retry/audit` 管理持久业务任务。
 
+录屏、交互事件、智能缩放、Web VFX、媒体标准化、曝光分析或原生资源发现进入任务时，先加载
+[辅助 Provider 边界](references/assisted-provider-boundary.md)。Provider 只能创建素材、账本或评估；
+草稿写入仍由锁定发布的 Rust CLI 执行。
+
 生命周期、审批与 transport 门禁见 [references/workflow.md](references/workflow.md)。
 编写或审查 Job 时加载 [jianying-job/v2 字段手册](references/plan-format.md)，不要复用旧
 headless plan、私有 wire 字段或未经 capability 证明的操作。
