@@ -113,6 +113,7 @@ def validate(skill, catalog, *, allow_test=False, max_scenes=10000, max_example_
         error('catalog_resource_limit', f'scenes exceeds {max_scenes}')
         return errors
     sets = {key: {x['id'] for x in catalog[key]} for key in ('recipes', 'sources', 'domains', 'overlays')}
+    sources = {x['id']: x for x in catalog['sources']}
     dimensions = {d['id']: {v['id'] for v in d['values']} for d in catalog['dimensions']}
     for dimension in catalog['dimensions']:
         if len(dimensions[dimension['id']]) != len(dimension['values']):
@@ -135,9 +136,22 @@ def validate(skill, catalog, *, allow_test=False, max_scenes=10000, max_example_
         if scene['status'] == 'test_fixture' and not allow_test:
             error('catalog_test_fixture', scene['id'])
         try:
-            safe_file(skill, scene['example_path'], max_example_bytes)
+            example = safe_file(skill, scene['example_path'], max_example_bytes)
         except ValueError as exc:
             error(str(exc), scene['example_path'])
+            continue
+        # 正文门禁只作用于正式场景：测试夹具不占用人工写作成本，也不能因此放宽其余检查。
+        if scene['status'] != 'published_knowledge':
+            continue
+        text = example.read_text(encoding='utf-8')
+        expected = [scene['editorial_intent'], *scene['acceptance']]
+        if any(line not in text for line in expected):
+            error('scene_example_disagrees', scene['id'])
+        for source_id in scene['source_ids']:
+            url = sources[source_id]['url']
+            if url not in text:
+                error('scene_source_not_cited', f"{scene['id']}:{source_id}")
+                break
     for recipe in catalog['recipes']:
         refs(recipe['optional_overlays'], sets['overlays'], recipe['id'] + '.overlays')
         refs(recipe['conflicts'], sets['recipes'], recipe['id'] + '.conflicts')

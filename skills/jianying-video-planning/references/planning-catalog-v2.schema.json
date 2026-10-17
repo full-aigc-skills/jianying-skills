@@ -298,6 +298,37 @@
           "minItems": 1,
           "uniqueItems": true
         },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "required_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "beats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "editorial_intent": {
+          "type": "string",
+          "minLength": 1
+        },
         "status": {
           "enum": [
             "published_knowledge",
@@ -321,6 +352,10 @@
         "source_ids",
         "acceptance",
         "guardrails",
+        "skills",
+        "required_capabilities",
+        "beats",
+        "editorial_intent",
         "status"
       ],
       "additionalProperties": false

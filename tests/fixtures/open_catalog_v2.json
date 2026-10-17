@@ -74,6 +74,23 @@
       "guardrails": [
         "隐私审核"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-draft",
+        "jianying-edit"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "timeline.edit"
+      ],
+      "beats": [
+        "晨间状态",
+        "当天目标",
+        "晚间回望"
+      ],
+      "editorial_intent": "夹具剪辑取舍原则",
       "status": "test_fixture"
     }
   ],

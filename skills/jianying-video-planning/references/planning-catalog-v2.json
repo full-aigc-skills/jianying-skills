@@ -685,6 +685,30 @@
       "guardrails": [
         "避开门牌、通勤定位和旁人隐私"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "晨间状态",
+        "当天目标",
+        "意外小事",
+        "晚间回望"
+      ],
+      "editorial_intent": "用同一动作连接早晚；日常空镜只保留能说明时间变化的部分",
       "status": "published_knowledge"
     },
     {
@@ -724,6 +748,30 @@
       "guardrails": [
         "公司文件、客户信息未经确认不得展示"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "问题出现",
+        "尝试处理",
+        "短暂休息",
+        "工作结果"
+      ],
+      "editorial_intent": "保留解决问题的关键动作；屏幕敏感区域先由人工提供已脱敏素材",
       "status": "published_knowledge"
     },
     {
@@ -763,6 +811,30 @@
       "guardrails": [
         "不要把加速片段包装为实时学习时长"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "目标",
+        "专注段落",
+        "卡点",
+        "复盘"
+      ],
+      "editorial_intent": "压缩重复书写但保留关键解题变化；计时加速须明确标注",
       "status": "published_knowledge"
     },
     {
@@ -803,6 +875,30 @@
       "guardrails": [
         "剧组人员及未公开项目须获展示许可"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "结果钩子",
+        "现场搭建",
+        "失败修正",
+        "前后对照"
+      ],
+      "editorial_intent": "成片和幕后使用同一镜头配对；补录音效注明是后期设计",
       "status": "published_knowledge"
     },
     {
@@ -842,6 +938,30 @@
       "guardrails": [
         "不能用剪辑捏造健康、学习或收入效果"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "起点",
+        "阶段困难",
+        "调整",
+        "终点比较"
+      ],
+      "editorial_intent": "对比统一机位与任务；跳过日期加时间标记，不编造连续性",
       "status": "published_knowledge"
     },
     {
@@ -882,6 +1002,30 @@
       "guardrails": [
         "公开前检查门牌、快递单与钥匙特写"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "告别旧处",
+        "打包奔波",
+        "抵达",
+        "首个安定瞬间"
+      ],
+      "editorial_intent": "旧房与新房选相似构图呼应；杂乱搬运用声音延续叙事",
       "status": "published_knowledge"
     },
     {
@@ -922,6 +1066,30 @@
       "guardrails": [
         "素材拍摄日期与解说不得错配"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "精彩瞬间",
+        "出发缘由",
+        "旅行波折",
+        "旅后感受"
+      ],
+      "editorial_intent": "开头倒叙片段在正文回收；地点字幕只标已核实地名",
       "status": "published_knowledge"
     },
     {
@@ -962,6 +1130,30 @@
       "guardrails": [
         "路人脸部、店内拍摄和地图授权需确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "出发点",
+        "沿途发现",
+        "停留体验",
+        "终点"
+      ],
+      "editorial_intent": "保持行进方向；转角用相邻街景建立空间连续",
       "status": "published_knowledge"
     },
     {
@@ -1003,6 +1195,30 @@
       "guardrails": [
         "不能鼓励手持驾驶拍摄；遮蔽车牌等隐私"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "准备",
+        "第一段路",
+        "休息插曲",
+        "终点"
+      ],
+      "editorial_intent": "道路镜头压缩但保留地貌变化；路线图由外部提供成图",
       "status": "published_knowledge"
     },
     {
@@ -1043,6 +1259,30 @@
       "guardrails": [
         "不伪造路线难度与安全信息，不显示敏感生态位置"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "目标",
+        "上山过程",
+        "扎营体验",
+        "无痕离开"
+      ],
+      "editorial_intent": "脚步环境音做连接；搭帐篷快切保留关键结构状态",
       "status": "published_knowledge"
     },
     {
@@ -1083,6 +1323,30 @@
       "guardrails": [
         "时效性信息须发布前重查，不保证现行价格"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "适合谁",
+        "怎么到",
+        "怎么玩",
+        "避坑总结"
+      ],
+      "editorial_intent": "每个建议配对应实拍与信息卡；动态价格标采集日期",
       "status": "published_knowledge"
     },
     {
@@ -1125,6 +1389,30 @@
       "guardrails": [
         "音乐与航拍素材版权独立核验"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "空间建立",
+        "细节观察",
+        "光线高潮",
+        "静景结束"
+      ],
+      "editorial_intent": "按光线而非文件顺序编排；长镜头保留呼吸，不每拍强切",
       "status": "published_knowledge"
     },
     {
@@ -1164,6 +1452,31 @@
       "guardrails": [
         "亲密镜头和宾客露脸须按新人许可"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "一句承诺",
+        "准备碎片",
+        "情绪高点",
+        "婚礼信息"
+      ],
+      "editorial_intent": "不给全场流程流水账；誓言停顿后再切反应镜头",
       "status": "published_knowledge"
     },
     {
@@ -1202,6 +1515,31 @@
       "guardrails": [
         "时间压力不能跳过备份和新人审看"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "准备",
+        "入场",
+        "关键仪式",
+        "祝福"
+      ],
+      "editorial_intent": "先锁可播放粗剪再补细节；多机未同步时只选可靠机位",
       "status": "published_knowledge"
     },
     {
@@ -1241,6 +1579,31 @@
       "guardrails": [
         "私人经历与旧照需双方确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "初遇",
+        "分歧与陪伴",
+        "共同决定",
+        "未来"
+      ],
+      "editorial_intent": "按问题主题交叉回答，不拼接成对方未说的意思",
       "status": "published_knowledge"
     },
     {
@@ -1280,6 +1643,29 @@
       "guardrails": [
         "没有自动多机同步承诺；断录须明确披露"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "入场",
+        "致辞",
+        "誓言交换",
+        "礼成"
+      ],
+      "editorial_intent": "先人工校准机位与音轨；以连续主音轨覆盖机位切换",
       "status": "published_knowledge"
     },
     {
@@ -1318,6 +1704,30 @@
       "guardrails": [
         "禁止把不同讲话拼成虚假承诺"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "关系铺垫",
+        "具体回忆",
+        "承诺",
+        "回应"
+      ],
+      "editorial_intent": "先纸上剪辑完整句意，再用B-roll遮蔽合法删节",
       "status": "published_knowledge"
     },
     {
@@ -1358,6 +1768,31 @@
       "guardrails": [
         "公开发布必须获当事人确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "准备期待",
+        "相遇",
+        "求婚回应",
+        "庆祝"
+      ],
+      "editorial_intent": "回应段保留连续声音；前奏压缩，核心反应不重复误导",
       "status": "published_knowledge"
     },
     {
@@ -1397,6 +1832,31 @@
       "guardrails": [
         "未成年人影像默认私密交付"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "初生",
+        "首次尝试",
+        "成长变化",
+        "生日"
+      ],
+      "editorial_intent": "优先不同动作里程碑；用相同构图作月龄对比",
       "status": "published_knowledge"
     },
     {
@@ -1436,6 +1896,31 @@
       "guardrails": [
         "私人祝福不默认授权公开或模型上传"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "寿星引入",
+        "亲友祝福",
+        "共同回忆",
+        "祝愿"
+      ],
+      "editorial_intent": "音量逐人平衡；祝福按关系而不是上传顺序排列",
       "status": "published_knowledge"
     },
     {
@@ -1475,6 +1960,31 @@
       "guardrails": [
         "校徽、学生姓名与肖像发布需确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "初入校园",
+        "共同经历",
+        "毕业当日",
+        "未来"
+      ],
+      "editorial_intent": "用相同人物前后照片对应；名单停留时间足够阅读",
       "status": "published_knowledge"
     },
     {
@@ -1514,6 +2024,31 @@
       "guardrails": [
         "不虚构当事人台词或关系变化"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "最初",
+        "难忘节点",
+        "今天",
+        "下一年"
+      ],
+      "editorial_intent": "用地点或物件作为时间线锚点，避免纯日期翻页",
       "status": "published_knowledge"
     },
     {
@@ -1553,6 +2088,31 @@
       "guardrails": [
         "修复和补帧不得被宣称为原始真实影像"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "人物介绍",
+        "家庭章节",
+        "共同事件",
+        "合影收尾"
+      ],
+      "editorial_intent": "照片缓慢推拉只在主体范围；未知年代标约或待核实",
       "status": "published_knowledge"
     },
     {
@@ -1592,6 +2152,31 @@
       "guardrails": [
         "不擅自合成逝者声音或面容"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "姓名与生平",
+        "生活记忆",
+        "亲友追思",
+        "安静收束"
+      ],
+      "editorial_intent": "保持足够阅读与停留时间；避免夸张转场及欢快卡点",
       "status": "published_knowledge"
     },
     {
@@ -1632,6 +2217,29 @@
       "guardrails": [
         "内部财务和未公布战略须脱敏"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "年度主题",
+        "成果",
+        "员工时刻",
+        "集体收尾"
+      ],
+      "editorial_intent": "成绩配对应画面或原图；名单使用正式版本",
       "status": "published_knowledge"
     },
     {
@@ -1671,6 +2279,29 @@
       "guardrails": [
         "不能把概念演示当量产能力"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "问题背景",
+        "产品亮相",
+        "核心演示",
+        "下一步"
+      ],
+      "editorial_intent": "保留真正演示结果；将长讲话压成完整结论而非口号拼贴",
       "status": "published_knowledge"
     },
     {
@@ -1711,6 +2342,30 @@
       "guardrails": [
         "展品与受访者拍摄许可逐项确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "展会定位",
+        "重点展区",
+        "代表产品",
+        "参观建议"
+      ],
+      "editorial_intent": "每个展位先给名称再展示内容；避免不同企业标识串位",
       "status": "published_knowledge"
     },
     {
@@ -1750,6 +2405,29 @@
       "guardrails": [
         "不得把质疑片段剪成赞同结论"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "议题",
+        "分论点",
+        "案例",
+        "问答总结"
+      ],
+      "editorial_intent": "演讲音轨作主线；PPT插入对齐讲话主题",
       "status": "published_knowledge"
     },
     {
@@ -1790,6 +2468,29 @@
       "guardrails": [
         "使用者提供已授权人群与音乐素材"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "场地与主题",
+        "倒计时",
+        "开幕动作",
+        "现场反馈"
+      ],
+      "editorial_intent": "剪彩等一次性动作保持连续；庆祝素材不冒充同期反应",
       "status": "published_knowledge"
     },
     {
@@ -1829,6 +2530,30 @@
       "guardrails": [
         "保护弱势群体身份，不制造同意或效果证据"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "现实需求",
+        "具体行动",
+        "受助反馈",
+        "后续"
+      ],
+      "editorial_intent": "不给苦难特写强行情绪化；用可核对成果结束",
       "status": "published_knowledge"
     },
     {
@@ -1868,6 +2593,30 @@
       "guardrails": [
         "引用客户经历需同意，不制造历史"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "用户困境",
+        "品牌选择",
+        "行动证明",
+        "价值主张"
+      ],
+      "editorial_intent": "少用空泛宣传词；价值观对应可见行为",
       "status": "published_knowledge"
     },
     {
@@ -1907,6 +2656,30 @@
       "guardrails": [
         "生产秘密与客户标识须审查"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "服务对象",
+        "业务链路",
+        "团队能力",
+        "交付成果"
+      ],
+      "editorial_intent": "流程按真实因果排序，空镜只做连接",
       "status": "published_knowledge"
     },
     {
@@ -1946,6 +2719,30 @@
       "guardrails": [
         "不要把自述当独立核实事实"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "初衷",
+        "困境",
+        "关键决定",
+        "今天"
+      ],
+      "editorial_intent": "保留决定前后的因果与代价；不要只剪成功金句",
       "status": "published_knowledge"
     },
     {
@@ -1985,6 +2782,30 @@
       "guardrails": [
         "员工可拒绝露脸，不替员工编写好评"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "员工是谁",
+        "真实一天",
+        "支持与挑战",
+        "岗位邀请"
+      ],
+      "editorial_intent": "不同岗位各给具体工作镜头；不隐藏必要工作条件",
       "status": "published_knowledge"
     },
     {
@@ -2024,6 +2845,30 @@
       "guardrails": [
         "不能夸大捐助效果或暴露受助者"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "为何有关",
+        "可以做什么",
+        "行动入口"
+      ],
+      "editorial_intent": "每个倡议只保留一个主行动，渠道卡足够阅读",
       "status": "published_knowledge"
     },
     {
@@ -2063,6 +2908,31 @@
       "guardrails": [
         "旧素材版权不因年代久远而自动豁免"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.audio_fade",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "成立",
+        "转折",
+        "共同成就",
+        "未来"
+      ],
+      "editorial_intent": "按阶段选一件代表事件；老素材年代明确标注",
       "status": "published_knowledge"
     },
     {
@@ -2102,6 +2972,30 @@
       "guardrails": [
         "功效和性能表述必须有依据"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "使用情境",
+        "卖点演示",
+        "证据",
+        "行动"
+      ],
+      "editorial_intent": "对比镜头控制条件；一条片不塞入全部卖点",
       "status": "published_knowledge"
     },
     {
@@ -2141,6 +3035,30 @@
       "guardrails": [
         "不得制造恐惧或夸大解决范围"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "尝试",
+        "解决",
+        "适用边界"
+      ],
+      "editorial_intent": "问题与结果用同一对象；避免靠调色伪造效果",
       "status": "published_knowledge"
     },
     {
@@ -2180,6 +3098,30 @@
       "guardrails": [
         "禁止合成虚假评价或抹去商业合作标识"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "使用前需求",
+        "体验细节",
+        "优缺点",
+        "建议"
+      ],
+      "editorial_intent": "保留具体体验与限制；演员演绎必须标识",
       "status": "published_knowledge"
     },
     {
@@ -2219,6 +3161,30 @@
       "guardrails": [
         "发布前重新核对活动是否仍有效"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "活动是什么",
+        "优惠内容",
+        "适用限制",
+        "入口"
+      ],
+      "editorial_intent": "价格日期用统一卡片，不能一闪而过；规则末屏可暂停阅读",
       "status": "published_knowledge"
     },
     {
@@ -2260,6 +3226,30 @@
       "guardrails": [
         "应用商店与平台广告规则需另行核验"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "用户需求",
+        "操作路径",
+        "结果",
+        "安装邀请"
+      ],
+      "editorial_intent": "去掉等待但注明加速；保留关键操作反馈",
       "status": "published_knowledge"
     },
     {
@@ -2301,6 +3291,30 @@
       "guardrails": [
         "不暗示未授权代言，不夸大套餐优惠"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "门店特色",
+        "套餐体验",
+        "使用条件",
+        "到店信息"
+      ],
+      "editorial_intent": "实拍分量和套餐名称一致；限制条件不能藏小字",
       "status": "published_knowledge"
     },
     {
@@ -2340,6 +3354,30 @@
       "guardrails": [
         "礼赠或赞助关系明确说明"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "包装",
+        "配件清点",
+        "细节",
+        "上手"
+      ],
+      "editorial_intent": "开封关键动作保留连续；配件图与实物逐项对应",
       "status": "published_knowledge"
     },
     {
@@ -2379,6 +3417,30 @@
       "guardrails": [
         "未经证实的功能不可用字幕补出"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "任务",
+        "准备",
+        "操作",
+        "结果验证"
+      ],
+      "editorial_intent": "每个动作后给反馈镜头；不只给外观特写",
       "status": "published_knowledge"
     },
     {
@@ -2418,6 +3480,30 @@
       "guardrails": [
         "不能把不同条件的镜头剪成公平对比"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "需求维度",
+        "同条件测试",
+        "结果",
+        "适用人群"
+      ],
+      "editorial_intent": "两侧按同一指标排序；外部图表先生成再作为素材导入",
       "status": "published_knowledge"
     },
     {
@@ -2457,6 +3543,30 @@
       "guardrails": [
         "账号、令牌、客户数据先脱敏"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "问题",
+        "入口",
+        "关键操作",
+        "成功状态"
+      ],
+      "editorial_intent": "放大关注区域但不遮挡状态反馈；长加载可压缩并标记",
       "status": "published_knowledge"
     },
     {
@@ -2498,6 +3608,30 @@
       "guardrails": [
         "不能把待上线功能说成全量开放"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "以前障碍",
+        "新增能力",
+        "实际演示",
+        "启用条件"
+      ],
+      "editorial_intent": "旧新画面配对；明确版本与灰度限制",
       "status": "published_knowledge"
     },
     {
@@ -2539,6 +3673,30 @@
       "guardrails": [
         "高风险安装由合格人员审稿，视频不替代说明书"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "准备检查",
+        "依序安装",
+        "连接",
+        "验收"
+      ],
+      "editorial_intent": "螺丝方向、线缆接口用特写；关键紧固不跳步",
       "status": "published_knowledge"
     },
     {
@@ -2578,6 +3736,30 @@
       "guardrails": [
         "不能仅靠字幕堆满屏幕"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "概念",
+        "例子",
+        "自测"
+      ],
+      "editorial_intent": "删去无关铺垫，关键概念给阅读停顿",
       "status": "published_knowledge"
     },
     {
@@ -2618,6 +3800,30 @@
       "guardrails": [
         "不把章节片段标成完整课程"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "回顾前提",
+        "本节目标",
+        "讲解实践",
+        "练习总结"
+      ],
+      "editorial_intent": "章节边界明确；演示与口述同步",
       "status": "published_knowledge"
     },
     {
@@ -2657,6 +3863,30 @@
       "guardrails": [
         "工具版本和操作环境必须说明"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "准备",
+        "逐步操作",
+        "错误处理",
+        "成功检查"
+      ],
+      "editorial_intent": "一步一个动作及反馈；易错处保留近景与停顿",
       "status": "published_knowledge"
     },
     {
@@ -2696,6 +3926,30 @@
       "guardrails": [
         "示意动画不是实验记录；不伪造研究结论"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "疑问",
+        "直观比喻",
+        "原理",
+        "比喻边界"
+      ],
+      "editorial_intent": "图示每次只改变一个变量；音画解释一致",
       "status": "published_knowledge"
     },
     {
@@ -2735,6 +3989,30 @@
       "guardrails": [
         "不能使用模糊OCR结果替代数学审校"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "读题",
+        "思路",
+        "分步推导",
+        "验算"
+      ],
+      "editorial_intent": "推导关键行不可跳切；符号变化配语音停顿",
       "status": "published_knowledge"
     },
     {
@@ -2775,6 +4053,30 @@
       "guardrails": [
         "安全步骤不能为了节奏删除"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "条件控制",
+        "实验",
+        "观察与解释"
+      ],
+      "editorial_intent": "关键反应保持连续；加速镜头标明倍率或时间跨度",
       "status": "published_knowledge"
     },
     {
@@ -2814,6 +4116,30 @@
       "guardrails": [
         "内部入口与身份数据不公开分发"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "团队介绍",
+        "第一天事项",
+        "常用入口",
+        "求助渠道"
+      ],
+      "editorial_intent": "按新人实际办事顺序，不按部门组织图堆砌",
       "status": "published_knowledge"
     },
     {
@@ -2853,6 +4179,30 @@
       "guardrails": [
         "视频不覆盖正式制度，冲突时停止核实"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "前提",
+        "标准步骤",
+        "检查点",
+        "异常上报"
+      ],
+      "editorial_intent": "步骤编号与SOP对应；危险分支不可快进省略",
       "status": "published_knowledge"
     },
     {
@@ -2892,6 +4242,30 @@
       "guardrails": [
         "不为拍摄制造真实危险或鼓励模仿"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "危险识别",
+        "防护",
+        "正确操作",
+        "异常处置"
+      ],
+      "editorial_intent": "错误示意加明显标识；把禁止动作与正确动作分开",
       "status": "published_knowledge"
     },
     {
@@ -2931,6 +4305,30 @@
       "guardrails": [
         "演示账户不可包含真实客户信息"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "准备",
+        "首次配置",
+        "完成一项任务",
+        "求助"
+      ],
+      "editorial_intent": "缩短概念介绍，保留首次成功的完整闭环",
       "status": "published_knowledge"
     },
     {
@@ -2970,6 +4368,30 @@
       "guardrails": [
         "不要用通用步骤覆盖高风险异常"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "症状",
+        "适用条件",
+        "处理",
+        "仍失败怎么办"
+      ],
+      "editorial_intent": "先展示症状便于识别；不混入多个不相关故障",
       "status": "published_knowledge"
     },
     {
@@ -3009,6 +4431,30 @@
       "guardrails": [
         "未完成事项不可包装成已交付"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "目标",
+        "成果",
+        "差距",
+        "下一步决策"
+      ],
+      "editorial_intent": "数字和画面按同一周期；把完成和计划分屏标识",
       "status": "published_knowledge"
     },
     {
@@ -3047,6 +4493,30 @@
       "guardrails": [
         "被访者敏感表述按约定复核"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "人物是谁",
+        "关键经历",
+        "变化",
+        "当下观点"
+      ],
+      "editorial_intent": "先保句意再遮跳切；反应镜头不跨语境误配",
       "status": "published_knowledge"
     },
     {
@@ -3085,6 +4555,30 @@
       "guardrails": [
         "人工校准同步，不能承诺自动识别说话人"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "话题引入",
+        "观点交换",
+        "分歧展开",
+        "共识或留问"
+      ],
+      "editorial_intent": "按发言与反应选机位；避免切到另一时刻制造态度",
       "status": "published_knowledge"
     },
     {
@@ -3124,6 +4618,30 @@
       "guardrails": [
         "发言者识别与同步由人工确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "议题",
+        "轮次发言",
+        "交锋",
+        "主持总结"
+      ],
+      "editorial_intent": "姓名首次出现标注；保留必要接话以避免断章取义",
       "status": "published_knowledge"
     },
     {
@@ -3163,6 +4681,30 @@
       "guardrails": [
         "音频处理不等于已取得所有音乐版权"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "开场",
+        "核心话题",
+        "延伸",
+        "总结"
+      ],
+      "editorial_intent": "先处理技术中断，再按主题设章；保留有意义停顿",
       "status": "published_knowledge"
     },
     {
@@ -3202,6 +4744,29 @@
       "guardrails": [
         "传播性不能凌驾于原话准确性"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "问题背景",
+        "关键观点",
+        "解释证据",
+        "出处"
+      ],
+      "editorial_intent": "短片首句补足指代，结尾保留限制条件",
       "status": "published_knowledge"
     },
     {
@@ -3241,6 +4806,30 @@
       "guardrails": [
         "行人可撤回露脸许可，避免曝光未成年人"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-narration",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "问题",
+        "不同回答",
+        "代表性追问",
+        "开放结尾"
+      ],
+      "editorial_intent": "回答按观点聚类但保留样本边界；切掉采访者诱导时需保留背景",
       "status": "published_knowledge"
     },
     {
@@ -3280,6 +4869,30 @@
       "guardrails": [
         "不同年代与演绎画面必须标记"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "当下状态",
+        "关键往事",
+        "选择代价",
+        "开放未来"
+      ],
+      "editorial_intent": "用行动支撑自述；旧资料与现在明确分层",
       "status": "published_knowledge"
     },
     {
@@ -3319,6 +4932,30 @@
       "guardrails": [
         "商业秘密、顾客身份和危险工序须审查"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "准备",
+        "核心劳动",
+        "突发问题",
+        "交班复盘"
+      ],
+      "editorial_intent": "保留劳动步骤和环境音；避免只拍漂亮动作",
       "status": "published_knowledge"
     },
     {
@@ -3361,6 +4998,30 @@
       "guardrails": [
         "传统知识与匠人授权不能默认商业开放"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "手艺背景",
+        "关键技法",
+        "传承困难",
+        "成品与下一代"
+      ],
+      "editorial_intent": "关键手部动作留足观察时间；难点用实拍而非空泛旁白",
       "status": "published_knowledge"
     },
     {
@@ -3402,6 +5063,30 @@
       "guardrails": [
         "敏感住址和弱势群体身份保护"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "社区背景",
+        "不同生活经验",
+        "变化冲突",
+        "共同问题"
+      ],
+      "editorial_intent": "平衡不同群体素材，不以一人代表全部",
       "status": "published_knowledge"
     },
     {
@@ -3441,6 +5126,30 @@
       "guardrails": [
         "不诱导伤害野生动物，不暴露脆弱栖息地"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "环境",
+        "发现",
+        "行为过程",
+        "观察边界"
+      ],
+      "editorial_intent": "保持行为先后，不能把无关个体剪成同一过程",
       "status": "published_knowledge"
     },
     {
@@ -3481,6 +5190,30 @@
       "guardrails": [
         "不得把生成或修复影像当原始档案"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "时间线",
+        "相互印证",
+        "仍未知部分"
+      ],
+      "editorial_intent": "档案每次出现带来源；示意重演单独标识",
       "status": "published_knowledge"
     },
     {
@@ -3520,6 +5253,30 @@
       "guardrails": [
         "不能用旧视频冒充现场，不以速度代替核实"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "发生什么",
+        "何时何地",
+        "已知进展",
+        "待确认"
+      ],
+      "editorial_intent": "画面必须对应所述事件；未核实部分不配肯定标题",
       "status": "published_knowledge"
     },
     {
@@ -3559,6 +5316,30 @@
       "guardrails": [
         "时间相邻不等于因果关系"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "起点",
+        "关键节点",
+        "转折",
+        "当前状态"
+      ],
+      "editorial_intent": "按发生时间非报道时间排序；同日事件注明时区需求",
       "status": "published_knowledge"
     },
     {
@@ -3598,6 +5379,30 @@
       "guardrails": [
         "CLI不自动统计核验，不把相关性说成因果"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "数据口径",
+        "主要发现",
+        "局限"
+      ],
+      "editorial_intent": "图表由外部工具制作；展示坐标与基数，不用裁切夸大差距",
       "status": "published_knowledge"
     },
     {
@@ -3637,6 +5442,30 @@
       "guardrails": [
         "涉及法律医疗金融结论应交专业人员复核"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "问题",
+        "机制",
+        "不同影响",
+        "争议与未知"
+      ],
+      "editorial_intent": "区分政策文本、个人观点和推演；术语配解释卡",
       "status": "published_knowledge"
     },
     {
@@ -3676,6 +5505,30 @@
       "guardrails": [
         "灾难与受害者画面需尊重隐私及伤害边界"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "现场引入",
+        "事实说明",
+        "采访证据",
+        "最新情况"
+      ],
+      "editorial_intent": "记者出镜与B-roll对位；保留现场声证明环境但不冒充证据",
       "status": "published_knowledge"
     },
     {
@@ -3715,6 +5568,30 @@
       "guardrails": [
         "不得二次扩散敏感信息或伪造核查证据"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "待核说法",
+        "溯源",
+        "交叉验证",
+        "结论与局限"
+      ],
+      "editorial_intent": "引用误传时加待核标记；证据页面带时间与来源",
       "status": "published_knowledge"
     },
     {
@@ -3754,6 +5631,30 @@
       "guardrails": [
         "采用已授权演员和剧本，不编造现实人物行为"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "情境",
+        "人物目标",
+        "冲突",
+        "结果"
+      ],
+      "editorial_intent": "建立轴线与视线关系；动作接点逐帧检查",
       "status": "published_knowledge"
     },
     {
@@ -3793,6 +5694,30 @@
       "guardrails": [
         "不可用夸张标题误导成真实新闻"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "快速交代关系",
+        "冲突升级",
+        "选择",
+        "悬念"
+      ],
+      "editorial_intent": "构图保证双方反应；字幕避开平台遮挡区",
       "status": "published_knowledge"
     },
     {
@@ -3832,6 +5757,30 @@
       "guardrails": [
         "笑点不能依赖羞辱无同意的真人"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "设定",
+        "预期",
+        "偏差",
+        "反应"
+      ],
+      "editorial_intent": "先无配乐测试停顿；反应镜头长度服务笑点而非填空",
       "status": "published_knowledge"
     },
     {
@@ -3871,6 +5820,30 @@
       "guardrails": [
         "不要伪装真实事件证据"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "建立预期",
+        "埋线索",
+        "误导但不撒谎",
+        "揭示"
+      ],
+      "editorial_intent": "反转前不提前泄露画面；揭示后允许一镜回收伏笔",
       "status": "published_knowledge"
     },
     {
@@ -3910,6 +5883,30 @@
       "guardrails": [
         "涉及危险动作仅使用安全表演素材"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "身份设定",
+        "交互",
+        "情境变化",
+        "选择结果"
+      ],
+      "editorial_intent": "视线高度和运动一致；客观镜头插入需有动机",
       "status": "published_knowledge"
     },
     {
@@ -3949,6 +5946,30 @@
       "guardrails": [
         "预告素材版权及发行信息单独确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "世界与人物",
+        "冲突",
+        "节奏升级",
+        "片名悬念"
+      ],
+      "editorial_intent": "音桥连接不同片段但不拼造台词；避开结局镜头",
       "status": "published_knowledge"
     },
     {
@@ -3988,6 +6009,30 @@
       "guardrails": [
         "不承诺自动节拍检测或口型校正"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "前奏氛围",
+        "主歌叙事",
+        "副歌高潮",
+        "尾声"
+      ],
+      "editorial_intent": "先人工同步口型；音乐段落决定镜头密度，非每拍都切",
       "status": "published_knowledge"
     },
     {
@@ -4027,6 +6072,30 @@
       "guardrails": [
         "歌词和音乐需要各自授权"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "前奏",
+        "逐句歌词",
+        "副歌变化",
+        "曲目信息"
+      ],
+      "editorial_intent": "按人工核准句级时间导入字幕；换行以语义为单位",
       "status": "published_knowledge"
     },
     {
@@ -4066,6 +6135,30 @@
       "guardrails": [
         "自动追踪不是默认能力，裁切须人工预览"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "开场队形",
+        "动作发展",
+        "高潮",
+        "收势"
+      ],
+      "editorial_intent": "动作完成点再切镜；全景保留脚步与队形，不只拍表情",
       "status": "published_knowledge"
     },
     {
@@ -4105,6 +6198,30 @@
       "guardrails": [
         "不能以替代音轨冒充现场演奏而不说明"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "乐句引入",
+        "主题",
+        "发展",
+        "收尾"
+      ],
+      "editorial_intent": "优先声音连续性；近景必须对应当下指法或击打",
       "status": "published_knowledge"
     },
     {
@@ -4144,6 +6261,30 @@
       "guardrails": [
         "演出录制与传播授权分别确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "场馆气氛",
+        "代表歌曲",
+        "高潮",
+        "谢幕"
+      ],
+      "editorial_intent": "曲目切换设明确边界；现场声与音乐分层",
       "status": "published_knowledge"
     },
     {
@@ -4183,6 +6324,29 @@
       "guardrails": [
         "同步与场记人工确认，不能用代理预览替原生验收"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "开场",
+        "完整表演",
+        "结束姿态",
+        "谢幕"
+      ],
+      "editorial_intent": "以全景兜底避免漏动作；跨机位连续性逐段检查",
       "status": "published_knowledge"
     },
     {
@@ -4222,6 +6386,29 @@
       "guardrails": [
         "赛事版权和运动员肖像需确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "比赛背景",
+        "关键回合",
+        "转折",
+        "结果"
+      ],
+      "editorial_intent": "精彩动作前保留发起过程；重播标明重播",
       "status": "published_knowledge"
     },
     {
@@ -4261,6 +6448,30 @@
       "guardrails": [
         "伤病信息须本人许可，不提出医疗结论"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "目标",
+        "挫折",
+        "调整训练",
+        "回归"
+      ],
+      "editorial_intent": "用真实训练变化支撑人物弧线；不以别场比赛替代关键结果",
       "status": "published_knowledge"
     },
     {
@@ -4300,6 +6511,30 @@
       "guardrails": [
         "专业教练审查；视频不替代个体安全评估"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "完整示范",
+        "分解",
+        "错例纠正",
+        "练习要求"
+      ],
+      "editorial_intent": "同一动作角度配对；慢放注明且保留正常速度示范",
       "status": "published_knowledge"
     },
     {
@@ -4339,6 +6574,29 @@
       "guardrails": [
         "游戏音乐和语音隐私需核验"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "局势",
+        "操作铺垫",
+        "高光",
+        "回合结果"
+      ],
+      "editorial_intent": "保留必要小地图与比分；击杀前后动作不能错序",
       "status": "published_knowledge"
     },
     {
@@ -4378,6 +6636,30 @@
       "guardrails": [
         "不把外挂操作当正常攻略"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "条件",
+        "路线",
+        "难点解法",
+        "完成"
+      ],
+      "editorial_intent": "关键按键与反馈同期展示；失败段说明原因",
       "status": "published_knowledge"
     },
     {
@@ -4417,6 +6699,29 @@
       "guardrails": [
         "聊天记录及其他玩家身份先审查"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume"
+      ],
+      "beats": [
+        "本期目标",
+        "尝试与意外",
+        "转机",
+        "本期结果"
+      ],
+      "editorial_intent": "删等待但保留任务状态变化；笑点保留触发上下文",
       "status": "published_knowledge"
     },
     {
@@ -4456,6 +6761,31 @@
       "guardrails": [
         "隐去住户物品与安防细节，不保证交易事实"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "楼栋外观",
+        "入户",
+        "公共区",
+        "私密区",
+        "总结"
+      ],
+      "editorial_intent": "沿真实路线剪辑；广角素材不得夸大尺寸",
       "status": "published_knowledge"
     },
     {
@@ -4496,6 +6826,31 @@
       "guardrails": [
         "酒店授权与住客隐私独立处理"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "抵达",
+        "入住",
+        "房间",
+        "公共设施",
+        "体验总结"
+      ],
+      "editorial_intent": "按住客路径呈现；房型与配套不能跨套餐误配",
       "status": "published_knowledge"
     },
     {
@@ -4536,6 +6891,31 @@
       "guardrails": [
         "建筑摄影与人员肖像授权须明确"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "整体体量",
+        "进入",
+        "空间递进",
+        "材质细节",
+        "回望"
+      ],
+      "editorial_intent": "由大到小组织景别；保持垂直线和运动方向一致",
       "status": "published_knowledge"
     },
     {
@@ -4577,6 +6957,30 @@
       "guardrails": [
         "不能用镜头或光线差异冒充结构改善"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "原问题",
+        "改造过程",
+        "关键改变",
+        "同角度对比"
+      ],
+      "editorial_intent": "先匹配机位再做前后切换；工期压缩需注明",
       "status": "published_knowledge"
     },
     {
@@ -4617,6 +7021,31 @@
       "guardrails": [
         "展品复制权与馆内拍摄规定单独确认"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "展览主题",
+        "路线",
+        "重点展品",
+        "策展联系",
+        "结束"
+      ],
+      "editorial_intent": "先建立展区再给展品近景；标签核对后再加字幕",
       "status": "published_knowledge"
     },
     {
@@ -4656,6 +7085,30 @@
       "guardrails": [
         "不鼓励危险驾驶，牌照与车主隐私保护"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-motion"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.crop",
+        "timeline.keyframe"
+      ],
+      "beats": [
+        "车型识别",
+        "设计细节",
+        "使用体验",
+        "总结"
+      ],
+      "editorial_intent": "同一车辆版本保持一致；引擎声不要冒充实录",
       "status": "published_knowledge"
     },
     {
@@ -4696,6 +7149,31 @@
       "guardrails": [
         "食品安全事项须可靠来源，不做无依据功效宣传"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "成品预览",
+        "配料",
+        "关键操作",
+        "火候",
+        "装盘"
+      ],
+      "editorial_intent": "关键状态变化不能省略；等待可加速但时间温度明示",
       "status": "published_knowledge"
     },
     {
@@ -4736,6 +7214,30 @@
       "guardrails": [
         "他人就餐画面需处理隐私，体验不是普遍保证"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-audio"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "timeline.volume",
+        "timeline.audio_fade"
+      ],
+      "beats": [
+        "到店缘由",
+        "环境",
+        "菜品体验",
+        "消费总结"
+      ],
+      "editorial_intent": "主观感受与可核实价格分开；不跨菜品拼接口感评价",
       "status": "published_knowledge"
     },
     {
@@ -4776,6 +7278,31 @@
       "guardrails": [
         "涉及刀具热熔等危险步骤须有防护提示"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "材料",
+        "基础步骤",
+        "难点",
+        "修正",
+        "成品"
+      ],
+      "editorial_intent": "手部不遮关键操作；复杂重复动作至少保留一遍完整示范",
       "status": "published_knowledge"
     },
     {
@@ -4816,6 +7343,31 @@
       "guardrails": [
         "不得制造故障作假；电气等高风险维修交专业复核"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "损坏状态",
+        "诊断",
+        "维修",
+        "装回",
+        "功能测试"
+      ],
+      "editorial_intent": "拆下和装回零件对应；保留测试失败及再次修复",
       "status": "published_knowledge"
     },
     {
@@ -4855,6 +7407,30 @@
       "guardrails": [
         "皮肤功效不作医疗承诺，人物授权明确"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "目标妆容",
+        "基础",
+        "重点步骤",
+        "整体检查"
+      ],
+      "editorial_intent": "前后保持光线与滤镜一致；关键手法完整展示",
       "status": "published_knowledge"
     },
     {
@@ -4894,6 +7470,30 @@
       "guardrails": [
         "不能用别株或生成帧冒充连续生长"
       ],
+      "skills": [
+        "jianying-video-planning",
+        "jianying-inspect",
+        "jianying-draft",
+        "jianying-edit",
+        "jianying-subtitles"
+      ],
+      "required_capabilities": [
+        "schema.job_v2",
+        "job.run",
+        "project.create",
+        "project.verify",
+        "media.probe",
+        "timeline.edit",
+        "captions.import",
+        "captions.style"
+      ],
+      "beats": [
+        "种植起点",
+        "生长阶段",
+        "异常与调整",
+        "结果"
+      ],
+      "editorial_intent": "按真实时间排序；缺帧段标日期跨度，曝光跳变先外部处理",
       "status": "published_knowledge"
     }
   ],
