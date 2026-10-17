@@ -33,7 +33,7 @@ license: Apache-2.0
 
 旧 `plan-video` 继续使用冻结 v1 目录。支持 `workflow-plan` 的插件显式读取
 [v2 目录](references/planning-catalog-v2.json) 和 [合同](references/planning-catalog-v2.schema.json)。
-v2 当前仍是 108 个种子，不再把 108、家族数或 Recipe 数作为扩容上限。
+v2 的规模以目录 `scenes` 实际条数为准，不再把任何数量、家族数或 Recipe 数作为扩容上限；当前目录为 108 个种子。每个场景另声明 `skills`、`required_capabilities`、`beats` 与 `editorial_intent`，用于路由到具体技能与 CLI 能力。
 12 维词表不表示每个场景已完整标注；当前仅迁移领域映射，其余未知条件须澄清。
 [三条代表工作流知识向量](references/representative-workflows-v1.json)分别冻结 Vlog、课程多版本和婚礼多交付的
 素材缺口、用途、Recipe、输出与验收边界；它们是正式知识，不是运行成功记录。

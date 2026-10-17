@@ -72,7 +72,8 @@ def validate(skill, catalog=None):
             errors.append(f"{sid}: popularity claim lacks metric")
         if source.get("video_watched") is not False:
             errors.append(f"{sid}: no video-watching evidence in this research")
-    actual = {str(p.relative_to(skill)) for p in (skill / "examples/scenarios").glob("*.md")}
+    # 目录里的路径用 POSIX 分隔符，Windows 上 str() 会产出反斜杠导致误判。
+    actual = {p.relative_to(skill).as_posix() for p in (skill / "examples/scenarios").glob("*.md")}
     if set(paths) != actual or len(actual) != 108:
         errors.append("example path set differs from exactly 108 files")
     for recipe in recipes.values():

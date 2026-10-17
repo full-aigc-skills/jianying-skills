@@ -1,6 +1,6 @@
 # jianying-skills
 
-新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe。
+新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe（数量以 v2 目录为准，可继续扩容）。
 从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
 
 [开放场景覆盖计划](docs/video-scenarios/COVERAGE_PLAN.md)：108 项是种子库，不是类型全集或能力上限。

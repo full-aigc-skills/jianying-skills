@@ -1,5 +1,9 @@
 # 108 场景规划验证
 
+> 本文是 2026-09-21 那次验证的定点记录，数字描述当时状态。当前场景规模以
+> [v2 目录](../skills/jianying-video-planning/references/planning-catalog-v2.json)
+> 的 `scenes` 条数为准，本文任何数字都不是扩容上限。
+
 日期：2026-09-21；候选版本：2.1.0；规格：add-video-planning-skill。
 
 - 18 个家族、108 个独立 Markdown 场景文件、12 个 Recipe；每场景有独立检索词与来源记录。

@@ -29,7 +29,10 @@ class SkillManifestTests(unittest.TestCase):
             outside = root / "outside.md"
             outside.write_text("external content", encoding="utf-8")
             (skill / "SKILL.md").write_text("fixture", encoding="utf-8")
-            (skill / "linked.md").symlink_to(outside)
+            try:
+                (skill / "linked.md").symlink_to(outside)
+            except OSError as exc:  # Windows 未启用开发者模式时无符号链接权限
+                self.skipTest(f"symlink unavailable on this platform: {exc}")
             with self.assertRaisesRegex(ValueError, "symbolic links are forbidden"):
                 MANIFEST.hash_skill_dir(skill)
 
