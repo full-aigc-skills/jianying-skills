@@ -38,7 +38,11 @@ def hash_skill_dir(skill_dir: Path) -> str:
         relative = path.relative_to(skill_dir).as_posix()
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
-        digest.update(hashlib.sha256(path.read_bytes()).hexdigest().encode("ascii"))
+        # 按统一换行后再取摘要：Git 存 LF，Windows 检出会是 CRLF，
+        # 若直接对原始字节取摘要，同一提交在两个平台会得到不同摘要。
+        # 仓库里 `test_frozen_v1_bytes` 也是这个口径。
+        data = path.read_bytes().replace(b"\r\n", b"\n")
+        digest.update(hashlib.sha256(data).hexdigest().encode("ascii"))
         digest.update(b"\n")
     return digest.hexdigest()
 

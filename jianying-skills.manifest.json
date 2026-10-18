@@ -80,7 +80,7 @@
   "skills": [
     {
       "name": "jianying-draft-use",
-      "sha256": "30edfb5f96b2dc5abe3fa8d3ecd3bf64b7e88ea312b8c1bf1798a829234bd38a",
+      "sha256": "b7e267de535da7911a176ef9462027c5a1bd5a2f17d5eed711e5d385ba53eb7e",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
@@ -89,7 +89,7 @@
     },
     {
       "name": "jianying-draft-media",
-      "sha256": "c99c209b9248c14b466106452ad26f42a25563849a15245b41dca8bbc10521f2",
+      "sha256": "ce7e2e1069e54487a02af42dd4b5ebd37d365ad2bb53a6f4c4b81fea9813b7b7",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.probe",
@@ -105,7 +105,7 @@
     },
     {
       "name": "jianying-draft-audio",
-      "sha256": "8ff809ac8308443dc2645fe46060e3da7a9960a5927b78e7979c9c5f66ad0663",
+      "sha256": "14cff4ef5ab7215c086afad3fabb4e4e96f3cf7e01c2b1891cc0d9a829a7d3ec",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.audio",
@@ -115,7 +115,7 @@
     },
     {
       "name": "jianying-draft-text",
-      "sha256": "31326c0071cf10496c1af488c674e09118218acad000f302ff42ad048492cbcb",
+      "sha256": "9cd9c2577cb7d294846808cda2a6452218aaa31f88815b3f7efdd3c683bf92e8",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "captions.edit",
@@ -128,7 +128,7 @@
     },
     {
       "name": "jianying-draft-stickers",
-      "sha256": "ceb853e6b0fb1acb9545ca99434b7ec4a26f4ca03f6898a71b630d9d605c4ba1",
+      "sha256": "52ef14d1b55eac39ef92f2e7a038671b34d4c93056694e441f9d53fcc760850a",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.sticker",
@@ -141,7 +141,7 @@
     },
     {
       "name": "jianying-draft-effects",
-      "sha256": "e454b9bb01105d665cfe272723a3ef6a97362b3e88a7184e66e784c76704ba1a",
+      "sha256": "1149ea04b1724c632d80c2b260cfe4493647bcb73f51a895980ae5891a6f2ef3",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.catalogue",
@@ -154,7 +154,7 @@
     },
     {
       "name": "jianying-draft-transitions",
-      "sha256": "aa8fe98b1452f19e1125eae0daced63c61c97b5dbf15c3e44b11aede4bf8a77b",
+      "sha256": "3b67537f1183415ff4d983aa1ea83c7c2690a1d4540f47693952dee218f57f42",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "timeline.transition",
@@ -163,7 +163,7 @@
     },
     {
       "name": "jianying-draft-subtitles",
-      "sha256": "b38dd012bd91c0690db5a641aa99f668732dca6cde186a463d316fb4d140bde8",
+      "sha256": "663e69a01ed20b9e5f71e420e93c9d73fea95461bafec5a8779152adfe7e3434",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "captions.import",
@@ -173,7 +173,7 @@
     },
     {
       "name": "jianying-draft-smart-package",
-      "sha256": "33306a4c387e2f20a60fe53313b1da4f39795a5e937d5e6f85d4e205d1c834f9",
+      "sha256": "2a1a716fc9a963d1e3e25c414b7147c01f6dfe572bab38c975b7a1a92b3ad59b",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.control_catalog",
@@ -185,7 +185,7 @@
     },
     {
       "name": "jianying-draft-filters",
-      "sha256": "badbc7ddcda34eb0c489bb21f1a25498de81235523c75fdd8b576aeb1e6c6adc",
+      "sha256": "d629ade883771255a54359844d8ec80e3a6bbcba25d34b0b58c40526baf6af91",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.catalogue",
@@ -197,7 +197,7 @@
     },
     {
       "name": "jianying-draft-adjustments",
-      "sha256": "5ab1dbc9a411664e6c4d6ca4d5bbe6db96f91ccd5efe5ec5afdf4aad1da6e724",
+      "sha256": "9d0a19f1bf7c336f9d37bc391e46370f2e0247ba0ddf6910351a00d6eb0931c2",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.control_catalog",
@@ -208,7 +208,7 @@
     },
     {
       "name": "jianying-draft-templates",
-      "sha256": "bbdfeb4c327648b28ac21d7b9bba68274289c7fd0d8189e0af133a7b31994020",
+      "sha256": "770d72ff4c7173c240bea73046817dbf83e3396b693ea64b1d3931038526b03f",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "template.library",
@@ -221,7 +221,7 @@
     },
     {
       "name": "jianying-draft-digital-human",
-      "sha256": "35dcfc371fa29893e2ab3cccbd8fb410ac6a1ddc7e0493f5909d18b2e57db57e",
+      "sha256": "f21e9b5dadc1122026144f349f8ff4ae89b7134bb3a817771d0fbb4b25aa5a8b",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.entitlement_verify",
@@ -233,7 +233,7 @@
     },
     {
       "name": "jianying-draft-editing-console",
-      "sha256": "0a8be3c490826e80b5e1e73fb53df0e6879a5cbe6f8e3ef8e2cb7022ba9206ce",
+      "sha256": "238e0bd02ddb58b80d4365228cc3de3945cae9ba509e398a57743bef7dfa3daa",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "timeline.edit",
@@ -247,7 +247,7 @@
     },
     {
       "name": "jianying-draft-edit",
-      "sha256": "e5d3cb1f6d67bef776c9f988fd9178e609b41be12fd0ee89d8b657e260d9e2f8",
+      "sha256": "f2387deab04d75f5cbbd07bb94fc8d66532ee2d12d91f2f680120cfecfa6bc5b",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.run",
@@ -258,7 +258,7 @@
     },
     {
       "name": "jianying-draft-schema",
-      "sha256": "6b590d523e0438375ef5ac05bc17fb41d43af9abadb473df64b796613beebe52",
+      "sha256": "660c71ec727e8e718f0c8411ee14fac06b7a57a0e66f5d0f3ef953ccd136a830",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "schema.job_v2",
@@ -267,7 +267,7 @@
     },
     {
       "name": "jianying-draft-setup",
-      "sha256": "346649112e6889c4f71ebc634f99410fd102a763fdef2f7ab5cb33251afc164c",
+      "sha256": "d632a560687fab587de47ddba7687ff5de254e194e7dea26b67addbdad8a9af3",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
@@ -277,7 +277,7 @@
     },
     {
       "name": "jianying-draft-narration",
-      "sha256": "b27ececcf23534e4ac0c2560ef9d094c348f77b3d5115946ea0a956833e3e996",
+      "sha256": "1224639a28ecdd9171758ef0adb91418ef8d67bdacc81354c611ae233aad4a1a",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
@@ -288,7 +288,7 @@
     },
     {
       "name": "jianying-draft-motion",
-      "sha256": "382d572c72311e8ed32d11c083c4204a36f6bc1901835d4667ff1bd62b75d0c7",
+      "sha256": "4637063c1f8f2ebeba3d4672d161618fe9354c3b30e2af6303c0083f82cc8aab",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "timeline.keyframe",
@@ -298,7 +298,7 @@
     },
     {
       "name": "jianying-draft-inspect",
-      "sha256": "b94c4432dd4e0285992998b2eb1c38831b4f4efb1d139986370ebe796bb42b95",
+      "sha256": "473bca22fbd9a2543a726006e761a8c3ff07fbc90c9ce61a2b976d7b5ea35208",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
@@ -308,7 +308,7 @@
     },
     {
       "name": "jianying-draft-export-prep",
-      "sha256": "a4fadffe4b55af9a1de6031821bfed7cc08e6f091c07d59a47f59b6e687c82bf",
+      "sha256": "72c7231bfd33bca9b8b8211d0af95dddfd4a9fd89b28cd11e47fb2c478f48c7d",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "render.proxy",
@@ -318,7 +318,7 @@
     },
     {
       "name": "jianying-draft-recover",
-      "sha256": "080c5d70030d122dd6d4f2515dd0b347bd91be54f7cae8e6849b104464245802",
+      "sha256": "e5be319d031afc7db479e4fffcefaa14cbd78e399167c4f797e2d151b4f2571f",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.show",
@@ -329,7 +329,7 @@
     },
     {
       "name": "jianying-draft-harness",
-      "sha256": "13f02442aae643bb984366eaea0e56c673446b694e3817faaf238d440b9f947a",
+      "sha256": "7e296398a0d4e7c1c893cf027b72657d9b11af9a40fed82356e5492d3d508bea",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.lifecycle",
@@ -341,12 +341,12 @@
     },
     {
       "name": "jianying-draft-video-planning",
-      "sha256": "9b5c04de721a52bc203e0ac9f7332f25a7c0389e0946662a048fab8fbc9dbc7f",
+      "sha256": "cb01d28143b10a99b0d51ecd706e585cda4512df6b2087a79b22e6273c5dd906",
       "minimum_cli_version": "1.6.13",
       "required_capabilities": [
         "capabilities"
       ]
     }
   ],
-  "content_sha256": "0b95deca85958de44ccdcc8431d7fe7e01bed3041db894c8336d071353a9755d"
+  "content_sha256": "2a5dde6a595892cfc756405a616d6b64bac0601d6c0e051aea82f63a01ac5043"
 }
