@@ -28,14 +28,19 @@ def hash_skill_dir(skill_dir: Path) -> str:
     if skill_dir.is_symlink() or not skill_dir.is_dir():
         raise ValueError(f"skill directory is invalid or symbolic: {skill_dir}")
     digest = hashlib.sha256()
-    for path in sorted(skill_dir.rglob("*")):
+    # 按相对路径字符串排序，不能按 Path 对象排：
+    # Windows 的 Path 比较会忽略大小写，POSIX 会按字节比，
+    # `SKILL.md` 在两边会落到不同位置，同一提交因此得到不同摘要。
+    entries = []
+    for path in skill_dir.rglob("*"):
         if path.is_symlink():
             raise ValueError(f"symbolic links are forbidden in skill content: {path}")
         if path.is_dir():
             continue
         if not path.is_file():
             raise ValueError(f"special files are forbidden in skill content: {path}")
-        relative = path.relative_to(skill_dir).as_posix()
+        entries.append((path.relative_to(skill_dir).as_posix(), path))
+    for relative, path in sorted(entries, key=lambda item: item[0]):
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
         # 按统一换行后再取摘要：Git 存 LF，Windows 检出会是 CRLF，
