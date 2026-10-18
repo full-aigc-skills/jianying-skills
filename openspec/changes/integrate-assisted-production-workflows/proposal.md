@@ -23,6 +23,6 @@
 
 ## Impact
 
-- 修改 `jianying-video-planning`、`jianying-media`、`jianying-motion`、`jianying-adjustments`、`jianying-audio`、`jianying-narration`、`jianying-subtitles`、`jianying-templates` 和 `jianying-harness` 的自包含参考资料与路由说明。
+- 修改 `jianying-draft-video-planning`、`jianying-draft-media`、`jianying-draft-motion`、`jianying-draft-adjustments`、`jianying-draft-audio`、`jianying-draft-narration`、`jianying-draft-subtitles`、`jianying-draft-templates` 和 `jianying-draft-harness` 的自包含参考资料与路由说明。
 - 新增 stdlib 校验器和测试；不新增 Python 运行时依赖，不携带第三方媒体、效果包、缓存数据库、凭据或二进制。
 - 配套插件变更应独立命名为 `add-assisted-media-provider-harness`，负责 Provider、审批、恢复、证据与 WorkflowPlan 编译；本变更不修改插件仓。

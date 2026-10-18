@@ -8,7 +8,7 @@ import argparse
 import json
 from pathlib import Path
 
-SKILL_DEFAULT = Path(__file__).resolve().parents[1] / 'skills/jianying-video-planning'
+SKILL_DEFAULT = Path(__file__).resolve().parents[1] / 'skills/jianying-draft-video-planning'
 CATALOG = 'references/planning-catalog-v2.json'
 
 # 固定段落：与扩容无关，改动会影响全部场景，须与 spec 的不可变段要求一致。
@@ -24,7 +24,7 @@ def optional_note(example_path):
     return ('可选 ASR、TTS、转场不默认启用；选择后才增加相应能力和许可检查。'
             f'详见 [能力映射]({prefix}references/capability-mapping.md)。')
 PLANNING_NOTE = ('此为规划输入，不是可执行 job。实际执行需补齐已探测媒体事实、时间码与授权；'
-                 '由 jianying-draft 形成 `jianying-job/v2`，交给 jianying-edit 执行。')
+                 '由 jianying-draft-schema 形成 `jianying-job/v2`，交给 jianying-draft-edit 执行。')
 FAILURE_BRANCHES = [
     '缺素材：返回 waiting_input，列出缺项，不生成虚构素材路径。',
     '缺必要能力：返回 blocked_capability；可删减可选效果，但必须说明降级并保留用户目标。',

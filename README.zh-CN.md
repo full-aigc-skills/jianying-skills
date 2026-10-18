@@ -1,10 +1,10 @@
 # jianying-skills
 
-新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe（数量以 v2 目录为准，可继续扩容）。
-从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
+新增：**jianying-draft-video-planning**，18 类、108 个独立场景 example、12 套 Recipe（数量以 v2 目录为准，可继续扩容）。
+从 [场景索引](skills/jianying-draft-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
 
 [开放场景覆盖计划](docs/video-scenarios/COVERAGE_PLAN.md)：108 项是种子库，不是类型全集或能力上限。
-[代表工作流知识向量](skills/jianying-video-planning/references/representative-workflows-v1.json)：冻结 Vlog、课程多版本、婚礼多交付的素材缺口和验收边界；不冒充执行证据。
+[代表工作流知识向量](skills/jianying-draft-video-planning/references/representative-workflows-v1.json)：冻结 Vlog、课程多版本、婚礼多交付的素材缺口和验收边界；不冒充执行证据。
 新增多维分类、覆盖审计与扩展路线规划；已发布运行时目录保持不变。
 
 通过统一 Rust 运行时 `jianying-cli` 创建、编辑、检查、恢复和导出剪映/CapCut 草稿的 Agent Skills。
@@ -40,7 +40,7 @@ npx skills add full-aigc-skills/jianying-skills
 粒度安装单个技能：
 
 ```bash
-npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
+npx skills add full-aigc-skills/jianying-skills --skill jianying-draft-edit
 ```
 
 每个技能都自带 workflow reference 和最小 Job 示例，不依赖兄弟技能目录。
@@ -49,30 +49,30 @@ npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
 
 | 技能 | 职责 |
 |---|---|
-| `jianying-use` | 统一入口、最小询问和 capability 诊断 |
-| `jianying-video-planning` | 108 个场景种子、渠道策略、Recipe 和分级交付规划 |
-| `jianying-media` | 本地/官方素材、子草稿导入、替换、重链和验证 |
-| `jianying-text` | 普通文本、样式、气泡、动画和文字模板 |
-| `jianying-stickers` | 贴纸检索、下载、放置、变换和恢复 |
-| `jianying-effects` | 画面、人物和音频特效及显式作用范围 |
-| `jianying-smart-package` | 智能包装/B-Roll 预览、批准、应用和恢复 |
-| `jianying-filters` | 滤镜检索、范围、强度、应用和删除 |
-| `jianying-adjustments` | 版本绑定的曝光、色彩、细节和重置控制 |
-| `jianying-templates` | 模板库、预设、内容替换和轨道导入 |
-| `jianying-digital-human` | 形象、声音、上传、费用、任务和产物门禁 |
-| `jianying-editing-console` | 时间线、轨道、片段、关键帧和会话控制 |
-| `jianying-setup` | CLI、媒体工具、草稿根、配置和 Runtime Profile |
-| `jianying-draft` | `jianying-job/v2`、领域概念和 v1 兼容 |
-| `jianying-harness` | 持久任务、审批、配置、MCP 和宿主契约 |
-| `jianying-edit` | 新建草稿和已有草稿隔离编辑 |
-| `jianying-narration` | ASR 账本与口播精剪 |
-| `jianying-subtitles` | 字幕导入、编辑、样式、翻译和导出 |
-| `jianying-audio` | 音频分层、音量、淡入淡出、音效、重链和 TTS 门禁 |
-| `jianying-motion` | 变换、关键帧、动画、速度和帧量化 |
-| `jianying-transitions` | 基于目录的转场选择和边界检查 |
-| `jianying-inspect` | 只读素材/草稿事实和证据分级 |
-| `jianying-export-prep` | 代理/原生导出门禁和制品验证 |
-| `jianying-recover` | 任务审计、显式重试、快照和 ambiguous 操作 |
+| `jianying-draft-use` | 统一入口、最小询问和 capability 诊断 |
+| `jianying-draft-video-planning` | 108 个场景种子、渠道策略、Recipe 和分级交付规划 |
+| `jianying-draft-media` | 本地/官方素材、子草稿导入、替换、重链和验证 |
+| `jianying-draft-text` | 普通文本、样式、气泡、动画和文字模板 |
+| `jianying-draft-stickers` | 贴纸检索、下载、放置、变换和恢复 |
+| `jianying-draft-effects` | 画面、人物和音频特效及显式作用范围 |
+| `jianying-draft-smart-package` | 智能包装/B-Roll 预览、批准、应用和恢复 |
+| `jianying-draft-filters` | 滤镜检索、范围、强度、应用和删除 |
+| `jianying-draft-adjustments` | 版本绑定的曝光、色彩、细节和重置控制 |
+| `jianying-draft-templates` | 模板库、预设、内容替换和轨道导入 |
+| `jianying-draft-digital-human` | 形象、声音、上传、费用、任务和产物门禁 |
+| `jianying-draft-editing-console` | 时间线、轨道、片段、关键帧和会话控制 |
+| `jianying-draft-setup` | CLI、媒体工具、草稿根、配置和 Runtime Profile |
+| `jianying-draft-schema` | `jianying-job/v2`、领域概念和 v1 兼容 |
+| `jianying-draft-harness` | 持久任务、审批、配置、MCP 和宿主契约 |
+| `jianying-draft-edit` | 新建草稿和已有草稿隔离编辑 |
+| `jianying-draft-narration` | ASR 账本与口播精剪 |
+| `jianying-draft-subtitles` | 字幕导入、编辑、样式、翻译和导出 |
+| `jianying-draft-audio` | 音频分层、音量、淡入淡出、音效、重链和 TTS 门禁 |
+| `jianying-draft-motion` | 变换、关键帧、动画、速度和帧量化 |
+| `jianying-draft-transitions` | 基于目录的转场选择和边界检查 |
+| `jianying-draft-inspect` | 只读素材/草稿事实和证据分级 |
+| `jianying-draft-export-prep` | 代理/原生导出门禁和制品验证 |
+| `jianying-draft-recover` | 任务审计、显式重试、快照和 ambiguous 操作 |
 
 ## 兼容性与证据
 

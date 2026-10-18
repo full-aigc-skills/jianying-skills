@@ -8,16 +8,16 @@
 
 ## 2. 四个基础技能迁移
 
-- [x] 2.1 重写 `jianying-use` 为统一入口、最小询问、capability 路由和诊断交接
-- [x] 2.2 重写 `jianying-setup` 为 Rust CLI、媒体工具、草稿根、Runtime Profile 和 doctor 指南
-- [x] 2.3 重写 `jianying-draft` 为 Job/Plan Schema、领域概念、v1 兼容和证据边界指南
-- [x] 2.4 重写 `jianying-harness` 为任务、审批、配置、MCP 和三宿主契约指南
+- [x] 2.1 重写 `jianying-draft-use` 为统一入口、最小询问、capability 路由和诊断交接
+- [x] 2.2 重写 `jianying-draft-setup` 为 Rust CLI、媒体工具、草稿根、Runtime Profile 和 doctor 指南
+- [x] 2.3 重写 `jianying-draft-schema` 为 Job/Plan Schema、领域概念、v1 兼容和证据边界指南
+- [x] 2.4 重写 `jianying-draft-harness` 为任务、审批、配置、MCP 和三宿主契约指南
 - [x] 2.5 为四个基础技能分别补齐本技能内的 references、examples 和失败恢复案例
 - [x] 2.6 将 `runtime discover` 收敛到 setup 技能与 capability 矩阵，区分应用安装、孤儿草稿根和精确 Runtime Profile，禁止因路径发现自动启用原生控制
 
 ## 3. 九个领域技能迁移
 
-- [x] 3.1 重写 `jianying-edit` 的创建与已有草稿隔离编辑端到端工作流
+- [x] 3.1 重写 `jianying-draft-edit` 的创建与已有草稿隔离编辑端到端工作流
 - [x] 3.2 重写 narration 工作流，使用 Rust Job/Plan 和 ASR/TTS capability 门禁
 - [x] 3.3 重写 subtitles 工作流，覆盖探测、导入、生成、样式、校验和恢复
 - [x] 3.4 重写 audio 工作流，覆盖音量、淡入淡出、对齐、音效、静音和重链

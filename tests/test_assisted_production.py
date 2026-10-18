@@ -13,9 +13,9 @@ SPEC = importlib.util.spec_from_file_location("assisted_workflows", SCRIPT)
 ASSISTED = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(ASSISTED)
 
-PLANNING = ROOT / "skills/jianying-video-planning"
-MOTION = ROOT / "skills/jianying-motion"
-MEDIA = ROOT / "skills/jianying-media"
+PLANNING = ROOT / "skills/jianying-draft-video-planning"
+MOTION = ROOT / "skills/jianying-draft-motion"
+MEDIA = ROOT / "skills/jianying-draft-media"
 
 
 def load(path: Path) -> dict:

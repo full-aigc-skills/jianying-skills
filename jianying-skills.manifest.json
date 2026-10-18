@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,
@@ -79,8 +79,8 @@
   ],
   "skills": [
     {
-      "name": "jianying-use",
-      "sha256": "3f0b3ab78bc2b08e6a0e41d5efaf1baee60ea25b77a89501d8b8e513ef0e07d3",
+      "name": "jianying-draft-use",
+      "sha256": "30edfb5f96b2dc5abe3fa8d3ecd3bf64b7e88ea312b8c1bf1798a829234bd38a",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
@@ -88,8 +88,8 @@
       ]
     },
     {
-      "name": "jianying-media",
-      "sha256": "b0f05e1a1a31f8b7530340604bd1c1d7502a2fdd0decec414031bd4493d743f2",
+      "name": "jianying-draft-media",
+      "sha256": "c99c209b9248c14b466106452ad26f42a25563849a15245b41dca8bbc10521f2",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.probe",
@@ -104,8 +104,8 @@
       ]
     },
     {
-      "name": "jianying-audio",
-      "sha256": "6677d921d9d49b82432ae3af4eb535e70403980441950467d6c4a83df49dd037",
+      "name": "jianying-draft-audio",
+      "sha256": "8ff809ac8308443dc2645fe46060e3da7a9960a5927b78e7979c9c5f66ad0663",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.audio",
@@ -114,8 +114,8 @@
       ]
     },
     {
-      "name": "jianying-text",
-      "sha256": "b736614085f2d6e8f74a646e7ae9190af7547803247f5911cd4e79a187639887",
+      "name": "jianying-draft-text",
+      "sha256": "31326c0071cf10496c1af488c674e09118218acad000f302ff42ad048492cbcb",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "captions.edit",
@@ -127,8 +127,8 @@
       ]
     },
     {
-      "name": "jianying-stickers",
-      "sha256": "d0713b37d5c6947785672f7561ae1223b2d72a1611e6b0532a121cb96e77c9ce",
+      "name": "jianying-draft-stickers",
+      "sha256": "ceb853e6b0fb1acb9545ca99434b7ec4a26f4ca03f6898a71b630d9d605c4ba1",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.sticker",
@@ -140,8 +140,8 @@
       ]
     },
     {
-      "name": "jianying-effects",
-      "sha256": "f6fb7efc5ba658a7441fbd70b33c625e548bce1837d43308718d236f08fcd0b4",
+      "name": "jianying-draft-effects",
+      "sha256": "e454b9bb01105d665cfe272723a3ef6a97362b3e88a7184e66e784c76704ba1a",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.catalogue",
@@ -153,8 +153,8 @@
       ]
     },
     {
-      "name": "jianying-transitions",
-      "sha256": "6e05b5ea49540a95875e4d5fb3b273e405c7bda8da1d6f49590c17a1e6b1b5e5",
+      "name": "jianying-draft-transitions",
+      "sha256": "aa8fe98b1452f19e1125eae0daced63c61c97b5dbf15c3e44b11aede4bf8a77b",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "timeline.transition",
@@ -162,8 +162,8 @@
       ]
     },
     {
-      "name": "jianying-subtitles",
-      "sha256": "d7cbeb774699be5d8fe85d3900ebf16e374f38ace08a3bfe6a94e9da47613317",
+      "name": "jianying-draft-subtitles",
+      "sha256": "b38dd012bd91c0690db5a641aa99f668732dca6cde186a463d316fb4d140bde8",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "captions.import",
@@ -172,8 +172,8 @@
       ]
     },
     {
-      "name": "jianying-smart-package",
-      "sha256": "f1874e4d042323162faf2f863f55bd6e1cb0c0d5b30d775a54c0331e563fd126",
+      "name": "jianying-draft-smart-package",
+      "sha256": "33306a4c387e2f20a60fe53313b1da4f39795a5e937d5e6f85d4e205d1c834f9",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.control_catalog",
@@ -184,8 +184,8 @@
       ]
     },
     {
-      "name": "jianying-filters",
-      "sha256": "b82f3ee4fc56c71cba213233514f8648e0e3ffe372ea7825de398681484a739d",
+      "name": "jianying-draft-filters",
+      "sha256": "badbc7ddcda34eb0c489bb21f1a25498de81235523c75fdd8b576aeb1e6c6adc",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "media.catalogue",
@@ -196,8 +196,8 @@
       ]
     },
     {
-      "name": "jianying-adjustments",
-      "sha256": "3b670c4f88fc596a99353787b8ba8a0d110bc8d3fe979c474b399c6334689182",
+      "name": "jianying-draft-adjustments",
+      "sha256": "5ab1dbc9a411664e6c4d6ca4d5bbe6db96f91ccd5efe5ec5afdf4aad1da6e724",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.control_catalog",
@@ -207,8 +207,8 @@
       ]
     },
     {
-      "name": "jianying-templates",
-      "sha256": "6c22d2c46c6450f3d9cb489b0d2da6a9b377394edb7b1765d9e626cda1a809a9",
+      "name": "jianying-draft-templates",
+      "sha256": "bbdfeb4c327648b28ac21d7b9bba68274289c7fd0d8189e0af133a7b31994020",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "template.library",
@@ -220,8 +220,8 @@
       ]
     },
     {
-      "name": "jianying-digital-human",
-      "sha256": "14872365ae41b62c2c309fdd1f6f52011eb5bcdd9a6f938f7d0e85da30929bed",
+      "name": "jianying-draft-digital-human",
+      "sha256": "35dcfc371fa29893e2ab3cccbd8fb410ac6a1ddc7e0493f5909d18b2e57db57e",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "runtime.entitlement_verify",
@@ -232,8 +232,8 @@
       ]
     },
     {
-      "name": "jianying-editing-console",
-      "sha256": "0227f8c8223752ef0224ac5370da7b6ee593349e892f3e0198a594f5ae65c810",
+      "name": "jianying-draft-editing-console",
+      "sha256": "0a8be3c490826e80b5e1e73fb53df0e6879a5cbe6f8e3ef8e2cb7022ba9206ce",
       "minimum_cli_version": "1.6.19",
       "required_capabilities": [
         "timeline.edit",
@@ -246,8 +246,8 @@
       ]
     },
     {
-      "name": "jianying-edit",
-      "sha256": "ba36f14c652872bcd99a634fdf1541ee0fb93773bdeca3311f26943155716733",
+      "name": "jianying-draft-edit",
+      "sha256": "e5d3cb1f6d67bef776c9f988fd9178e609b41be12fd0ee89d8b657e260d9e2f8",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.run",
@@ -257,8 +257,8 @@
       ]
     },
     {
-      "name": "jianying-draft",
-      "sha256": "084f5614cfebdb7c9ff63cf6e647e71c23e8e0831d20c070c78e1b94e6bf29ac",
+      "name": "jianying-draft-schema",
+      "sha256": "6b590d523e0438375ef5ac05bc17fb41d43af9abadb473df64b796613beebe52",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "schema.job_v2",
@@ -266,8 +266,8 @@
       ]
     },
     {
-      "name": "jianying-setup",
-      "sha256": "7c9753e74c7b9a2a2dc98d48c5b39526c710850ef02fba8a11397a5de05f6267",
+      "name": "jianying-draft-setup",
+      "sha256": "346649112e6889c4f71ebc634f99410fd102a763fdef2f7ab5cb33251afc164c",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "doctor",
@@ -276,8 +276,8 @@
       ]
     },
     {
-      "name": "jianying-narration",
-      "sha256": "a64b021f9ef0f80841fc6994b02b5fe9fc4a80a1e2453283f32f3b0b8fe9c821",
+      "name": "jianying-draft-narration",
+      "sha256": "b27ececcf23534e4ac0c2560ef9d094c348f77b3d5115946ea0a956833e3e996",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
@@ -287,8 +287,8 @@
       ]
     },
     {
-      "name": "jianying-motion",
-      "sha256": "28e7a2de0dafbf771505745aafdd0e099f4785720f14a4c9e859dbf41c87a435",
+      "name": "jianying-draft-motion",
+      "sha256": "382d572c72311e8ed32d11c083c4204a36f6bc1901835d4667ff1bd62b75d0c7",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "timeline.keyframe",
@@ -297,8 +297,8 @@
       ]
     },
     {
-      "name": "jianying-inspect",
-      "sha256": "72c5bb56380714aa7f97c38eefca63582d5b1569fd9d7b84a065a7651fb29c6f",
+      "name": "jianying-draft-inspect",
+      "sha256": "b94c4432dd4e0285992998b2eb1c38831b4f4efb1d139986370ebe796bb42b95",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "media.probe",
@@ -307,8 +307,8 @@
       ]
     },
     {
-      "name": "jianying-export-prep",
-      "sha256": "c8ceff109d7c89fff0ed417e5287ae1e4f4adcc09a860278c3503eee005d42a7",
+      "name": "jianying-draft-export-prep",
+      "sha256": "a4fadffe4b55af9a1de6031821bfed7cc08e6f091c07d59a47f59b6e687c82bf",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "render.proxy",
@@ -317,8 +317,8 @@
       ]
     },
     {
-      "name": "jianying-recover",
-      "sha256": "b9aa534f48e2e3658dc104e0127a19e44484e4bbff6ec72cae4baed4ec9f8573",
+      "name": "jianying-draft-recover",
+      "sha256": "080c5d70030d122dd6d4f2515dd0b347bd91be54f7cae8e6849b104464245802",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.show",
@@ -328,8 +328,8 @@
       ]
     },
     {
-      "name": "jianying-harness",
-      "sha256": "c1b5db4c9fc8237a347803c123ae920dcc6cd5b8a6da71d314244730cdf01541",
+      "name": "jianying-draft-harness",
+      "sha256": "13f02442aae643bb984366eaea0e56c673446b694e3817faaf238d440b9f947a",
       "minimum_cli_version": "1.6.0",
       "required_capabilities": [
         "job.lifecycle",
@@ -340,13 +340,13 @@
       ]
     },
     {
-      "name": "jianying-video-planning",
-      "sha256": "60251ac09ff4f081d360c8e3b387fc803e8b6fee6743f30ee4de909944bdf3a7",
+      "name": "jianying-draft-video-planning",
+      "sha256": "9b5c04de721a52bc203e0ac9f7332f25a7c0389e0946662a048fab8fbc9dbc7f",
       "minimum_cli_version": "1.6.13",
       "required_capabilities": [
         "capabilities"
       ]
     }
   ],
-  "content_sha256": "8924d6087a4b10d09233595c13d93466736587a2eca288ba666e7482608fc2b8"
+  "content_sha256": "0b95deca85958de44ccdcc8431d7fe7e01bed3041db894c8336d071353a9755d"
 }

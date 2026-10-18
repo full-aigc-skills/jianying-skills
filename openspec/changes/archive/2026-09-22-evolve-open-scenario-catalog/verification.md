@@ -26,7 +26,7 @@
 - `references/planning-catalog-v2.schema.json` → `open_catalog_v2.schema.json`；
   SHA-256：`b06c91befdf38b37b527ed1fadaa977aa65678b83e7351627f24ea85a8a31377`。
 
-Schema 路径相对于 `skills/jianying-video-planning`；其他路径相对于仓库根。
+Schema 路径相对于 `skills/jianying-draft-video-planning`；其他路径相对于仓库根。
 核对时三对文件均字节一致。扩容测试为合成 fixture，不能作为正式收录或热度证据。
 
 ## 已完成项与证据

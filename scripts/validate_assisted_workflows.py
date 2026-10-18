@@ -351,11 +351,11 @@ def validate_media_preflight(data: dict[str, Any]) -> list[str]:
 def validate_granular_install(root: Path) -> list[str]:
     errors: list[str] = []
     required = {
-        "jianying-video-planning": [
+        "jianying-draft-video-planning": [
             "SKILL.md",
             "references/assisted-production-workflows-v1.json",
         ],
-        "jianying-motion": [
+        "jianying-draft-motion": [
             "SKILL.md",
             "references/interaction-events-v1.schema.json",
             "references/smart-zoom-plan-v1.schema.json",
@@ -363,7 +363,7 @@ def validate_granular_install(root: Path) -> list[str]:
             "examples/interaction-events-v1.json",
             "examples/smart-zoom-plan-v1.json",
         ],
-        "jianying-media": [
+        "jianying-draft-media": [
             "SKILL.md",
             "references/media-preflight-v1.schema.json",
             "references/media-preflight-workflow.md",
@@ -379,9 +379,9 @@ def validate_granular_install(root: Path) -> list[str]:
 
 def validate_repository(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    planning = root / "skills/jianying-video-planning"
-    motion = root / "skills/jianying-motion"
-    media = root / "skills/jianying-media"
+    planning = root / "skills/jianying-draft-video-planning"
+    motion = root / "skills/jianying-draft-motion"
+    media = root / "skills/jianying-draft-media"
     try:
         catalog = read_json(planning / "references/assisted-production-workflows-v1.json")
         events = read_json(motion / "examples/interaction-events-v1.json")

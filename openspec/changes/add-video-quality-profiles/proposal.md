@@ -21,6 +21,6 @@
 
 ## Impact
 
-- 修改 `jianying-video-planning` 的 references 和路由说明。
+- 修改 `jianying-draft-video-planning` 的 references 和路由说明。
 - 插件通过不可变 Skills lock 消费档案；本仓不实现 evaluator、WorkflowPlan、Job 或 CLI。
 - 配套插件变更为 `add-iterative-video-quality-loop`。

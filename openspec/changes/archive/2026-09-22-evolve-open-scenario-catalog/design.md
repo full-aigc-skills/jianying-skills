@@ -18,7 +18,7 @@
 ### D1 双资源而不是原地替换
 
 选择保留现有 v1 路径及内容，新增
-`skills/jianying-video-planning/references/planning-catalog-v2.json`，
+`skills/jianying-draft-video-planning/references/planning-catalog-v2.json`，
 schema 固定为 `jianying-planning-catalog/v2`。这是待实现路径，不是当前已存在资源。
 
 | 消费者与请求 | 包只有 v1 | 包含冻结 v1 + 新 v2 |

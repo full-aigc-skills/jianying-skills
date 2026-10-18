@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""确定性生成 skills/jianying-video-planning/references/scene-index.md。
+"""确定性生成 skills/jianying-draft-video-planning/references/scene-index.md。
 
 家族名只能经 legacy_ids join video-taxonomy.json(v1) 得到；
 新场景 legacy_ids 为空，按 domain_ids 第一个领域归类，
@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SKILL = ROOT / 'skills/jianying-video-planning'
+DEFAULT_SKILL = ROOT / 'skills/jianying-draft-video-planning'
 
 PREAMBLE = (
     '# 视频场景索引\n'

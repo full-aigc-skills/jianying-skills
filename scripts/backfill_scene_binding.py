@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 V1 = SKILL / 'references/video-taxonomy.json'
 V2 = SKILL / 'references/planning-catalog-v2.json'
 

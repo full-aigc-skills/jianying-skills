@@ -7,7 +7,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 
 
 class QualityProfileTests(unittest.TestCase):

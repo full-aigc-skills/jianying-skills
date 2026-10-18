@@ -12,7 +12,7 @@
 
 ### 1. 一个机器目录，多个技能自包含合同
 
-五条 Recipe 由 `jianying-video-planning` 的版本化 JSON 统一索引，事件/缩放和媒体预检 Schema 分别存放在 `jianying-motion` 与 `jianying-media`。这样路由有单一入口，同时粒度安装后的执行技能仍能独立解释自己的输入。
+五条 Recipe 由 `jianying-draft-video-planning` 的版本化 JSON 统一索引，事件/缩放和媒体预检 Schema 分别存放在 `jianying-draft-motion` 与 `jianying-draft-media`。这样路由有单一入口，同时粒度安装后的执行技能仍能独立解释自己的输入。
 
 未采用新建单体 `jianying-editor` 技能，因为它会重复现有技能责任并模糊 Skills 与 Harness 权限。
 

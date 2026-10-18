@@ -9,7 +9,7 @@ import unittest
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 FIXTURE = ROOT / 'tests/fixtures/open_catalog_v2.json'
 
 
@@ -262,7 +262,7 @@ class OpenCatalogTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('skill_manifest_open', ROOT / 'scripts/skill_manifest.py')
         manifest = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(manifest)
-        planning = self.root / 'skills/jianying-video-planning/references'
+        planning = self.root / 'skills/jianying-draft-video-planning/references'
         planning.mkdir(parents=True)
         (planning / 'planning-catalog-v2.json').write_text(json.dumps(self.catalog))
         with mock.patch.object(manifest, 'ROOT', self.root):

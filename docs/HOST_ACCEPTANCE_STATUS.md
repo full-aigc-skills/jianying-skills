@@ -4,7 +4,7 @@
 
 验收日期：2026-09-20。既有验收对象为不可变发布 `v2.0.2`；`2.0.0` 的远端安装发现了
 4 个由 `openspec init` 生成的开发辅助技能，因此不能作为“仅 13 个产品技能”的通过证据。
-源码修复已作为稳定 immutable `v2.0.4` 发布：该版本修复了 `jianying-harness` supporting
+源码修复已作为稳定 immutable `v2.0.4` 发布：该版本修复了 `jianying-draft-harness` supporting
 reference 中仍存的退休外部 headless plan 活动叙事，并新增发布 lint。插件已锁定 tag
 `v2.0.4`、提交 `7917242f39349484e6785ae759c79381e934e15a` 和 manifest SHA-256
 `21345983c877772303f5d21c9d16dfaebe17e8646db9f18a50a167d493864ea4`，原子导入 13 个技能并
@@ -12,17 +12,17 @@ reference 中仍存的退休外部 headless plan 活动叙事，并新增发布 
 
 ## 已取得证据
 
-- `npx skills add <local-source> --skill jianying-use --agent codex --copy --json`
+- `npx skills add <local-source> --skill jianying-draft-use --agent codex --copy --json`
   在隔离项目中只安装一个技能，安装摘要为 `installed`，内容摘要为
   `842edfe9b7e8352e6baaf6d4cd5747197088f52f9601c3a389908241180a3767`。
 - Codex CLI `0.153.4` 通过 `debug prompt-input` 的只读投影发现项目级
-  `jianying-use`，模型可见路径指向隔离项目的 `.agents/skills/jianying-use/SKILL.md`；
+  `jianying-draft-use`，模型可见路径指向隔离项目的 `.agents/skills/jianying-draft-use/SKILL.md`；
   该检查未发起模型请求。
-- `npx skills add <local-source> --skill jianying-use --agent zcode --copy --json`
+- `npx skills add <local-source> --skill jianying-draft-use --agent zcode --copy --json`
   在隔离项目中只安装一个技能；ZCode CLI `0.16.9` 的 `skills list --json`
   发现该项目级技能，来源为 `zcode`，该技能路径没有诊断。
 - Kimi 的安装器目标名为 `kimi-code-cli`。使用该名称执行相同的单技能安装后，
-  Kimi Code CLI `0.43.1` 所用 `.agents/skills/jianying-use` 目录包含 SKILL、三份
+  Kimi Code CLI `0.43.1` 所用 `.agents/skills/jianying-draft-use` 目录包含 SKILL、三份
   references、三个 Markdown examples 和 `minimal-job.json`，摘要与另外两个宿主一致。
 - Kimi 本地 Web Server 的 `/api/v1/meta` 报告 `skill` feature 为 `Active`；本次仅
   使用回环地址和 bearer token，并通过 `/api/v1/shutdown` 正常关闭，没有发起模型请求。
@@ -33,14 +33,14 @@ reference 中仍存的退休外部 headless plan 活动叙事，并新增发布 
   `e26e6b1c483a435479dadd87130da93ad2e5aaa1`；`skills/` 下只有 13 个产品技能，未包含
   OpenSpec 开发辅助技能。
 - 在三个全新 Git 项目中分别以 `codex`、`zcode`、`kimi-code-cli` 为安装目标，只安装
-  `jianying-use`。三次安装均返回 `installed`，安装器内容摘要均为
+  `jianying-draft-use`。三次安装均返回 `installed`，安装器内容摘要均为
   `842edfe9b7e8352e6baaf6d4cd5747197088f52f9601c3a389908241180a3767`。
 - 三个安装目录都只有 8 个技能文件，与标签源码逐文件一致；按相对路径和文件 SHA-256
   聚合得到相同摘要 `fdca7729f47ebf5fc83471a2d9b9e0369b14021ff59756d1915ae25e8d3135b6`。
 - 当前 Codex CLI `/Users/wandl/.local/bin/codex` 报告 `0.147.0`，其 `debug prompt-input`
-  只读投影包含项目级 `jianying-use` 和隔离安装路径，没有发起模型请求。
+  只读投影包含项目级 `jianying-draft-use` 和隔离安装路径，没有发起模型请求。
 - ZCode CLI `0.16.9` 的 `skills list --json` 发现项目级发布版技能且目标路径无诊断；同时也
-  发现用户插件缓存 `jianying-edit/0.11.1` 中的旧版同名技能。项目级技能列在前，但最终模型
+  发现用户插件缓存 `jianying-draft-edit/0.11.1` 中的旧版同名技能。项目级技能列在前，但最终模型
   行为验收仍必须证明实际加载的是发布版 Rust-only 内容。
 - Kimi Code CLI `0.43.1` 从发布版安装目录启动本地回环 Web Server，`/api/v1/meta` 再次报告
   `skill` feature 为 `Active`；服务器通过带 bearer token 的 `/api/v1/shutdown` 正常关闭，

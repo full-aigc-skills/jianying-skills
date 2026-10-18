@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 SPEC = importlib.util.spec_from_file_location('video_catalog', ROOT / 'scripts/validate_video_catalog.py')
 CATALOG = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(CATALOG)
@@ -36,7 +36,7 @@ class VideoPlanningTests(unittest.TestCase):
 
     def test_granular_install_is_self_contained(self):
         with tempfile.TemporaryDirectory() as tmp:
-            target = Path(tmp) / 'jianying-video-planning'
+            target = Path(tmp) / 'jianying-draft-video-planning'
             shutil.copytree(SKILL, target)
             self.assertEqual(CATALOG.validate(target, self.catalog), [])
 

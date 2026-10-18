@@ -75,9 +75,9 @@
         "隐私审核"
       ],
       "skills": [
-        "jianying-video-planning",
-        "jianying-draft",
-        "jianying-edit"
+        "jianying-draft-video-planning",
+        "jianying-draft-schema",
+        "jianying-draft-edit"
       ],
       "required_capabilities": [
         "schema.job_v2",

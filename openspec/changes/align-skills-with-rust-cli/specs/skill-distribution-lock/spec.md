@@ -30,7 +30,7 @@
 技能之间的交接 SHALL 使用技能名和安装命令，不得依赖粒度安装后不存在的兄弟相对路径。
 
 #### Scenario: 单技能安装
-- **WHEN** 用户只安装 `jianying-audio`
+- **WHEN** 用户只安装 `jianying-draft-audio`
 - **THEN** 其中所有本地链接均指向本技能资源，跨技能交接包含可执行安装指引
 
 ### Requirement: 不可变 manifest 发布可恢复

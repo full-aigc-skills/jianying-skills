@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 
 
 def load(path, name):
@@ -28,7 +28,7 @@ class SubdirectoryPlacementTests(unittest.TestCase):
     """新增例文放入 examples/scenarios/<family>/<xx>.md 的可行性证明。"""
 
     def copy_skill(self, tmp):
-        target = Path(tmp) / 'jianying-video-planning'
+        target = Path(tmp) / 'jianying-draft-video-planning'
         shutil.copytree(SKILL, target)
         return target
 

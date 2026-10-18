@@ -66,7 +66,7 @@ def render_manifest(
     )
     checker = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(checker)
-    planning = ROOT / "skills/jianying-video-planning"
+    planning = ROOT / "skills/jianying-draft-video-planning"
     catalog = checker.safe_file(planning, "references/planning-catalog-v2.json", 16 * 1024 * 1024)
     errors = checker.validate(planning, checker.parse_json(catalog.read_text(encoding="utf-8")))
     if errors:

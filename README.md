@@ -1,11 +1,11 @@
 # jianying-skills
 
-新增：**jianying-video-planning**，18 类、108 个独立场景 example、12 套 Recipe（数量以 v2 目录为准，可继续扩容）。
-从 [场景索引](skills/jianying-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
+新增：**jianying-draft-video-planning**，18 类、108 个独立场景 example、12 套 Recipe（数量以 v2 目录为准，可继续扩容）。
+从 [场景索引](skills/jianying-draft-video-planning/references/scene-index.md) 按需阅读。108 个是方法场景，不是热榜或实机通过数；来源和热度边界逐项记录。
 
 Planning only: [open scenario coverage](docs/video-scenarios/COVERAGE_PLAN.md)
 treats the 108 examples as seeds, not an exhaustive taxonomy or a capability ceiling.
-[Representative workflow knowledge vectors](skills/jianying-video-planning/references/representative-workflows-v1.json)
+[Representative workflow knowledge vectors](skills/jianying-draft-video-planning/references/representative-workflows-v1.json)
 freeze the asset gaps and acceptance boundaries for Vlog, multi-version courses, and multi-delivery weddings; they are not execution evidence.
 The released v1 catalogue is unchanged. The local 2.2.0 candidate adds a separate
 v2 catalogue and validator; its 108 seeds are not yet fully annotated on all axes.
@@ -45,7 +45,7 @@ npx skills add full-aigc-skills/jianying-skills
 Install one self-contained skill:
 
 ```bash
-npx skills add full-aigc-skills/jianying-skills --skill jianying-edit
+npx skills add full-aigc-skills/jianying-skills --skill jianying-draft-edit
 ```
 
 Every skill contains its own workflow reference and minimal Job example; granular installation
@@ -55,30 +55,30 @@ does not rely on sibling skill directories.
 
 | Skill | Responsibility |
 |---|---|
-| `jianying-use` | Entry routing, minimal questions, and capability diagnosis |
-| `jianying-video-planning` | 108 scenario seeds, channel strategy, recipes, and delivery-level planning |
-| `jianying-media` | Local/official materials, subdraft import, replace, relink, and verification |
-| `jianying-text` | Text, styles, bubbles, animations, and text templates |
-| `jianying-stickers` | Sticker discovery, download, placement, transform, and recovery |
-| `jianying-effects` | Scene, character, and audio effects with bounded ranges |
-| `jianying-smart-package` | Smart package/B-Roll preview, approval, apply, and recovery |
-| `jianying-filters` | Filter discovery, range, intensity, apply, and remove |
-| `jianying-adjustments` | Version-bound exposure, color, detail, and reset controls |
-| `jianying-templates` | Template libraries, presets, replacement, and track import |
-| `jianying-digital-human` | Persona, voice, upload, cost, task, and artifact gates |
-| `jianying-editing-console` | Timeline, track, segment, keyframe, session, record, and zoom controls |
-| `jianying-setup` | CLI, media tools, draft roots, configuration, and runtime readiness |
-| `jianying-draft` | `jianying-job/v2`, domain concepts, and v1 compatibility |
-| `jianying-harness` | Persistent jobs, approvals, configuration, MCP, and host contracts |
-| `jianying-edit` | New drafts and isolated editing of existing drafts |
-| `jianying-narration` | Governed ASR reuse and narration condensing |
-| `jianying-subtitles` | Caption import, editing, styling, translation, and export |
-| `jianying-audio` | Audio layers, volume, fades, effects, relinking, and TTS gates |
-| `jianying-motion` | Transform, keyframe, animation, speed, and quantization planning |
-| `jianying-transitions` | Catalogue-backed transitions and boundary checks |
-| `jianying-inspect` | Read-only media and draft facts with evidence levels |
-| `jianying-export-prep` | Proxy/native export readiness and artifact validation |
-| `jianying-recover` | Task audit, explicit retry, snapshots, and ambiguous operations |
+| `jianying-draft-use` | Entry routing, minimal questions, and capability diagnosis |
+| `jianying-draft-video-planning` | 108 scenario seeds, channel strategy, recipes, and delivery-level planning |
+| `jianying-draft-media` | Local/official materials, subdraft import, replace, relink, and verification |
+| `jianying-draft-text` | Text, styles, bubbles, animations, and text templates |
+| `jianying-draft-stickers` | Sticker discovery, download, placement, transform, and recovery |
+| `jianying-draft-effects` | Scene, character, and audio effects with bounded ranges |
+| `jianying-draft-smart-package` | Smart package/B-Roll preview, approval, apply, and recovery |
+| `jianying-draft-filters` | Filter discovery, range, intensity, apply, and remove |
+| `jianying-draft-adjustments` | Version-bound exposure, color, detail, and reset controls |
+| `jianying-draft-templates` | Template libraries, presets, replacement, and track import |
+| `jianying-draft-digital-human` | Persona, voice, upload, cost, task, and artifact gates |
+| `jianying-draft-editing-console` | Timeline, track, segment, keyframe, session, record, and zoom controls |
+| `jianying-draft-setup` | CLI, media tools, draft roots, configuration, and runtime readiness |
+| `jianying-draft-schema` | `jianying-job/v2`, domain concepts, and v1 compatibility |
+| `jianying-draft-harness` | Persistent jobs, approvals, configuration, MCP, and host contracts |
+| `jianying-draft-edit` | New drafts and isolated editing of existing drafts |
+| `jianying-draft-narration` | Governed ASR reuse and narration condensing |
+| `jianying-draft-subtitles` | Caption import, editing, styling, translation, and export |
+| `jianying-draft-audio` | Audio layers, volume, fades, effects, relinking, and TTS gates |
+| `jianying-draft-motion` | Transform, keyframe, animation, speed, and quantization planning |
+| `jianying-draft-transitions` | Catalogue-backed transitions and boundary checks |
+| `jianying-draft-inspect` | Read-only media and draft facts with evidence levels |
+| `jianying-draft-export-prep` | Proxy/native export readiness and artifact validation |
+| `jianying-draft-recover` | Task audit, explicit retry, snapshots, and ambiguous operations |
 
 ## Compatibility and evidence
 

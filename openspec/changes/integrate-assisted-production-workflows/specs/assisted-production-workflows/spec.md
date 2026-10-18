@@ -24,7 +24,7 @@
 
 #### Scenario: Recipe 可独立路由
 
-- **WHEN** 只安装 `jianying-video-planning` 并读取辅助制作目录
+- **WHEN** 只安装 `jianying-draft-video-planning` 并读取辅助制作目录
 - **THEN** 五条 Recipe 均可从用户意图路由到自包含的责任技能、步骤与停止条件
 
 #### Scenario: Provider 未安装

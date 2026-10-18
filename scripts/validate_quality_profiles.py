@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / 'skills/jianying-video-planning'
+SKILL = ROOT / 'skills/jianying-draft-video-planning'
 CATALOG_FILE = SKILL / 'references/quality-profiles-v1.json'
 SCHEMA_FILE = SKILL / 'references/quality-profiles-v1.schema.json'
 

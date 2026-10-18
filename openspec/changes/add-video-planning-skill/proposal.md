@@ -4,7 +4,7 @@
 
 ## What Changes
 
-- 新增 jianying-video-planning 技能，维护 18 类、108 个场景、12 套 Recipe 及逐场景 example。
+- 新增 jianying-draft-video-planning 技能，维护 18 类、108 个场景、12 套 Recipe 及逐场景 example。
 - 每个场景记录检索词、真实来源、查阅日期、可见热度或未核验状态、素材要求、步骤、验收及技能/CLI 映射。
 - 数据与例文单一来源，保留现有技能及执行契约；计划结果不表示成片完成。
 

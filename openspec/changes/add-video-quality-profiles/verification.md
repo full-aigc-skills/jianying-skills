@@ -17,7 +17,7 @@
   run `35588471656` 的 validate/publish 全部通过，Release 资产
   `jianying-skills.manifest.json` SHA-256 为
   `8e28dea343ccc6658d4bc6773af171602e4a2ea099e637cae8775a5f0aa09d4c`。
-- 插件从 Release manifest 原子导入 14 个技能并锁定精确 commit；`jianying-video-planning`
+- 插件从 Release manifest 原子导入 14 个技能并锁定精确 commit；`jianying-draft-video-planning`
   内容摘要为 `c3a6b91880514e28f625ba6b6de224f3ddccd0acdb4d8efda227b13781139935`。
 - 在 `/tmp/jianying-plugin-skills-fresh.DbXoGb` 的无 Git、无上游源码安装副本中，发布门禁
   14/14、目录/路由 134/134 通过；Vlog、课程、婚礼三份 profile 与 Schema 均可从锁定技能读取。

@@ -31,19 +31,19 @@
 
 | 技能 | 迁移前 | 初版迁移 | 发布候选 |
 |---|---:|---:|---:|
-| jianying-audio | 3.93 | 4.02 | 4.58 |
-| jianying-draft | 3.97 | 4.01 | 4.58 |
-| jianying-edit | 3.93 | 4.02 | 4.58 |
-| jianying-export-prep | 3.99 | 4.02 | 4.58 |
-| jianying-harness | 4.01 | 4.02 | 4.58 |
-| jianying-inspect | 3.96 | 4.02 | 4.58 |
-| jianying-motion | 3.93 | 4.06 | 4.61 |
-| jianying-narration | 3.97 | 4.02 | 4.58 |
-| jianying-recover | 3.97 | 4.02 | 4.58 |
-| jianying-setup | 3.93 | 3.97 | 4.58 |
-| jianying-subtitles | 3.97 | 4.06 | 4.61 |
-| jianying-transitions | 3.93 | 4.02 | 4.58 |
-| jianying-use | 4.01 | 4.02 | 4.58 |
+| jianying-draft-audio | 3.93 | 4.02 | 4.58 |
+| jianying-draft-schema | 3.97 | 4.01 | 4.58 |
+| jianying-draft-edit | 3.93 | 4.02 | 4.58 |
+| jianying-draft-export-prep | 3.99 | 4.02 | 4.58 |
+| jianying-draft-harness | 4.01 | 4.02 | 4.58 |
+| jianying-draft-inspect | 3.96 | 4.02 | 4.58 |
+| jianying-draft-motion | 3.93 | 4.06 | 4.61 |
+| jianying-draft-narration | 3.97 | 4.02 | 4.58 |
+| jianying-draft-recover | 3.97 | 4.02 | 4.58 |
+| jianying-draft-setup | 3.93 | 3.97 | 4.58 |
+| jianying-draft-subtitles | 3.97 | 4.06 | 4.61 |
+| jianying-draft-transitions | 3.93 | 4.02 | 4.58 |
+| jianying-draft-use | 4.01 | 4.02 | 4.58 |
 
 ## 门禁与剩余证据
 

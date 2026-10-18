@@ -46,5 +46,5 @@ supported 能力可以生成固定 argv；partial、external_dependency、缺失
 
 #### Scenario: 单独安装数字人技能
 
-- **WHEN** 只安装 `jianying-digital-human`
+- **WHEN** 只安装 `jianying-draft-digital-human`
 - **THEN** 其授权、费用、上传、任务恢复和证据说明仍完整可读，不要求相邻技能目录存在

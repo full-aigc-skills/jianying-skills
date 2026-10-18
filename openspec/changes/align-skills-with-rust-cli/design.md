@@ -21,13 +21,13 @@
 
 ### 1. 保留 13 个名称，重新定义职责
 
-- `jianying-use`：唯一入口、capability 路由和最小询问。
-- `jianying-edit`：端到端创建/编辑工作流。
-- `jianying-draft`：Job/Plan Schema 与领域概念，不再是 Python API 手册。
-- `jianying-setup`：CLI、媒体工具、草稿根和运行时诊断。
+- `jianying-draft-use`：唯一入口、capability 路由和最小询问。
+- `jianying-draft-edit`：端到端创建/编辑工作流。
+- `jianying-draft-schema`：Job/Plan Schema 与领域概念，不再是 Python API 手册。
+- `jianying-draft-setup`：CLI、媒体工具、草稿根和运行时诊断。
 - narration/subtitles/audio/motion/transitions：领域工作流。
 - inspect/export-prep/recover：验证、导出和恢复。
-- `jianying-harness`：任务、审批、配置、MCP 与宿主契约，不再代表外部 fork。
+- `jianying-draft-harness`：任务、审批、配置、MCP 与宿主契约，不再代表外部 fork。
 
 ### 2. 每个 SKILL.md 使用统一契约头
 

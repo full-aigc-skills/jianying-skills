@@ -5,19 +5,19 @@
 
 | 技能 | 基线行数 | 原遗留执行叙事 | 当前处置 |
 |---|---:|---|---|
-| jianying-use | 60 | Python 预检、pyJianYingDraft 主路径、外部 headless 专业档 | 已删除；改为 capability 路由 |
-| jianying-edit | 59 | `jydraft_run.py`、生成 Python 脚本 | 已删除；改为 `jianying-job/v2` |
-| jianying-draft | 89 | pyJianYingDraft API 手册 | 已删除 API cookbook；改为 Rust 领域模型 |
-| jianying-setup | 40 | Python 检查器、`JIANYING_HEADLESS_ROOT` | 已删除；改为 Rust doctor/runtime status |
-| jianying-narration | 48 | pyJianYingDraft 片段生成 | 已删除；改为 ASR ledger + timeline edit |
-| jianying-subtitles | 51 | pyJianYingDraft 文本 API | 已删除；改为 captions 命令组 |
-| jianying-audio | 44 | pyJianYingDraft 音频 API | 已删除；改为 media/timeline capability |
-| jianying-motion | 56 | pyJianYingDraft 关键帧 API | 已删除；改为 timeline capability 门禁 |
-| jianying-transitions | 34 | pyJianYingDraft 转场 API | 已删除；改为 catalogue + transition gate |
-| jianying-inspect | 39 | 混合引擎探测语义 | 已删除；改为只读 Rust 检查 |
-| jianying-export-prep | 45 | Python/UIA 与外部导出边界 | 已删除旧路径；改为 proxy/native 分级门禁 |
-| jianying-recover | 38 | pyJianYingDraft `allow_replace` 恢复语义 | 已删除；改为 task audit/snapshot restore |
-| jianying-harness | 88 | 外部 headless Python 命令全集 | 已删除；改为 Rust jobs/approvals/config/MCP |
+| jianying-draft-use | 60 | Python 预检、pyJianYingDraft 主路径、外部 headless 专业档 | 已删除；改为 capability 路由 |
+| jianying-draft-edit | 59 | `jydraft_run.py`、生成 Python 脚本 | 已删除；改为 `jianying-job/v2` |
+| jianying-draft-schema | 89 | pyJianYingDraft API 手册 | 已删除 API cookbook；改为 Rust 领域模型 |
+| jianying-draft-setup | 40 | Python 检查器、`JIANYING_HEADLESS_ROOT` | 已删除；改为 Rust doctor/runtime status |
+| jianying-draft-narration | 48 | pyJianYingDraft 片段生成 | 已删除；改为 ASR ledger + timeline edit |
+| jianying-draft-subtitles | 51 | pyJianYingDraft 文本 API | 已删除；改为 captions 命令组 |
+| jianying-draft-audio | 44 | pyJianYingDraft 音频 API | 已删除；改为 media/timeline capability |
+| jianying-draft-motion | 56 | pyJianYingDraft 关键帧 API | 已删除；改为 timeline capability 门禁 |
+| jianying-draft-transitions | 34 | pyJianYingDraft 转场 API | 已删除；改为 catalogue + transition gate |
+| jianying-draft-inspect | 39 | 混合引擎探测语义 | 已删除；改为只读 Rust 检查 |
+| jianying-draft-export-prep | 45 | Python/UIA 与外部导出边界 | 已删除旧路径；改为 proxy/native 分级门禁 |
+| jianying-draft-recover | 38 | pyJianYingDraft `allow_replace` 恢复语义 | 已删除；改为 task audit/snapshot restore |
+| jianying-draft-harness | 88 | 外部 headless Python 命令全集 | 已删除；改为 Rust jobs/approvals/config/MCP |
 
 ## 仓库级处置
 

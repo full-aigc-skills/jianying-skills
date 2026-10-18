@@ -16,11 +16,11 @@
 
 ### 1. 保持 13 个用户分类，避免重复技能
 
-音频使用 `jianying-audio`，转场使用 `jianying-transitions`，字幕使用
-`jianying-subtitles`；新增 `jianying-media`、`jianying-text`、
-`jianying-stickers`、`jianying-effects`、`jianying-smart-package`、
-`jianying-filters`、`jianying-adjustments`、`jianying-templates`、
-`jianying-digital-human`、`jianying-editing-console`。
+音频使用 `jianying-draft-audio`，转场使用 `jianying-draft-transitions`，字幕使用
+`jianying-draft-subtitles`；新增 `jianying-draft-media`、`jianying-draft-text`、
+`jianying-draft-stickers`、`jianying-draft-effects`、`jianying-draft-smart-package`、
+`jianying-draft-filters`、`jianying-draft-adjustments`、`jianying-draft-templates`、
+`jianying-draft-digital-human`、`jianying-draft-editing-console`。
 
 ### 2. 操作动线使用稳定语义 ID
 
@@ -45,7 +45,7 @@ Adapter → 带 Canary 的视觉兜底。capability 为 partial、external_depen
 ## Risks / Trade-offs
 
 - [剪映版本改变入口] → 动线身份绑定语义 ID 和版本，GUI 路由必须通过 Canary。
-- [技能数量增加] → `jianying-use` 只做分流，按需加载目标技能，避免同时载入全部说明。
+- [技能数量增加] → `jianying-draft-use` 只做分流，按需加载目标技能，避免同时载入全部说明。
 - [CLI 与界面能力不对齐] → 表中分别标记 supported、partial、GUI-only 和 blocked，不以相似命令替代。
 - [官方素材授权变化] → 下载和应用分开审批，保存资源收据、权益快照和用途。
 

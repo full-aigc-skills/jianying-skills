@@ -8,7 +8,7 @@
   二进制 SHA-256
   `3582b57e471b206c068bb1fb304c41dd79ef65a62317946bba69bef8852deee2`；
   使用其发布 `provenance/CAPABILITIES.json` 校验全部矩阵 capability ID。
-- TDD 红灯：新增测试最初报告 14 != 24、`jianying-media` 工作流缺失和 manifest 仅 14 项；实现后聚焦测试转绿。
+- TDD 红灯：新增测试最初报告 14 != 24、`jianying-draft-media` 工作流缺失和 manifest 仅 14 项；实现后聚焦测试转绿。
 - 技能 lint：24 skills，契约矩阵 0 error；带发布 capability manifest 再校验仍为 0 error。
 - 单元测试：`python3 -m unittest discover -s tests -v`，51/51 通过。
 - TRACE：24 个技能平均 4.588、最低 4.51，阈值 4.50，通过。
