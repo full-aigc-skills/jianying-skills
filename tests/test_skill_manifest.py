@@ -148,7 +148,7 @@ class SkillManifestTests(unittest.TestCase):
         self.assertIn("for attempt in $(seq 1 30)", release)
         self.assertIn('gh release download "$GITHUB_REF_NAME"', release)
         self.assertNotIn("release already exists; refusing to replace immutable assets", release)
-        self.assertIn("jianying-edit-plugin/dispatches", release)
+        self.assertIn("jianying-draft-plugin/dispatches", release)
         self.assertIn("client_payload[manifest_sha256]", release)
         self.assertNotIn("gh release upload", notify)
         self.assertIn("isImmutable", notify)
