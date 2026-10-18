@@ -207,7 +207,7 @@ jobs:
           fi
           sha="$(git rev-parse HEAD)"
           manifest_sha256="$(sha256sum "$RUNNER_TEMP/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
-          gh api repos/full-aigc-plugins/jianying-edit-plugin/dispatches \
+          gh api repos/full-aigc-plugins/jianying-draft-plugin/dispatches \
             -f event_type=skills-updated \
             -F "client_payload[package]=jianying-skills" \
             -F "client_payload[release_ref]=${GITHUB_REF_NAME}" \

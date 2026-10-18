@@ -76,7 +76,7 @@ jobs:
           sha="$(git rev-parse HEAD)"
           manifest_sha256="$(sha256sum "$RUNNER_TEMP/published/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
           for repo in \
-            full-aigc-plugins/jianying-edit-plugin ; do
+            full-aigc-plugins/jianying-draft-plugin ; do
             gh api "repos/${repo}/dispatches" \
               -f event_type=skills-updated \
               -F "client_payload[package]=jianying-skills" \
