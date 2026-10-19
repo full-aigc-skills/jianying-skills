@@ -198,22 +198,28 @@ jobs:
       - name: Notify consumer repositories
         if: startsWith(github.ref, 'refs/tags/v')
         env:
-          GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN || secrets.FULL_AIGC_SKILLS_SYNC_TOKEN }}
+          # 两个令牌名都存在于组织惯例，令牌值才决定能不能派发，
+          # 所以不靠表达式顺序，而是逐个探测。
+          SYNC_TOKEN_PRIMARY: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN }}
+          SYNC_TOKEN_FALLBACK: ${{ secrets.SKILLS_SYNC_TOKEN }}
         run: |
           set -euo pipefail
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "FULL_AIGC_SKILLS_SYNC_TOKEN not configured; skipping consumer dispatch"
+          consumer="full-aigc-plugins/jianying-draft-plugin"
+          token=""
+          for candidate in "${SYNC_TOKEN_PRIMARY:-}" "${SYNC_TOKEN_FALLBACK:-}"; do
+            [ -n "$candidate" ] || continue
+            if GH_TOKEN="$candidate" gh api "repos/${consumer}" >/dev/null 2>&1; then
+              token="$candidate"
+              break
+            fi
+          done
+          if [ -z "$token" ]; then
+            echo "::warning title=consumer dispatch skipped::no configured sync token can read ${consumer}; the plugin's daily skills-sync schedule will pick ${GITHUB_REF_NAME} up instead"
             exit 0
           fi
           sha="$(git rev-parse HEAD)"
           manifest_sha256="$(sha256sum "$RUNNER_TEMP/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
-          # 通知只是加速手段：插件仓自带每日定时同步，
-          # 令牌没有目标仓权限时只能降级为警告，不能让发布失败。
-          if ! gh api "repos/full-aigc-plugins/jianying-draft-plugin" >/dev/null 2>&1; then
-            echo "::warning title=consumer dispatch skipped::the skill sync token cannot read full-aigc-plugins/jianying-draft-plugin; the plugin's daily skills-sync schedule will pick ${GITHUB_REF_NAME} up instead"
-            exit 0
-          fi
-          gh api repos/full-aigc-plugins/jianying-draft-plugin/dispatches \
+          GH_TOKEN="$token" gh api repos/full-aigc-plugins/jianying-draft-plugin/dispatches \
             -f event_type=skills-updated \
             -F "client_payload[package]=jianying-skills" \
             -F "client_payload[release_ref]=${GITHUB_REF_NAME}" \
