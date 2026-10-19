@@ -207,6 +207,12 @@ jobs:
           fi
           sha="$(git rev-parse HEAD)"
           manifest_sha256="$(sha256sum "$RUNNER_TEMP/jianying-skills.manifest.json" | cut -d ' ' -f 1)"
+          # 通知只是加速手段：插件仓自带每日定时同步，
+          # 令牌没有目标仓权限时只能降级为警告，不能让发布失败。
+          if ! gh api "repos/full-aigc-plugins/jianying-draft-plugin" >/dev/null 2>&1; then
+            echo "::warning title=consumer dispatch skipped::the skill sync token cannot read full-aigc-plugins/jianying-draft-plugin; the plugin's daily skills-sync schedule will pick ${GITHUB_REF_NAME} up instead"
+            exit 0
+          fi
           gh api repos/full-aigc-plugins/jianying-draft-plugin/dispatches \
             -f event_type=skills-updated \
             -F "client_payload[package]=jianying-skills" \
