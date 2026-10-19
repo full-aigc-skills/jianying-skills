@@ -200,8 +200,8 @@ jobs:
         env:
           # 两个令牌名都存在于组织惯例，令牌值才决定能不能派发，
           # 所以不靠表达式顺序，而是逐个探测。
-          SYNC_TOKEN_PRIMARY: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN }}
-          SYNC_TOKEN_FALLBACK: ${{ secrets.SKILLS_SYNC_TOKEN }}
+          SYNC_TOKEN_PRIMARY: ${{ secrets.SKILLS_SYNC_TOKEN }}
+          SYNC_TOKEN_FALLBACK: ${{ secrets.FULL_AIGC_SKILLS_SYNC_TOKEN }}
         run: |
           set -euo pipefail
           consumer="full-aigc-plugins/jianying-draft-plugin"
