@@ -2,7 +2,7 @@
   "schema": "jianying-skills-manifest/v1",
   "package": "jianying-skills",
   "repository": "https://github.com/full-aigc-skills/jianying-skills.git",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "source_commit": null,
   "content_state": "release_candidate",
   "release_ref": null,
@@ -78,15 +78,6 @@
     "timeline.volume"
   ],
   "skills": [
-    {
-      "name": "jianying-draft-use",
-      "sha256": "5e476c710561c59ebacc609e547cf8c445d62485edec0625536fbaec53a15b7c",
-      "minimum_cli_version": "1.6.0",
-      "required_capabilities": [
-        "doctor",
-        "capabilities"
-      ]
-    },
     {
       "name": "jianying-draft-media",
       "sha256": "f7b743d47af4cf470421fbfeb936d004a5b0e1205d23cc7f72c26a5c049b5471",
@@ -348,5 +339,5 @@
       ]
     }
   ],
-  "content_sha256": "c6d9fc8dede5364c867f77be37182c42ef3e73e9222a30e52533ee90414d170f"
+  "content_sha256": "002b7c7441a8e17d7f2f2d6c453043c779b3dbd16ab23ec07c98a5790c64ed78"
 }

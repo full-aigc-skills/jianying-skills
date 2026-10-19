@@ -22,7 +22,7 @@ hosting plugin's Rust Runtime Adapter.
 
 ```mermaid
 flowchart LR
-    U[User goal] --> S[One of 24 skills]
+    U[User goal] --> S[One of 23 skills]
     S --> G[Version, schema, capability gate]
     G --> J[jianying-job/v2 or structured command]
     J --> R[jianying-cli Rust runtime]

@@ -29,14 +29,14 @@ class ContractMatrixTests(unittest.TestCase):
         "jianying-draft-editing-console": "console.",
     }
 
-    def test_package_exposes_twenty_four_product_skills(self) -> None:
+    def test_package_exposes_twenty_three_product_skills(self) -> None:
         published = sorted(path.parent.name for path in (ROOT / "skills").glob("*/SKILL.md"))
         auxiliary = sorted(
             path
             for root in (".agents", ".kimi-code", ".zcode")
             for path in (ROOT / root / "skills").glob("*/SKILL.md")
         )
-        self.assertEqual(len(published), 24)
+        self.assertEqual(len(published), 23)
         self.assertTrue(set(self.PANEL_SKILLS) <= set(published))
         self.assertEqual(auxiliary, [], "development integrations must not leak into npx skills add")
 

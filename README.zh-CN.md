@@ -18,7 +18,7 @@
 
 ```mermaid
 flowchart LR
-    U[用户目标] --> S[24 个技能]
+    U[用户目标] --> S[23 个技能]
     S --> G[版本 Schema capability 门禁]
     G --> J[jianying-job/v2 或结构化命令]
     J --> R[jianying-cli Rust Runtime]
@@ -45,7 +45,7 @@ npx skills add full-aigc-skills/jianying-skills --skill jianying-draft-edit
 
 每个技能都自带 workflow reference 和最小 Job 示例，不依赖兄弟技能目录。
 
-## 24 个技能
+## 23 个技能 + 入口技能
 
 | 技能 | 职责 |
 |---|---|
@@ -85,7 +85,7 @@ capcut-cli 86 项命令的完整能力审计由
 
 ## 分发
 
-本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 24 个技能逐目录摘要，
+本仓是技能正文的唯一事实源。插件只能消费不可变发布 ref 和 commit，校验 23 个技能逐目录摘要，
 不得在 vendored 副本中独立修补正文。
 
 ## 许可

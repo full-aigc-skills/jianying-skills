@@ -1,7 +1,7 @@
 # Rust CLI 技能迁移清点与处置记录
 
 基线提交：`99fb872c00ff14dbaf5b854327fc873877dfe309`。下表的“原遗留叙事”仅用于保存迁移审计事实，
-不是当前运行指南。下表记录迁移阶段 13 个技能切换为单一 Rust CLI 契约的历史；当前 `v2.3.0` 候选共有 24 个技能。
+不是当前运行指南。下表记录迁移阶段 13 个技能切换为单一 Rust CLI 契约的历史；当前 `v2.5.0` 包含 23 个产品技能；入口技能 `jianying-draft-use` 由宿主插件自带。
 
 | 技能 | 基线行数 | 原遗留执行叙事 | 当前处置 |
 |---|---:|---|---|
@@ -23,7 +23,7 @@
 
 - `README.md`、`README.zh-CN.md` 已改为 Rust CLI 单一架构。
 - `THIRD_PARTY_NOTICES.md` 保留 Apache/MIT 声明义务，并明确非商业 headless 实现材料不作为迁移输入。
-- 迁移阶段 13 个技能以及后续 10 个面板分类技能均已物化本技能内的 `references/workflow.md` 和 `examples/minimal-job.json`；当前总计 24 个技能。
+- 迁移阶段 13 个技能以及后续 10 个面板分类技能均已物化本技能内的 `references/workflow.md` 和 `examples/minimal-job.json`；当前总计 23 个产品技能（入口技能由插件提供）。
 - lint 和粒度安装测试持续阻止兄弟技能相对链接、资源缺失及旧运行依赖回归。
 
 ## 兼容决定

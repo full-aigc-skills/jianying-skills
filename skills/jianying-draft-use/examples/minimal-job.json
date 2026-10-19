@@ -1,8 +1,0 @@
-{
-  "schema": "jianying-job/v2",
-  "operation": "inspect",
-  "project": {
-    "type": "existing",
-    "source": "/absolute/path/to/draft"
-  }
-}
